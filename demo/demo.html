@@ -1,0 +1,42 @@
+<!-- https://github.com/danwild/wind-js-leaflet -->
+
+<!doctype html>
+<html>
+<head>
+	<title>WindJS (ESRI) Leaflet Demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<div id="map"></div>
+
+<!--vendor-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="../dist/leaflet.js"></script>
+
+<!--wind-js-leaflet-->
+<link rel="stylesheet" href="/wind-js-leaflet/dist/wind-js-leaflet.css" />
+<script src="/wind-js-leaflet/dist/wind-js-leaflet.js"></script>
+
+<!--demo-->
+<link rel="stylesheet" href="demo.css" />
+<script src="demo.js"></script>
+<script>
+	// document.getElementsByClassName("leaflet-control-layers-selector")[0].style.checked = "checked"
+	// $('.leaflet-control-layers:first').addClass('leaflet-control-layers-expanded');
+	$('input[type=checkbox]').click();
+	// function getColorByTemperature(degrees) {
+	// 	return
+	// 	degrees < -20  ? 'rgb(149, 137, 211)' :
+	// 	degrees < -10  ? 'rgb(150, 209, 216)' :
+	// 	degrees < 	0  ? 'rgb(103, 180, 186)' :
+	// 	degrees <  10  ? 'rgb(80, 140, 62)' :
+	// 	degrees <  20  ? 'rgb(171, 161, 14)' :
+	// 	degrees <  30  ? 'rgb(243, 150, 6)' :
+	// 	degrees <  40  ? 'rgb(190, 65, 18)' :
+	// 					'rgb(138, 43, 10)';
+	// }
+</script>
+</body>
+</html>
