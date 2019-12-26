@@ -795,15 +795,18 @@ L.Control.WindPosition = L.Control.extend({
 	},
 
 	_loadTemperature: function _loadTemperature(e){
-		console.log(this)
+		// console.log(this)
+		// console.log(e)
 		var self = this;
 		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
-		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(pos.lng, pos.lat);
+		console.log(e.latlng)
+		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(e.latlng.lng, e.latlng.lat);
+		console.log(gridValue)
 		var _temperature = (gridValue[2] - 273.15).toFixed(1);
 		var vMs = gridValue[1];
 			vMs = vMs > 0 ? vMs = vMs - vMs * 2 : Math.abs(vMs);
 		var _windSpeed = Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10;
-		alert("Wind Speed: " + _windSpeed + "km/h. Temp: " + _temperature + "°C");
+		// alert("Wind Speed: " + _windSpeed + "km/h. Temp: " + _temperature + "°C");
 		// console.log(self.temperatureToColor(_temperature))
 	}
 
