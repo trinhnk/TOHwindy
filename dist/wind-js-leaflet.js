@@ -175,7 +175,7 @@ var Windy = function Windy(params) {
 	var PARTICLE_LINE_WIDTH = 1; // line width of a drawn particle
 	var PARTICLE_MULTIPLIER = 1 / 200; // particle count scalar (completely arbitrary--this values looks nice)
 	var PARTICLE_REDUCTION = Math.pow(window.devicePixelRatio, 1 / 3) || 1.6; // multiply particle count for mobiles by this amount
-	var FRAME_RATE = 24,
+	var FRAME_RATE = 30,
 	    FRAME_TIME = 1000 / FRAME_RATE; // desired frames per second
 
 	var NULL_WIND_VECTOR = [NaN, NaN, null]; // singleton for no wind in the form: [u, v, magnitude]

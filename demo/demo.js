@@ -65,11 +65,17 @@ function initDemoMap(){
     var Temperature_Map = L.tileLayer('https://b.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=06aac0fd4ba239a20d824ef89602f311',{
         maxZoom: 11,
         minZoom: 3,
-        opacity: 0.7
+        opacity: 1
+    })
+    var Temperature_Map_2 = L.tileLayer('https://maps-raw.darksky.net/1577415600/temperature_k/{z}/{x}/{y}.jpg',{
+        maxZoom: 11,
+        minZoom: 3,
+        opacity: 0.7 
     })
     var overlayLayer = {
         "Wind Map" : Wind_Map,
-        "Temperature Map" : Temperature_Map
+        "Temperature Map" : Temperature_Map,
+        "Temp 2" : Temperature_Map_2
     }
 
     var map = L.map('map', {
