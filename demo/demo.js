@@ -57,25 +57,31 @@ function initDemoMap(){
         // "Mapbox Satellite" : Mapbox_Satellite
     };
 
-    var Wind_Map = L.tileLayer('https://a.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=06aac0fd4ba239a20d824ef89602f311',{
+    var Wind_Map = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 0.7
     });
-    var Temperature_Map = L.tileLayer('https://b.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=06aac0fd4ba239a20d824ef89602f311',{
+    var Wind_Map_2 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2',{
+        maxZoom: 11,
+        minZoom: 3,
+        opacity: 1
+    });
+    var Temperature_Map = L.tileLayer('https://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
     })
-    var Temperature_Map_2 = L.tileLayer('https://maps-raw.darksky.net/1577415600/temperature_k/{z}/{x}/{y}.jpg',{
+    var Temperature_Map_2 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound',{
         maxZoom: 11,
         minZoom: 3,
-        opacity: 0.7 
+        opacity: 1
     })
     var overlayLayer = {
         "Wind Map" : Wind_Map,
+        "Wind Map 2" : Wind_Map_2,
         "Temperature Map" : Temperature_Map,
-        "Temp 2" : Temperature_Map_2
+        "Temperature Map 2" : Temperature_Map_2
     }
 
     var map = L.map('map', {
