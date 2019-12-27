@@ -60,12 +60,12 @@ function initDemoMap(){
     var Wind_Map = L.tileLayer('https://a.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=06aac0fd4ba239a20d824ef89602f311',{
         maxZoom: 11,
         minZoom: 3,
-        opacity: 0.8
+        opacity: 0.7
     });
     var Temperature_Map = L.tileLayer('https://b.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=06aac0fd4ba239a20d824ef89602f311',{
         maxZoom: 11,
         minZoom: 3,
-        opacity: 0.8
+        opacity: 0.7
     })
     var overlayLayer = {
         "Wind Map" : Wind_Map,
