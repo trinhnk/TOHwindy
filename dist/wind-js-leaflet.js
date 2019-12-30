@@ -768,7 +768,7 @@ L.Control.WindPosition = L.Control.extend({
 		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
 		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(pos.lng, pos.lat);
 		var htmlOut = "";
-
+console.log(WindJSLeaflet)
 		if (gridValue && !isNaN(gridValue[0]) && !isNaN(gridValue[1]) && gridValue[2]) {
 
 			// vMs comes out upside-down..
@@ -800,9 +800,7 @@ L.Control.WindPosition = L.Control.extend({
 		// console.log(e)
 		var self = this;
 		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
-		console.log(e.latlng)
 		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(e.latlng.lng, e.latlng.lat);
-		console.log(gridValue)
 		var _temperature = (gridValue[2] - 273.15).toFixed(1);
 		var vMs = gridValue[1];
 			vMs = vMs > 0 ? vMs = vMs - vMs * 2 : Math.abs(vMs);
@@ -869,7 +867,6 @@ L.control.windPosition = function (options) {
 				// create canvas, add overlay control
 				WindJSLeaflet._canvasLayer = L.canvasLayer().delegate(WindJSLeaflet);
 				WindJSLeaflet._options.layerControl.addOverlay(WindJSLeaflet._canvasLayer, options.overlayName || 'wind');
-				console.log(WindJSLeaflet._canvasLayer._canvas)
 
 				// ensure clean up on deselect overlay
 				WindJSLeaflet._map.on('overlayremove', function (e) {

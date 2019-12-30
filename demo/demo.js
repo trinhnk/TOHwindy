@@ -57,22 +57,22 @@ function initDemoMap(){
         // "Mapbox Satellite" : Mapbox_Satellite
     };
 
-    var Wind_Map = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
+    var Wind_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 0.7
     });
-    var Wind_Map_2 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&opacity=0.9&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
+    var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&opacity=0.9&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
     });
-    var Temperature_Map = L.tileLayer('https://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
+    var Temperature_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
     })
-    var Temperature_Map_2 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound=true&opacity=1&palette=-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00',{
+    var Temperature_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound=true&opacity=1&palette=-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
