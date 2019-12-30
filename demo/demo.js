@@ -62,7 +62,7 @@ function initDemoMap(){
         minZoom: 3,
         opacity: 0.7
     });
-    var Wind_Map_2 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2',{
+    var Wind_Map_2 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&opacity=0.9&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
@@ -72,7 +72,7 @@ function initDemoMap(){
         minZoom: 3,
         opacity: 1
     })
-    var Temperature_Map_2 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound',{
+    var Temperature_Map_2 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound=true&opacity=1&palette=-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
@@ -92,16 +92,16 @@ function initDemoMap(){
     layerControl.addTo(map);
     map.setView([20.998029,105.7924504], 5);
 
-    var greenIcon = L.icon({
-        iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
-        shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-        iconSize:     [38, 95], // size of the icon
-        shadowSize:   [50, 64], // size of the shadow
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-        shadowAnchor: [4, 62],  // the same for the shadow
-        popupAnchor:  [-3, -76]
-    })
-    L.marker([20.998029,105.7924504], {icon: greenIcon}).addTo(map);
+    // var greenIcon = L.icon({
+    //     iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
+    //     shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+    //     iconSize:     [38, 95], // size of the icon
+    //     shadowSize:   [50, 64], // size of the shadow
+    //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    //     shadowAnchor: [4, 62],  // the same for the shadow
+    //     popupAnchor:  [-3, -76]
+    // })
+    // L.marker([20.998029,105.7924504], {icon: greenIcon}).addTo(map);
 
     return {
         map: map,
@@ -144,3 +144,40 @@ WindJSLeaflet.init({
 	nearestUrl: 'http://localhost:7000/nearest',
 	errorCallback: handleError
 });
+
+// Color Of Temperature
+// -70:734669;
+// -55:CAACC3;
+// -40:A24691;
+// -25:8F59A9;
+// -15:9DDBD9;
+// -8:6ABFB5;
+// -4:64A6BD
+// 0:5D85C6
+// 1:447D63
+// 10:809318
+// 21:F3B704
+// 30:E85319
+// 47:470E00
+
+// Color Of Wind Speed 
+// 0:6271B7
+// 4:39619F
+// 11:4A94A9
+// 18:4D8D7B
+// 25:53A553
+// 32:359F35
+// 40:A79D51
+// 47:9F7F3A
+// 54:A16C5C
+// 61:813A4E
+// 68:AF5088
+// 76:755088
+// 86:6D61A3
+// 97:44698D
+// 104:5C9098
+// 130:7D44A5
+// 166:
+// 184:
+// 277:
+// 374:
