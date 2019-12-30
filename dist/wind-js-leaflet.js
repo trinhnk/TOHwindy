@@ -775,7 +775,9 @@ L.Control.WindPosition = L.Control.extend({
 			var vMs = gridValue[1];
 			vMs = vMs > 0 ? vMs = vMs - vMs * 2 : Math.abs(vMs);
 
-			htmlOut = "<strong>Wind Direction: </strong>" + self.vectorToDegrees(gridValue[0], vMs) + "°" + ", <strong>Wind Speed: </strong>" + Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10 + "km/h" + ", <strong>Temp: </strong>" + (gridValue[2] - 273.15).toFixed(1) + "°C";
+			// htmlOut = "<strong>Wind Direction: </strong>" + self.vectorToDegrees(gridValue[0], vMs) + "°"
+			htmlOut += "<strong>Wind Speed: </strong>" + Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10 + "km/h"
+			htmlOut += ", <strong>Temp: </strong>" + (gridValue[2] - 273.15).toFixed(1) + "°C";
 			// getColorByTemperature(gridValue[2] - 273.15);
 		} else {
 			htmlOut = "no wind data";

@@ -77,11 +77,17 @@ function initDemoMap(){
         minZoom: 3,
         opacity: 1
     })
+    var Relative_Humidity	 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
+        maxZoom: 11,
+        minZoom: 3,
+        opacity: 1
+    })
     var overlayLayer = {
         "Wind Map" : Wind_Map,
         "Wind Map 2" : Wind_Map_2,
         "Temperature Map" : Temperature_Map,
-        "Temperature Map 2" : Temperature_Map_2
+        "Temperature Map 2" : Temperature_Map_2,
+        "Relative Humidity" : Relative_Humidity
     }
 
     var map = L.map('map', {
@@ -181,3 +187,19 @@ WindJSLeaflet.init({
 // 184:
 // 277:
 // 374:
+
+// Relative_humidity
+// 0:ad5538
+// 30:ad6e38
+// 40:ad9238
+// 50:69ad38
+// 60:38ad79
+// 70:38aead
+// 75:38a0ad
+// 80:389dad
+// 83:3894ad
+// 87:3887ad
+// 90:3884ad
+// 93:387bad
+// 97:38629d
+// 100:384672
