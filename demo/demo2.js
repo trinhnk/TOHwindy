@@ -38,23 +38,23 @@ function initDemoMap(){
         // mapboxId = 'mapbox/light-v9';
         mapboxId = 'mapbox/streets-v11';
     var Mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/'+mapboxId+'/tiles/{z}/{x}/{y}?access_token='+mapboxAccessToken,{
-        maxZoom: 20,
+        maxZoom: 18,
         minZoom: 3
     });
     var Mapbox_Satellite = L.tileLayer('https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.jpg90?access_token='+mapboxAccessToken,{
-        maxZoom: 20,
+        maxZoom: 18,
         minZoom: 3
     });
 
     var baseLayers = {
-        // "Satellite": Esri_WorldImagery,
-        // "Grey Canvas": Esri_DarkGreyCanvas,
+        "Satellite": Esri_WorldImagery,
+        "Grey Canvas": Esri_DarkGreyCanvas,
         "Windy Map" : Windy_Map,
-        // "Open Street Map" : Open_Street_Map,
-        // "World Dark Gray" : World_Dark_Gray,
-        // "Wind Finder" : Wind_Finder,
-        // "Mapbox" : Mapbox,
-        // "Mapbox Satellite" : Mapbox_Satellite
+        "Open Street Map" : Open_Street_Map,
+        "World Dark Gray" : World_Dark_Gray,
+        "Wind Finder" : Wind_Finder,
+        "Mapbox" : Mapbox,
+        "Mapbox Satellite" : Mapbox_Satellite
     };
 
     var Wind_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
@@ -94,7 +94,7 @@ function initDemoMap(){
         layers: [ Windy_Map ]
     });
 
-    var layerControl = L.control.layers(overlayLayer, baseLayers);
+    var layerControl = L.control.layers(baseLayers);
     layerControl.addTo(map);
     map.setView([20.998029,105.7924504], 5);
 
