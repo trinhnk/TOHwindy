@@ -57,27 +57,29 @@ function initDemoMap(){
         // "Mapbox Satellite" : Mapbox_Satellite
     };
 
-    var Wind_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
+    var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
+    // var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
+    var Wind_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
         opacity: 0.7
     });
-    var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&opacity=0.9&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
+    var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
     });
-    var Temperature_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2',{
+    var Temperature_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
     })
-    var Temperature_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound=true&opacity=1&palette=-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00',{
+    var Temperature_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
     })
-    var Relative_Humidity	 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
+    var Relative_Humidity	 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
         maxZoom: 11,
         minZoom: 3,
         opacity: 1
@@ -87,7 +89,7 @@ function initDemoMap(){
         "Wind Map 2" : Wind_Map_2,
         "Temperature Map" : Temperature_Map,
         "Temperature Map 2" : Temperature_Map_2,
-        // "Relative Humidity" : Relative_Humidity
+        "Relative Humidity" : Relative_Humidity
     }
 
     var map = L.map('map', {
@@ -98,25 +100,16 @@ function initDemoMap(){
     layerControl.addTo(map);
     map.setView([20.998029,105.7924504], 5);
 
-    // var greenIcon = L.icon({
-    //     iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
-    //     shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-    //     iconSize:     [38, 95], // size of the icon
-    //     shadowSize:   [50, 64], // size of the shadow
-    //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    //     shadowAnchor: [4, 62],  // the same for the shadow
-    //     popupAnchor:  [-3, -76]
-    // })
-    // L.marker([20.998029,105.7924504], {icon: greenIcon}).addTo(map);
+    // var geojsonLayer = $.getJSON('https://raw.githubusercontent.com/gist/ThomasG77/c38e6b0ecfd014342aad/raw/ecaa086688859566f108b9630047a7110ad6eb94/countries.geojson',function(data){
+        // L.geoJson(data).addTo(map);
+    // });
+    // console.log(geojsonLayer)
+    // geojsonLayer.addTo(map);
 
     return {
         map: map,
         layerControl: layerControl
     };
-}
-
-function temperatureToColor(degrees){
-    return degrees < -20  ? 'rgb(149, 137, 211)' : degrees < -10  ? 'rgb(150, 209, 216)' : degrees < 	0  ? 'rgb(103, 180, 186)' : degrees <  10  ? 'rgb(80, 140, 62)' : degrees <  20  ? 'rgb(171, 161, 14)' : degrees <  30  ? 'rgb(243, 150, 6)' : degrees <  40  ? 'rgb(190, 65, 18)' : 'rgb(138, 43, 10)';
 }
 
 // demo map
@@ -144,8 +137,7 @@ WindJSLeaflet.init({
 	overlayName: 'Wind',
 
 	// https://github.com/danwild/wind-js-server
-    // pingUrl: 'http://localhost:7000/alive',
-    pingUrl: 'http://144.6.233.100:7000/alive/',
+    pingUrl: 'http://localhost:7000/alive',
 	latestUrl: 'http://localhost:7000/latest',
 	nearestUrl: 'http://localhost:7000/nearest',
 	errorCallback: handleError

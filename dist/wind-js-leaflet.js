@@ -768,7 +768,6 @@ L.Control.WindPosition = L.Control.extend({
 		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
 		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(pos.lng, pos.lat);
 		var htmlOut = "";
-console.log(WindJSLeaflet)
 		if (gridValue && !isNaN(gridValue[0]) && !isNaN(gridValue[1]) && gridValue[2]) {
 
 			// vMs comes out upside-down..

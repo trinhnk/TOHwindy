@@ -100,25 +100,14 @@ function initDemoMap(){
     layerControl.addTo(map);
     map.setView([20.998029,105.7924504], 5);
 
-    // var greenIcon = L.icon({
-    //     iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
-    //     shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-    //     iconSize:     [38, 95], // size of the icon
-    //     shadowSize:   [50, 64], // size of the shadow
-    //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    //     shadowAnchor: [4, 62],  // the same for the shadow
-    //     popupAnchor:  [-3, -76]
-    // })
-    // L.marker([20.998029,105.7924504], {icon: greenIcon}).addTo(map);
+    var geojsonLayer = new L.GeoJSON.AJAX('countries.geo.json');
+    console.log(geojsonLayer)
+    geojsonLayer.addTo(map);
 
     return {
         map: map,
         layerControl: layerControl
     };
-}
-
-function temperatureToColor(degrees){
-    return degrees < -20  ? 'rgb(149, 137, 211)' : degrees < -10  ? 'rgb(150, 209, 216)' : degrees < 	0  ? 'rgb(103, 180, 186)' : degrees <  10  ? 'rgb(80, 140, 62)' : degrees <  20  ? 'rgb(171, 161, 14)' : degrees <  30  ? 'rgb(243, 150, 6)' : degrees <  40  ? 'rgb(190, 65, 18)' : 'rgb(138, 43, 10)';
 }
 
 // demo map
