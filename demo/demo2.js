@@ -45,26 +45,33 @@ function initDemoMap(){
     //     maxZoom: 18,
     //     minZoom: 3
     // });
-
+    
     var baseLayers = {
-        "Satellite": Esri_WorldImagery,
-        "Grey Canvas": Esri_DarkGreyCanvas,
+        // "Satellite": Esri_WorldImagery,
+        // "Grey Canvas": Esri_DarkGreyCanvas,
         "Windy Map" : Windy_Map,
-        "Open Street Map" : Open_Street_Map,
-        "World Dark Gray" : World_Dark_Gray,
-        "Wind Finder" : Wind_Finder,
+        // "Open Street Map" : Open_Street_Map,
+        // "World Dark Gray" : World_Dark_Gray,
+        // "Wind Finder" : Wind_Finder,
         // "Mapbox" : Mapbox,
         // "Mapbox Satellite" : Mapbox_Satellite
     };
-    // var overlayLayer = {
-    //     "Wind Map" : Wind_Map,
-    // }
+
+    var API_Openweathermap = '542ffd081e67f4512b705f89d2a611b2';
+    var Wind_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=0.6&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:23dddd;10:c2ff28;20:fff028;25:ffc228;30:fc8014',{
+        maxZoom: 11,
+        minZoom: 3,
+        opacity: 1
+    });
+    var overlayLayer = {
+        "Wind Map" : Wind_Map,
+    }
 
     var map = L.map('map', {
         layers: [ Windy_Map ]
     });
 
-    var layerControl = L.control.layers(baseLayers);
+    var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
     map.setView([20.998029,105.7924504], 5);
 

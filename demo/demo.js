@@ -1,60 +1,11 @@
 
 function initDemoMap(){
-
-    var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        // attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, ' +
-        // 'AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-        maxZoom: 17,
-        minZoom: 3
-    });
-
-    var Esri_DarkGreyCanvas = L.tileLayer(
-        "http://{s}.sm.mapstack.stamen.com/" + "(toner-lite,$fff[difference],$fff[@23],$fff[hsl-saturation@20])/" + "{z}/{x}/{y}.png",{
-            // attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, ' +
-            // 'NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-            maxZoom: 20,
-            minZoom: 3
-        }
-    );
-
     var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
         maxZoom: 11,
         minZoom: 3
     });
-    var Open_Street_Map = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-        maxZoom: 19,
-        minZoom: 3
-    });
-    var World_Dark_Gray = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
-        maxZoom: 16,
-        minZoom: 3
-    });
-    var Wind_Finder = L.tileLayer('https://bgcdn.windfinder.com/v1/{z}/{x}/{y}.png',{
-        maxZoom: 11,
-        minZoom: 3
-    });
-    var mapboxAccessToken = 'pk.eyJ1IjoidHJpbmhuayIsImEiOiJjazRjN3E5YTAwMDBjM2tvbmhldDZsNzRtIn0.MfQ6ZKAzZeAtQSomiOofeQ';
-    var mapboxId = '';
-        // mapboxId = 'mapbox/light-v9';
-        mapboxId = 'mapbox/streets-v11';
-    var Mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/'+mapboxId+'/tiles/{z}/{x}/{y}?access_token='+mapboxAccessToken,{
-        maxZoom: 20,
-        minZoom: 3
-    });
-    var Mapbox_Satellite = L.tileLayer('https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.jpg90?access_token='+mapboxAccessToken,{
-        maxZoom: 20,
-        minZoom: 3
-    });
-
     var baseLayers = {
-        // "Satellite": Esri_WorldImagery,
-        // "Grey Canvas": Esri_DarkGreyCanvas,
         "Windy Map" : Windy_Map,
-        // "Open Street Map" : Open_Street_Map,
-        // "World Dark Gray" : World_Dark_Gray,
-        // "Wind Finder" : Wind_Finder,
-        // "Mapbox" : Mapbox,
-        // "Mapbox Satellite" : Mapbox_Satellite
     };
 
     var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
@@ -84,12 +35,18 @@ function initDemoMap(){
         minZoom: 3,
         opacity: 1
     })
+    var Accumulated_Precipitation_Rain = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAR0/{z}/{x}/{y}?fill_bound=true&opacity=1&palette=0:6f6f6f;0.6:3c74a0;6:3ba1a1;8:3ba13d;10:82a13b;15:a1a13b;20:a13b3b;31:a13ba1;50:a8a8a8&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+        opacity: 1
+    })
     var overlayLayer = {
         "Wind Map" : Wind_Map,
         "Wind Map 2" : Wind_Map_2,
         "Temperature Map" : Temperature_Map,
         "Temperature Map 2" : Temperature_Map_2,
-        "Relative Humidity" : Relative_Humidity
+        "Relative Humidity" : Relative_Humidity,
+        "Accumulated Precipitation Rain" : Accumulated_Precipitation_Rain
     }
 
     var map = L.map('map', {
@@ -99,12 +56,6 @@ function initDemoMap(){
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
     map.setView([20.998128, 105.794390], 5);
-
-    // var geojsonLayer = $.getJSON('https://raw.githubusercontent.com/gist/ThomasG77/c38e6b0ecfd014342aad/raw/ecaa086688859566f108b9630047a7110ad6eb94/countries.geojson',function(data){
-        // L.geoJson(data).addTo(map);
-    // });
-    // console.log(geojsonLayer)
-    // geojsonLayer.addTo(map);
 
     return {
         map: map,
@@ -195,3 +146,14 @@ WindJSLeaflet.init({
 // 93:387bad
 // 97:38629d
 // 100:384672
+
+// Accumulated_Precipitation_Rain
+// 0:6f6f6f
+// 0.6:3c74a0
+// 6:3ba1a1
+// 8:3ba13d
+// 10:82a13b
+// 15:a1a13b
+// 20:a13b3b
+// 31:a13ba1
+// 50:a8a8a8
