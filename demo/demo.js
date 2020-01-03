@@ -98,7 +98,7 @@ function initDemoMap(){
 
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
-    map.setView([20.998029,105.7924504], 5);
+    map.setView([20.998128, 105.794390], 5);
 
     // var geojsonLayer = $.getJSON('https://raw.githubusercontent.com/gist/ThomasG77/c38e6b0ecfd014342aad/raw/ecaa086688859566f108b9630047a7110ad6eb94/countries.geojson',function(data){
         // L.geoJson(data).addTo(map);

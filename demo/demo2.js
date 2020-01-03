@@ -57,8 +57,8 @@ function initDemoMap(){
         "Mapbox Satellite" : Mapbox_Satellite
     };
 
-    // var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
-    var API_Openweathermap = '98316091cc504d68bacff0c7a6f73e20';
+    var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
+    // var API_Openweathermap = '98316091cc504d68bacff0c7a6f73e20';
     var Wind_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
