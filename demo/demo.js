@@ -52,13 +52,34 @@ function initDemoMap(){
         "Relative Humidity" : Relative_Humidity,
         "Accumulated Precipitation Rain" : Accumulated_Precipitation_Rain,
         "Pressure" : Atmospheric_Pressure_Mean,
-        "Cloudiness" : Cloudiness
+        "Cloudiness" : Cloudiness,
     }
-
+    for (let i = 22; i < 28; i++) {
+        for (let j = 12; j < 16; j++) {
+            $.getJSON("https://tiles.windy.com/labels/v1.3/en/5/"+i+"/"+j+".json",function(data){
+                console.log(data[4])
+                data.forEach(function(item){
+                    var lng = item[3];
+                    var lat = item[4];
+                    var city = item[2];
+                    console.log(lat,lng);
+                    if( city == 'city-2' || city == 'city-1' ){
+                        L.popup().setLatLng([lat, lng]).setContent(item[1]).addTo(map);
+                    }
+                    // var marker = new L.marker([lat, lng], { opacity: 0.0001 }); //opacity may be set to zero
+                    // marker.bindTooltip(item[1], {permanent: true, className: "my-label", offset: [0, 0] }).addTo(map);
+                })
+            });
+        }
+    }
     var map = L.map('map', {
         layers: [ Windy_Map ]
     });
 
+    // var city_windy = L.tileLayer('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json')
+    // var city= {
+    //     "City" : city_windy,
+    // }
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
     map.setView([20.998128, 105.794390], 5);
