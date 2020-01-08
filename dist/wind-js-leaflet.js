@@ -538,24 +538,6 @@ var Windy = function Windy(params) {
 				"rgb(237,45,28)", 
 				"rgb(220,24,32)", 
 				"rgb(180,0,35)"];
-			// var result = [
-				// "rgb(149, 137, 211)", 
-				// "rgb(149, 137, 211)", 
-				// "rgb(149, 137, 211)", 
-				// "rgb(149, 137, 211)", 
-				// "rgb(150, 209, 216)", 
-				// "rgb(129, 204, 197)", 
-				// "rgb(103, 180, 186)", 
-				// "rgb(95, 143, 197)", 
-				// "rgb(80, 140, 62)", 
-				// "rgb(121, 146, 28)", 
-				// "rgb(171, 161, 14)", 
-				// "rgb(223, 177, 6)", 
-				// "rgb(243, 150, 6)", 
-				// "rgb(236, 95, 21)", 
-				// "rgb(190, 65, 18)", 
-				// "rgb(138, 43, 10)", 
-				// "rgb(138, 43, 10)"];
 			result.indexFor = function (m) {
 				// map wind speed to a style
 				return Math.max(0, Math.min(result.length - 1, Math.round((m - minTemp) / (maxTemp - minTemp) * (result.length - 1))));

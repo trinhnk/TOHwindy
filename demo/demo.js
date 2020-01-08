@@ -54,15 +54,13 @@ function initDemoMap(){
         "Pressure" : Atmospheric_Pressure_Mean,
         "Cloudiness" : Cloudiness,
     }
-    for (let i = 22; i < 28; i++) {
-        for (let j = 12; j < 16; j++) {
+    for (let i = 24; i <= 26; i++) {
+        for (let j = 13; j <= 15; j++) {
             $.getJSON("https://tiles.windy.com/labels/v1.3/en/5/"+i+"/"+j+".json",function(data){
-                console.log(data[4])
                 data.forEach(function(item){
                     var lng = item[3];
                     var lat = item[4];
                     var city = item[2];
-                    console.log(lat,lng);
                     if( city == 'city-2' || city == 'city-1' ){
                         L.popup().setLatLng([lat, lng]).setContent(item[1]).addTo(map);
                     }
@@ -98,6 +96,7 @@ var handleError = function(err){
     console.log('handleError...');
     console.log(err);
 };
+console.log(mapStuff)
 
 WindJSLeaflet.init({
     wind: true,
