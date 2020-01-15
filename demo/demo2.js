@@ -34,50 +34,65 @@ function initDemoMap(){
         minZoom: 3
     });
     var mapboxAccessToken = 'pk.eyJ1IjoidHJpbmhuayIsImEiOiJjazRjN3E5YTAwMDBjM2tvbmhldDZsNzRtIn0.MfQ6ZKAzZeAtQSomiOofeQ';
-    // var mapboxId = '';
+    var mapboxId = '';
         // mapboxId = 'mapbox/light-v9';
-        // mapboxId = 'mapbox/streets-v11';
-    // var Mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/'+mapboxId+'/tiles/{z}/{x}/{y}?access_token='+mapboxAccessToken,{
-    //     maxZoom: 18,
-    //     minZoom: 3
-    // });
-    // var Mapbox_Satellite = L.tileLayer('https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.jpg90?access_token='+mapboxAccessToken,{
-    //     maxZoom: 18,
-    //     minZoom: 3
-    // });
+        mapboxId = 'mapbox/streets-v11';
+    var Mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/'+mapboxId+'/tiles/{z}/{x}/{y}?access_token='+mapboxAccessToken,{
+        maxZoom: 18,
+        minZoom: 3
+    });
+    var Mapbox_Satellite = L.tileLayer('https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.jpg90?access_token='+mapboxAccessToken,{
+        maxZoom: 18,
+        minZoom: 3
+    });
     
     var baseLayers = {
         // "Satellite": Esri_WorldImagery,
         // "Grey Canvas": Esri_DarkGreyCanvas,
-        "Windy Map" : Windy_Map,
+        // "Windy Map" : Windy_Map,
         // "Open Street Map" : Open_Street_Map,
         // "World Dark Gray" : World_Dark_Gray,
         // "Wind Finder" : Wind_Finder,
-        // "Mapbox" : Mapbox,
+        "Mapbox" : Mapbox,
         // "Mapbox Satellite" : Mapbox_Satellite
     };
 
-    var API_Openweathermap = '542ffd081e67f4512b705f89d2a611b2';
-    var Wind_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=0.6&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:23dddd;10:c2ff28;20:fff028;25:ffc228;30:fc8014',{
-        maxZoom: 11,
-        minZoom: 3,
-        opacity: 1
-    });
-    var overlayLayer = {
-        "Wind Map" : Wind_Map,
-    }
+    // var API_Openweathermap = '542ffd081e67f4512b705f89d2a611b2';
+    // var Wind_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=0.6&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:23dddd;10:c2ff28;20:fff028;25:ffc228;30:fc8014',{
+    //     maxZoom: 11,
+    //     minZoom: 3,
+    //     opacity: 1
+    // });
+    // var overlayLayer = {
+    //     "Wind Map" : Wind_Map,
+    // }
 
     var map = L.map('map', {
-        layers: [ Windy_Map ]
+        layers: [ Mapbox ]
     });
 
-    var layerControl = L.control.layers(overlayLayer, baseLayers);
+    var layerControl = L.control.layers(baseLayers);
     layerControl.addTo(map);
-    map.setView([20.998029,105.7924504], 5);
+    map.setView([20.998029,105.7924504], 15);
 
     // var geojsonLayer = new L.GeoJSON.AJAX('countries.geo.json');
     // console.log(geojsonLayer)
     // geojsonLayer.addTo(map);
+
+    map.addLayer({
+        id: "cluster-count",
+        type: "symbol",
+        source: "grundbuch",
+        filter: ["has", "point_count"],
+        layout: {
+          "text-field": "{point_count_abbreviated}",
+          "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+          "text-size": 12
+        },
+        paint: {
+          "text-color": "#ffffff"
+        }
+    });
 
     return {
         map: map,

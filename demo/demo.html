@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>WindJS (ESRI) Leaflet</title>
+	<title>Windy Leaflet</title>
 	<meta charset="utf-8">
 	<!-- <meta http-equiv="refresh" content="1; URL=http://45.79.69.97/TOHwindy/demo/demo.html"> -->
 
@@ -14,8 +14,11 @@
 
 <!--vendor-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 <link rel="stylesheet" href="../dist/leaflet.css">
 <script src="../dist/leaflet.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script> -->
+<script src="TileLayer.GeoJSON.js"></script>
 
 <!--wind-js-leaflet-->
 <link rel="stylesheet" href="../dist/wind-js-leaflet.css" />
@@ -41,7 +44,7 @@
 	color: #ffffff;
 	background-color: rgba(0, 0, 0, 0);
 	box-shadow: none;
-	border: 1px solid #ffffff;
+	/* border: 1px solid #ffffff; */
 }
 .leaflet-popup-content{
 	margin: 2px 5px;
@@ -56,6 +59,12 @@
 }
 .leaflet-popup-pane{
 	cursor: pointer;
+}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{
+	bottom: -30px !important;
+}
+.leaflet-popup-tip-container{
+	display: none;
 }
 </style>
 </body>
