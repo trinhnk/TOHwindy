@@ -13,12 +13,16 @@
 <div id="map"></div>
 
 <!--vendor-->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="../dist/leaflet.css">
-<script src="../dist/leaflet.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script> -->
-<script src="TileLayer.GeoJSON.js"></script>
+<!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script> -->
+<!-- Leaflet 0.7.7 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<!-- Leaflet Markercluster 0.4.0 -->
+<!-- <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script> -->
+<!-- Leaflet TileLayer GeoJSON -->
+<script src="LoadCityNameJSON.js"></script>
 
 <!--wind-js-leaflet-->
 <link rel="stylesheet" href="../dist/wind-js-leaflet.css" />
@@ -28,8 +32,13 @@
 <link rel="stylesheet" href="demo.css" />
 <script src="demo.js"></script>
 <script>
+	// $('input[type=checkbox]')[2].click();
 	$('input[type=checkbox]')[1].click();
-	$('input[type=radio]')[0].click();
+	// $('input[type=radio]')[0].click();
+	$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
+	$('.leaflet-control-layers').mouseout(function(){
+		$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
+	});
 </script>
 <style>
 .my-label{
@@ -65,6 +74,30 @@
 }
 .leaflet-popup-tip-container{
 	display: none;
+}
+.city-name{
+	color: #ffffff;
+	/* width: auto !important; */
+	cursor: pointer;
+	width: 150px !important;
+	margin-left: -75px !important;
+	text-align: center;
+}
+/* .city-name:hover{
+	text-decoration: underline;
+} */
+.country-name-1, .country-name-2{
+	text-transform: uppercase;
+	color: blanchedalmond;
+	font-weight: bold;
+	letter-spacing: 2px;
+	width: 150px !important;
+	text-align: center;
+	margin-left: -75px !important;
+}
+.country-name-2{
+	font-size: 10px;
+	letter-spacing: 0;
 }
 </style>
 </body>

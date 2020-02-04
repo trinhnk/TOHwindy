@@ -1,12 +1,11 @@
+// var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',
+//     {
+//         maxZoom: 11,
+//         minZoom: 3,
+//     }
+// );
 
-function initDemoMap(){
-    var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
-        maxZoom: 11,
-        minZoom: 3
-    });
-    var baseLayers = {
-        "Windy Map" : Windy_Map,
-    };
+function initWindyMap(){
 
     var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
     // var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
@@ -55,60 +54,35 @@ function initDemoMap(){
         "Cloudiness" : Cloudiness,
     }
 
-
-    for (let i = 20; i <= 26; i++) {
-        for (let j = 10; j <= 15; j++) {
-            $.getJSON("https://tiles.windy.com/labels/v1.3/en/5/"+i+"/"+j+".json",function(data){
-                data.forEach(function(item){
-                    var lng = item[3];
-                    var lat = item[4];
-                    var city = item[2];
-                    if( city == 'city-2' || city == 'city-1' ){
-                        L.popup().setLatLng([lat, lng]).setContent(item[1]).addTo(map);
-                    }
-                })
-            });
+    // var jsonCityURL = 'https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json';
+    // var geojsonTileLayer = new L.TileLayer.GeoJSON(jsonCityURL);
+    // map.addLayer(geojsonTileLayer);
+    // var jsonCityURL = 'https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json';
+    var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',
+        {
+            maxZoom: 11,
+            minZoom: 3,
         }
-    }
+    );
 
+    var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
+        maxZoom: 11,
+        minZoom: 3
+    });
+    var baseLayers = {
+        // "City" : geojsonTileLayer,
+        "Windy Map" : Windy_Map,
+    };
 
     var map = L.map('map', {
         layers: [ Windy_Map ],
         closePopupOnClick: false
     });
 
-    var jsonCityURL = 'https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json';
-    var geojsonTileLayer = new L.TileLayer.GeoJSON(jsonCityURL, {
-        maxZoom: 11,
-        minZoom: 3,
-        onEachFeature: function (feature, layer) {
-            console.log(feature,layer);
-            alert(1);
-            if (feature.properties) {
-                alert(1);
-                var popupString = '<div class="popup">';
-                for (var k in feature.properties) {
-                    var v = feature.properties[k];
-                    popupString += k + ': ' + v + '<br />';
-                }
-                popupString += '</div>';
-                layer.bindPopup(popupString);
-            }
-            if (!(layer instanceof L.Point)) {
-                alert(2);
-                layer.on('mouseover', function () {
-                    layer.setStyle(hoverStyle);
-                });
-                layer.on('mouseout', function () {
-                    layer.setStyle(style);
-                });
-            }
-        }
-    });
-    // map.addLayer(geojsonTileLayer);
-
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
+    geojsonTileLayer.addTo(map)
+
     map.setView([20.998128, 105.794390], 5);
 
     return {
@@ -117,14 +91,31 @@ function initDemoMap(){
     };
 }
 
-// demo map
-var mapStuff = initDemoMap();
+var mapStuff = initWindyMap();
 var map = mapStuff.map;
 var layerControl = mapStuff.layerControl;
 var handleError = function(err){
     console.log('handleError...');
     console.log(err);
 };
+
+var markerGroup = L.layerGroup().addTo(map);
+map.on('zoomend',function(e){
+    map.removeLayer(markerGroup);
+    markerGroup = L.layerGroup().addTo(map);
+});
+
+// map.addLayer(geojsonTileLayer);
+// map.removeLayer(geojsonTileLayer);
+// map.on('zoomend',function(e){
+//     map.removeLayer(geojsonTileLayer);
+//     geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',{
+//             maxZoom: 11,
+//             minZoom: 3,
+//     });
+//     geojsonTileLayer.addTo(map);
+// });
+
 
 WindJSLeaflet.init({
     wind: true,

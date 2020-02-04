@@ -1,6 +1,20 @@
 // Load data tiles from an AJAX data source
 L.TileLayer.Ajax = L.TileLayer.extend({
     _requests: [],
+    initialize: function(url, options) {
+
+        this._url = url;
+    
+        options = L.Util.setOptions(this, options);
+    
+        if (typeof options.subdomains === 'string') {
+          options.subdomains = options.subdomains.split('');
+        }
+    
+        this.on('tileunload', function(event) {
+          event.tile.layer && event.tile.layer.remove();
+        });
+    },
     _addTile: function (tilePoint) {
         var tile = { datum: null, processed: false };
         this._tiles[tilePoint.x + ':' + tilePoint.y] = tile;
@@ -13,7 +27,7 @@ L.TileLayer.Ajax = L.TileLayer.extend({
                 return;
             }
             var s = req.status;
-            if ((s >= 200 && s < 300) || s === 304) {
+            if ((s >= 200 && s < 300 && s != 204) || s === 304) {
                 tile.datum = JSON.parse(req.responseText);
                 layer._tileLoaded(tile, tilePoint);
             } else {
@@ -42,11 +56,20 @@ L.TileLayer.Ajax = L.TileLayer.extend({
         if (this._map._panTransition && this._map._panTransition._inProgress) { return; }
         if (this._tilesToLoad < 0) { this._tilesToLoad = 0; }
         L.TileLayer.prototype._update.apply(this, arguments);
+    },
+    createTile: function(coords, done) {
+        var tile = document.createElement('div');
+        var layer = this;
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = this._xhrHandler(req, layer, tile, coords, done);
+        req.open('GET', this.getTileUrl(coords), true);
+        req.send();
+        return tile;
     }
 });
 
 
-L.TileLayer.GeoJSON = L.TileLayer.Ajax.extend({
+L.LoadCityNameJSON = L.TileLayer.Ajax.extend({
     // Store each GeometryCollection's layer by key, if options.unique function is present
     _keyLayers: {},
 
@@ -241,6 +264,23 @@ L.TileLayer.GeoJSON = L.TileLayer.Ajax.extend({
     },
 
     _tileLoaded: function (tile, tilePoint) {
+        tile.datum.forEach(function(item){
+            var lng = item[3];
+            var lat = item[4];
+            var city = item[2];
+            if( city == 'city-2' || city == 'city-1' ){
+                var cityName = L.divIcon({className: 'city-name', html: '<div>'+item[1]+'</div>'})
+                markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
+            }
+            if( city == 'country-1' ){
+                var cityName = L.divIcon({className: 'country-name-1', html: '<div>'+item[1]+'</div>'})
+                markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
+            }
+            if( city == 'country-2' ){
+                var cityName = L.divIcon({className: 'country-name-2', html: '<div>'+item[1]+'</div>'})
+                markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
+            }
+        })
         L.TileLayer.Ajax.prototype._tileLoaded.apply(this, arguments);
         if (tile.datum === null) { return null; }
         this.addTileData(tile.datum, tilePoint);
