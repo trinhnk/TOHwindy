@@ -45,9 +45,7 @@ function initWindyMap(){
     })
     var overlayLayer = {
         "Wind Map" : Wind_Map,
-        "Wind Map 2" : Wind_Map_2,
         "Temperature Map" : Temperature_Map,
-        "Temperature Map 2" : Temperature_Map_2,
         "Relative Humidity" : Relative_Humidity,
         "Accumulated Precipitation Rain" : Accumulated_Precipitation_Rain,
         "Pressure" : Atmospheric_Pressure_Mean,
@@ -58,12 +56,15 @@ function initWindyMap(){
     // var geojsonTileLayer = new L.TileLayer.GeoJSON(jsonCityURL);
     // map.addLayer(geojsonTileLayer);
     // var jsonCityURL = 'https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json';
-    var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',
-        {
-            maxZoom: 11,
-            minZoom: 3,
-        }
-    );
+    var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/vi/{z}/{x}/{y}.json',{
+        maxZoom: 11,
+        minZoom: 3,
+    });
+
+    var tempByCity = new L.LoadTempByCity('https://ims-s.windy.com/forecast/citytile/v1.3/gfs/{z}/{x}/{y}',{
+        maxZoom: 11,
+        minZoom: 3,
+    })
 
     var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
         maxZoom: 11,
@@ -81,9 +82,14 @@ function initWindyMap(){
 
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
-    geojsonTileLayer.addTo(map)
+    geojsonTileLayer.addTo(map);
+    tempByCity.addTo(map);
 
-    map.setView([20.998128, 105.794390], 5);
+    map.setView([20.998128, 105.794390], 7);
+
+    // var d =new Date();
+    // var now = d.getTime();
+    // console.log(now);
 
     return {
         map: map,
@@ -100,11 +106,13 @@ var handleError = function(err){
 };
 
 var markerGroup = L.layerGroup().addTo(map);
+var tempMarker = L.layerGroup().addTo(map);
 map.on('zoomend',function(e){
     map.removeLayer(markerGroup);
     markerGroup = L.layerGroup().addTo(map);
+    map.removeLayer(tempMarker);
+    tempMarker = L.layerGroup().addTo(map);
 });
-
 // map.addLayer(geojsonTileLayer);
 // map.removeLayer(geojsonTileLayer);
 // map.on('zoomend',function(e){

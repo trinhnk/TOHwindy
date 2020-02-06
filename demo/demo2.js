@@ -47,14 +47,14 @@ function initDemoMap(){
     });
     
     var baseLayers = {
-        // "Satellite": Esri_WorldImagery,
-        // "Grey Canvas": Esri_DarkGreyCanvas,
-        // "Windy Map" : Windy_Map,
-        // "Open Street Map" : Open_Street_Map,
-        // "World Dark Gray" : World_Dark_Gray,
-        // "Wind Finder" : Wind_Finder,
+        "Satellite": Esri_WorldImagery,
+        "Grey Canvas": Esri_DarkGreyCanvas,
+        "Windy Map" : Windy_Map,
+        "Open Street Map" : Open_Street_Map,
+        "World Dark Gray" : World_Dark_Gray,
+        "Wind Finder" : Wind_Finder,
         "Mapbox" : Mapbox,
-        // "Mapbox Satellite" : Mapbox_Satellite
+        "Mapbox Satellite" : Mapbox_Satellite
     };
 
     // var API_Openweathermap = '542ffd081e67f4512b705f89d2a611b2';

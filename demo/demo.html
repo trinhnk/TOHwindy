@@ -23,6 +23,7 @@
 <!-- <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script> -->
 <!-- Leaflet TileLayer GeoJSON -->
 <script src="LoadCityNameJSON.js"></script>
+<script src="LoadTempByCity.js"></script>
 
 <!--wind-js-leaflet-->
 <link rel="stylesheet" href="../dist/wind-js-leaflet.css" />
@@ -40,65 +41,5 @@
 		$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
 	});
 </script>
-<style>
-.my-label{
-	background-color: rgba(0, 0, 0, 0);
-	border: none;
-	color: #ffffff;
-}
-.leaflet-tooltip{
-	box-shadow: none;
-}
-.leaflet-popup-content-wrapper{
-	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0);
-	box-shadow: none;
-	/* border: 1px solid #ffffff; */
-}
-.leaflet-popup-content{
-	margin: 2px 5px;
-	text-align: center;
-}
-.leaflet-popup-tip-container .leaflet-popup-tip{
-	background-color: rgba(0, 0, 0, 0);
-	border: 1px solid #ffffff;
-}
-.leaflet-container a.leaflet-popup-close-button{
-	display: none;
-}
-.leaflet-popup-pane{
-	cursor: pointer;
-}
-.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{
-	bottom: -30px !important;
-}
-.leaflet-popup-tip-container{
-	display: none;
-}
-.city-name{
-	color: #ffffff;
-	/* width: auto !important; */
-	cursor: pointer;
-	width: 150px !important;
-	margin-left: -75px !important;
-	text-align: center;
-}
-/* .city-name:hover{
-	text-decoration: underline;
-} */
-.country-name-1, .country-name-2{
-	text-transform: uppercase;
-	color: blanchedalmond;
-	font-weight: bold;
-	letter-spacing: 2px;
-	width: 150px !important;
-	text-align: center;
-	margin-left: -75px !important;
-}
-.country-name-2{
-	font-size: 10px;
-	letter-spacing: 0;
-}
-</style>
 </body>
 </html>
