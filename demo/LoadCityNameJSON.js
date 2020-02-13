@@ -1,4 +1,14 @@
 // Load data tiles from an AJAX data source
+
+L.Map = L.Map.extend({
+	layerPointToLatLng: function (point) { // (Point)
+		var projectedPoint = L.point(point).add(this.getPixelOrigin());
+		var current_position = this.unproject(projectedPoint);
+		current_position.lng = current_position.lng%360;
+		return current_position;
+	},
+});
+
 L.TileLayer.Ajax = L.TileLayer.extend({
     _requests: [],
     initialize: function(url, options) {
@@ -67,7 +77,6 @@ L.TileLayer.Ajax = L.TileLayer.extend({
         return tile;
     }
 });
-
 
 L.LoadCityNameJSON = L.TileLayer.Ajax.extend({
     // Store each GeometryCollection's layer by key, if options.unique function is present
