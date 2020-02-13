@@ -121,3 +121,7 @@ a {
     line-height: 1;
     content: attr(data-temp);
 }
+
+.city-name{
+	z-index: 1000 !important;
+}
