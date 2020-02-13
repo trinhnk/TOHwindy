@@ -737,10 +737,12 @@ L.Control.WindPosition = L.Control.extend({
 	},
 
 	onAdd: function onAdd(map) {
+		// console.log(map)
+		// console.log(WindJSLeaflet._windy.interpolatePoint(21,105))
 		this._container = L.DomUtil.create('div', 'leaflet-control-wind-position');
 		L.DomEvent.disableClickPropagation(this._container);
-		map.on('mousemove', this._onMouseMove, this);
-		map.on('click', this._loadTemperature, this);
+		// map.on('mousemove', this._onMouseMove, this);
+		map.on('click', this._onMouseMove, this);
 		this._container.innerHTML = this.options.emptyString;
 		return this._container;
 	},
@@ -763,11 +765,15 @@ L.Control.WindPosition = L.Control.extend({
 	},
 
 	_onMouseMove: function _onMouseMove(e) {
-
 		var self = this;
 		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
 		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(pos.lng, pos.lat);
 		var htmlOut = "";
+		// var htmlTemp = "";
+		// var htmlTempx = 0;
+		// var htmlTempy = 0;
+		var temp = 0;
+		var wind = 0;
 		if (gridValue && !isNaN(gridValue[0]) && !isNaN(gridValue[1]) && gridValue[2]) {
 
 			// vMs comes out upside-down..
@@ -777,12 +783,28 @@ L.Control.WindPosition = L.Control.extend({
 			// htmlOut = "<strong>Wind Direction: </strong>" + self.vectorToDegrees(gridValue[0], vMs) + "°"
 			htmlOut += "<strong>Wind Speed: </strong>" + Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10 + "km/h"
 			htmlOut += ", <strong>Temp: </strong>" + (gridValue[2] - 273.15).toFixed(1) + "°C";
+			htmlOut += "<br>"
+			htmlOut += "<strong>Lat: </strong>" + pos.lat + ", <strong>Long: </strong>" + pos.lng;
+			temp = (gridValue[2] - 273.15).toFixed(1);
+			wind = Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10;
 			// getColorByTemperature(gridValue[2] - 273.15);
+
+			// console.log(e.layerPoint.x, e.layerPoint.y);
+			// htmlTemp += "<div>"+(gridValue[2] - 273.15).toFixed(1)+"°C</div><div>"+Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10+"km/h</div>";
+			// htmlTempx = e.layerPoint.x;
+			// htmlTempy = e.layerPoint.y;
 		} else {
 			htmlOut = "no wind data";
 		}
 
 		self._container.innerHTML = htmlOut;
+		// document.getElementById('temp').innerHTML = htmlTemp;
+		// document.getElementById('temp').style.top = htmlTempy+"px";
+		// document.getElementById('temp').style.left = htmlTempx+"px";
+		var popup = L.popup()
+		.setLatLng([pos.lat, pos.lng])
+		.setContent("<div>"+temp+"°C</div><div>"+wind+"km/h</div>")
+		.openOn(map);
 
 		// move control to bottom row
 		if ($('.leaflet-control-wind-position').index() == 0) {

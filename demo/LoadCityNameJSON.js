@@ -264,20 +264,22 @@ L.LoadCityNameJSON = L.TileLayer.Ajax.extend({
     },
 
     _tileLoaded: function (tile, tilePoint) {
-        tile.datum.forEach(function(item){
-            var lng = item[3];
-            var lat = item[4];
-            var city = item[2];
-            if( city == 'country-1' ){
-                var cityName = L.divIcon({className: 'country-name-1', html: '<div>'+item[1]+'</div>'})
+        // console.log(WindJSLeaflet)
+        tile.datum.forEach(function(city){
+            var lng = city[3];
+            var lat = city[4];
+            var cityType = city[2];
+            if( cityType == 'country-1' ){
+                var cityName = L.divIcon({className: 'country-name-1', html: '<div>'+city[1]+'</div>'})
                 markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
-            }else if( city == 'country-2' ){
-                var cityName = L.divIcon({className: 'country-name-2', html: '<div>'+item[1]+'</div>'})
+            }else if( cityType == 'country-2' ){
+                var cityName = L.divIcon({className: 'country-name-2', html: '<div>'+city[1]+'</div>'})
                 markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
             }else{
-                var cityName = L.divIcon({className: 'city-name latlng-'+Math.round(lat * 10)+'-'+Math.round(lng * 10), html: '<div>'+item[1]+'</div>'})
+                var cityName = L.divIcon({className: 'city-name '+cityType, html: '<div data-label="'+city[1]+'" data-id="'+lat+'/'+lng+'" data-temp="'+Math.round(WindJSLeaflet._windy.interpolatePoint(lng,lat)[2]-273)+'°"><div>'+city[1]+'</div></div>'})
                 markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
             }
+            // console.log(WindJSLeaflet._windy.interpolatePoint(lng,lat))
         })
         L.TileLayer.Ajax.prototype._tileLoaded.apply(this, arguments);
         if (tile.datum === null) { return null; }
