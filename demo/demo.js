@@ -80,7 +80,7 @@ function initWindyMap(){
     var map = L.map('map', {
         layers: [ 
             Windy_Map, 
-            // Temperature_Map, 
+            Temperature_Map, 
             geojsonTileLayer 
         ],
         closePopupOnClick: false
@@ -122,7 +122,6 @@ map.on('zoomend',function(e){
     // map.removeLayer(tempMarker);
     // tempMarker = L.layerGroup().addTo(map);
 });
-setTimeout(function(){ map.setView(mapCenter, 5)}, 2000);
 // map.on('drag', function(e){
 //     // console.log(map.getCenter().lat)
 //     mapCenter = [map.getCenter().lat, map.getCenter().lng]
