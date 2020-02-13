@@ -87,7 +87,7 @@ function initWindyMap(){
     // geojsonTileLayer.addTo(map);
     // tempByCity.addTo(map);
 
-    map.setView(mapCenter, 4);
+    map.setView(mapCenter, 6);
 
     // var d =new Date();
     // var now = d.getTime();
