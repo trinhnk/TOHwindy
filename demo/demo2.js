@@ -39,7 +39,9 @@ function initDemoMap(){
         mapboxId = 'mapbox/streets-v11';
     var Mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/'+mapboxId+'/tiles/{z}/{x}/{y}?access_token='+mapboxAccessToken,{
         maxZoom: 18,
-        minZoom: 3
+        minZoom: 3,
+        // tileSize: 512,
+	    // zoomOffset: -1
     });
     var Mapbox_Satellite = L.tileLayer('https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.jpg90?access_token='+mapboxAccessToken,{
         maxZoom: 18,

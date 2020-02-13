@@ -1,5 +1,3 @@
-<!-- https://github.com/danwild/wind-js-leaflet -->
-
 <!doctype html>
 <html>
 <head>
@@ -34,13 +32,15 @@
 <link rel="stylesheet" href="demo.css" />
 <script src="demo.js"></script>
 <script>
-	// $('input[type=checkbox]')[2].click();
+	// // $('input[type=checkbox]')[2].click();
 	$('input[type=checkbox]')[1].click();
-	// $('input[type=radio]')[0].click();
-	$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
-	$('.leaflet-control-layers').mouseout(function(){
-		$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
-	});
+	$('input[type=checkbox]').attr( "disabled", "disabled" );
+	// $('input[type=checkbox]')[1].css('display', 'none');
+	// // $('input[type=radio]')[0].click();
+	// $('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
+	// $('.leaflet-control-layers').mouseout(function(){
+	// 	$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
+	// });
 </script>
 </body>
 </html>

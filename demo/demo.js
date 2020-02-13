@@ -78,7 +78,11 @@ function initWindyMap(){
     };
 
     var map = L.map('map', {
-        layers: [ Windy_Map, Temperature_Map, geojsonTileLayer ],
+        layers: [ 
+            Windy_Map, 
+            // Temperature_Map, 
+            geojsonTileLayer 
+        ],
         closePopupOnClick: false
     });
 
@@ -87,7 +91,8 @@ function initWindyMap(){
     // geojsonTileLayer.addTo(map);
     // tempByCity.addTo(map);
 
-    map.setView(mapCenter, 4);
+    map.setView([56.450,113.027], 3);
+    // map.setView(mapCenter, 3);
 
     // var d =new Date();
     // var now = d.getTime();
@@ -109,16 +114,21 @@ var handleError = function(err){
 
 var markerGroup = L.layerGroup().addTo(map);
 // var tempMarker = L.layerGroup().addTo(map);
+// setTimeout(function(){ markerGroup = L.layerGroup().addTo(map)}, 3000);
+
 map.on('zoomend',function(e){
     map.removeLayer(markerGroup);
     markerGroup = L.layerGroup().addTo(map);
     // map.removeLayer(tempMarker);
     // tempMarker = L.layerGroup().addTo(map);
 });
-map.on('drag', function(e){
-    // console.log(map.getCenter().lat)
-    mapCenter = [map.getCenter().lat, map.getCenter().lng]
-});
+setTimeout(function(){ map.setView(mapCenter, 5)}, 2000);
+// map.on('drag', function(e){
+//     // console.log(map.getCenter().lat)
+//     mapCenter = [map.getCenter().lat, map.getCenter().lng]
+// });
+// map._onResize(5); 
+// map.setView(mapCenter, 5);
 // map.addLayer(geojsonTileLayer);
 // map.removeLayer(geojsonTileLayer);
 // map.on('zoomend',function(e){

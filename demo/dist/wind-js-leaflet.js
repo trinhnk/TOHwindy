@@ -741,8 +741,8 @@ L.Control.WindPosition = L.Control.extend({
 		// console.log(WindJSLeaflet._windy.interpolatePoint(21,105))
 		this._container = L.DomUtil.create('div', 'leaflet-control-wind-position');
 		L.DomEvent.disableClickPropagation(this._container);
-		// map.on('mousemove', this._onMouseMove, this);
-		map.on('click', this._onMouseMove, this);
+		map.on('mousemove', this._onMouseMove, this);
+		// map.on('click', this._onMouseMove, this);
 		this._container.innerHTML = this.options.emptyString;
 		return this._container;
 	},
@@ -801,10 +801,10 @@ L.Control.WindPosition = L.Control.extend({
 		// document.getElementById('temp').innerHTML = htmlTemp;
 		// document.getElementById('temp').style.top = htmlTempy+"px";
 		// document.getElementById('temp').style.left = htmlTempx+"px";
-		var popup = L.popup()
-		.setLatLng([pos.lat, pos.lng])
-		.setContent("<div>"+temp+"°C</div><div>"+wind+"km/h</div>")
-		.openOn(map);
+		// var popup = L.popup()
+		// .setLatLng([pos.lat, pos.lng])
+		// .setContent("<div>"+temp+"°C</div><div>"+wind+"km/h</div>")
+		// .openOn(map);
 
 		// move control to bottom row
 		if ($('.leaflet-control-wind-position').index() == 0) {
