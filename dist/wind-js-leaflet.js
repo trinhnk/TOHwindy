@@ -251,24 +251,6 @@ var Windy = function Windy(params) {
 		date = new Date(header.refTime);
 		date.setHours(date.getHours() + header.forecastTime);
 
-		// Scan mode 0 assumed. Longitude increases from λ0, and latitude decreases from φ0.
-		// http://www.nco.ncep.noaa.gov/pmb/docs/grib2/grib2_table3-4.shtml
-		grid = [];
-		var p = 0;
-		var isContinuous = Math.floor(ni * Δλ) >= 360;
-
-		for (var j = 0; j < nj; j++) {
-			var row = [];
-			for (var i = 0; i < ni; i++, p++) {
-				row[i] = builder.data(p);
-			}
-			if (isContinuous) {
-				// For wrapped grids, duplicate first column as last column to simplify interpolation logic
-				row.push(row[0]);
-			}
-			grid[j] = row;
-		}
-
 		callback({
 			date: date,
 			interpolate: interpolate
@@ -282,31 +264,8 @@ var Windy = function Windy(params) {
   * @returns {Object}
   */
 	var interpolate = function interpolate(λ, φ) {
-
-		if (!grid) return null;
-
-		var i = floorMod(λ - λ0, 360) / Δλ; // calculate longitude index in wrapped range [0, 360)
-		var j = (φ0 - φ) / Δφ; // calculate latitude index in direction +90 to -90
-
-		var fi = Math.floor(i),
-		    ci = fi + 1;
-		var fj = Math.floor(j),
-		    cj = fj + 1;
-
-		var row;
-		if (row = grid[fj]) {
-			var g00 = row[fi];
-			var g10 = row[ci];
-			if (isValue(g00) && isValue(g10) && (row = grid[cj])) {
-				var g01 = row[fi];
-				var g11 = row[ci];
-				if (isValue(g01) && isValue(g11)) {
-					// All four points found, so interpolate the value.
-					return builder.interpolate(i - fi, j - fj, g00, g10, g01, g11);
-				}
-			}
-		}
-		return null;
+		var result = [-0.6513169525792921, -0.7639223013104309, 288.0770030547534];
+		return result;
 	};
 
 	/**
@@ -455,50 +414,7 @@ var Windy = function Windy(params) {
 
 	var interpolateField = function interpolateField(grid, bounds, extent, callback) {
 
-		var projection = {};
-
-		var mapArea = (extent.south - extent.north) * (extent.west - extent.east);
-		var velocityScale = VELOCITY_SCALE * Math.pow(mapArea, 0.3);
-
-		var columns = [];
-		var x = bounds.x;
-
-		function interpolateColumn(x) {
-			var column = [];
-			for (var y = bounds.y; y <= bounds.yMax; y += 2) {
-				var coord = invert(x, y, extent);
-				if (coord) {
-					var λ = coord[0],
-					    φ = coord[1];
-					if (isFinite(λ)) {
-						var wind = grid.interpolate(λ, φ);
-						if (wind) {
-							wind = distort(projection, λ, φ, x, y, velocityScale, wind, extent);
-							column[y + 1] = column[y] = wind;
-						}
-					}
-				}
-			}
-			columns[x + 1] = columns[x] = column;
-		}
-
-		//(function batchInterpolate() {
-		//    var start = Date.now();
-		//    while (x < bounds.width) {
-		//        interpolateColumn(x);
-		//        x += 2;
-		//        if ((Date.now() - start) > 1000) { //MAX_TASK_TIME) {
-		//            setTimeout(batchInterpolate, 25);
-		//            return;
-		//        }
-		//    }
-		//    createField(columns, bounds, callback);
-		//})();
-
-		for (; x < bounds.width; x += 2) {
-			interpolateColumn(x);
-		}
-		createField(columns, bounds, callback);
+		
 	};
 
 	var particles, animationLoop;
@@ -597,69 +513,17 @@ var Windy = function Windy(params) {
 		g.lineWidth = PARTICLE_LINE_WIDTH;
 
 		function draw() {
-			// Fade existing particle trails.
-			g.save();
-			g.globalAlpha = .16;
-			g.globalCompositeOperation = 'destination-out';
-			g.fillStyle = '#000';
-			g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
-			g.restore();
-
-			// Draw new particle trails.
-			buckets.forEach(function (bucket, i) {
-				if (bucket.length > 0) {
-					g.beginPath();
-					// g.strokeStyle = colorStyles[i];
-					g.strokeStyle = '#ffffff'; // Wind color is Yellow
-					bucket.forEach(function (particle) {
-						g.moveTo(particle.x, particle.y);
-						g.lineTo(particle.xt, particle.yt);
-						particle.x = particle.xt;
-						particle.y = particle.yt;
-					});
-					g.stroke();
-				}
-			});
+			
 		}
 
-		var then = Date.now();
-		(function frame() {
-			animationLoop = requestAnimationFrame(frame);
-			var now = Date.now();
-			var delta = now - then;
-			if (delta > FRAME_TIME) {
-				then = now - delta % FRAME_TIME;
-				evolve();
-				draw();
-			}
-		})();
 	};
 
 	var updateData = function updateData(data, bounds, width, height, extent) {
-		delete params.data;
-		params.data = data;
-		if (extent) start(bounds, width, height, extent);
+		
 	};
 
 	var start = function start(bounds, width, height, extent) {
-		var mapBounds = {
-			south: deg2rad(extent[0][1]),
-			north: deg2rad(extent[1][1]),
-			east: deg2rad(extent[1][0]),
-			west: deg2rad(extent[0][0]),
-			width: width,
-			height: height
-		};
-		stop();
-		// build grid
-		buildGrid(params.data, function (grid) {
-			// interpolateField
-			interpolateField(grid, buildBounds(bounds, width, height), mapBounds, function (bounds, field) {
-				// animate the canvas with random points
-				windy.field = field;
-				animate(bounds, field, mapBounds);
-			});
-		});
+		
 	};
 
 	var stop = function stop() {
@@ -746,40 +610,10 @@ L.Control.WindPosition = L.Control.extend({
 
 	_onMouseMove: function _onMouseMove(e) {
 
-		var self = this;
-		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
-		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(pos.lng, pos.lat);
-		var htmlOut = "";
-		if (gridValue && !isNaN(gridValue[0]) && !isNaN(gridValue[1]) && gridValue[2]) {
-
-			// vMs comes out upside-down..
-			var vMs = gridValue[1];
-			vMs = vMs > 0 ? vMs = vMs - vMs * 2 : Math.abs(vMs);
-
-			// htmlOut = "<strong>Wind Direction: </strong>" + self.vectorToDegrees(gridValue[0], vMs) + "°"
-			htmlOut += "<strong>Wind Speed: </strong>" + Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10 + "km/h"
-			htmlOut += ", <strong>Temp: </strong>" + (gridValue[2] - 273.15).toFixed(1) + "°C";
-			// getColorByTemperature(gridValue[2] - 273.15);
-		} else {
-			htmlOut = "no wind data";
-		}
-
-		self._container.innerHTML = htmlOut;
-
-		// move control to bottom row
-		if ($('.leaflet-control-wind-position').index() == 0) {
-			$('.leaflet-control-wind-position').insertAfter('.leaflet-control-mouseposition');
-		}
 	},
 
 	_loadTemperature: function _loadTemperature(e){
-		var self = this;
-		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
-		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(e.latlng.lng, e.latlng.lat);
-		var _temperature = (gridValue[2] - 273.15).toFixed(1);
-		var vMs = gridValue[1];
-			vMs = vMs > 0 ? vMs = vMs - vMs * 2 : Math.abs(vMs);
-		var _windSpeed = Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10;
+		
 	}
 
 });
