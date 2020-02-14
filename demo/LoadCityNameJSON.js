@@ -16,6 +16,7 @@ L.TileLayer.Ajax = L.TileLayer.extend({
         });
     },
     _addTile: function (tilePoint) {
+        console.log(tilePoint)
         var tile = { datum: null, processed: false };
         this._tiles[tilePoint.x + ':' + tilePoint.y] = tile;
         this._loadTile(tile, tilePoint);
@@ -265,8 +266,28 @@ L.LoadCityNameJSON = L.TileLayer.Ajax.extend({
 
     _tileLoaded: function (tile, tilePoint) {
         // console.log(WindJSLeaflet)
-        tile.datum.forEach(function(city){
-            var lng = city[3];
+		var windy_init_timeout = function(lng, lat, counter, callback){
+			if(WindJSLeaflet && WindJSLeaflet._windy){
+				var interpolatePointResult = WindJSLeaflet._windy.interpolatePoint(lng, lat);
+				if(interpolatePointResult){
+					callback(interpolatePointResult);
+				}else{
+					if(counter >= 100){	
+						callback(interpolatePointResult);
+					}else{
+						setTimeout(function(){
+							windy_init_timeout(lng, lat, counter + 1, callback);
+						}, 100);
+					}
+				}
+			}else{
+				setTimeout(function(){
+					windy_init_timeout(lng, lat, counter + 1, callback);
+				}, 100);
+			}
+		};
+		tile.datum.forEach(function(city){
+			var lng = city[3];
             var lat = city[4];
             var cityType = city[2];
             if( cityType == 'country-1' ){
@@ -276,10 +297,13 @@ L.LoadCityNameJSON = L.TileLayer.Ajax.extend({
                 var cityName = L.divIcon({className: 'country-name-2', html: '<div>'+city[1]+'</div>'})
                 markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
             }else{
-                var cityName = L.divIcon({className: 'city-name '+cityType, html: '<div data-label="'+city[1]+'" data-id="'+lat+'/'+lng+'" data-temp="'+Math.round(WindJSLeaflet._windy.interpolatePoint(lng,lat)[2]-273)+'°"><div>'+city[1]+'</div></div>'})
-                markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
+				windy_init_timeout(lng,lat, 0, function(interpolatePointLocalResult){
+					if(interpolatePointLocalResult){
+						var cityName = L.divIcon({className: 'city-name '+cityType, html: '<div data-label="'+city[1]+'" data-id="'+lat+'/'+lng+'" data-temp="'+Math.round(interpolatePointLocalResult[2]-273)+'°"><div>'+city[1]+'</div></div>'})
+							markersCity = L.marker([lat, lng],{icon:cityName}).addTo(markerGroup);
+					}
+				});
             }
-            // console.log(WindJSLeaflet._windy.interpolatePoint(lng,lat))
         })
         L.TileLayer.Ajax.prototype._tileLoaded.apply(this, arguments);
         if (tile.datum === null) { return null; }
