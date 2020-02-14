@@ -29,7 +29,7 @@ function initWindyMap(){
         maxZoom: 11,
         minZoom: 3,
     })
-    var Relative_Humidity	 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
+    var Relative_Humidity    = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
         maxZoom: 11,
         minZoom: 3,
     })
@@ -46,12 +46,12 @@ function initWindyMap(){
         minZoom: 3,
     })
     var overlayLayer = {
-        "Wind Map" : Wind_Map,
-        "Temperature Map" : Temperature_Map,
-        "Relative Humidity" : Relative_Humidity,
-        "Accumulated Precipitation Rain" : Accumulated_Precipitation_Rain,
-        "Pressure" : Atmospheric_Pressure_Mean,
-        "Cloudiness" : Cloudiness,
+        '<center><i class="fas fa-wind icons-font" id="wind_map"><span class="tooltiptext">Bản đồ Gió</span></i></center> ' : Wind_Map,
+        '<center><i class="fas fa-thermometer-three-quarters icons-font"  id="temperature_map"><span class="tooltiptext">Bản đồ Nhiệt</span></i></center> ' : Temperature_Map,
+        '<center><i class="fas fa-user-alt icons-font"  id="relative_humidity"><span class="tooltiptext">Bản đồ Dân Cư</span></i></center>' : Relative_Humidity,
+        '<center><i class="fas fa-cloud-sun-rain icons-font"  id="accumulated_precipitation_rain"><span class="tooltiptext">Bản đồ Lượng Mưa</span></i></center>' : Accumulated_Precipitation_Rain,
+        '<center><i class="fas fa-angle-double-down icons-font"  id="atmospheric_Pressure_Mean"><span class="tooltiptext">Bản đồ Áp Suất</span></i></center>' : Atmospheric_Pressure_Mean,
+        '<center><i class="fas fa-cloud icons-font"  id="cloudiness" ><span class="tooltiptext">Bản đồ Mây</span></i></center>' : Cloudiness,
     }
 
     // var jsonCityURL = 'https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json';
@@ -78,7 +78,11 @@ function initWindyMap(){
     };
 
     var map = L.map('map', {
-        layers: [ Windy_Map, Temperature_Map, geojsonTileLayer ],
+        layers: [ 
+            Windy_Map, 
+            Temperature_Map, 
+            geojsonTileLayer 
+        ],
         closePopupOnClick: false
     });
 
@@ -87,7 +91,8 @@ function initWindyMap(){
     // geojsonTileLayer.addTo(map);
     // tempByCity.addTo(map);
 
-    map.setView(mapCenter, 6);
+    map.setView([56.450,113.027], 3);
+    // map.setView(mapCenter, 3);
 
     // var d =new Date();
     // var now = d.getTime();
@@ -109,16 +114,20 @@ var handleError = function(err){
 
 var markerGroup = L.layerGroup().addTo(map);
 // var tempMarker = L.layerGroup().addTo(map);
+// setTimeout(function(){ markerGroup = L.layerGroup().addTo(map)}, 3000);
+
 map.on('zoomend',function(e){
     map.removeLayer(markerGroup);
     markerGroup = L.layerGroup().addTo(map);
     // map.removeLayer(tempMarker);
     // tempMarker = L.layerGroup().addTo(map);
 });
-map.on('drag', function(e){
-    // console.log(map.getCenter().lat)
-    mapCenter = [map.getCenter().lat, map.getCenter().lng]
-});
+// map.on('drag', function(e){
+//     // console.log(map.getCenter().lat)
+//     mapCenter = [map.getCenter().lat, map.getCenter().lng]
+// });
+// map._onResize(5); 
+// map.setView(mapCenter, 5);
 // map.addLayer(geojsonTileLayer);
 // map.removeLayer(geojsonTileLayer);
 // map.on('zoomend',function(e){
@@ -133,24 +142,24 @@ map.on('drag', function(e){
 
 WindJSLeaflet.init({
     wind: true,
-	localMode: true,
-	map: map,
-	layerControl: layerControl,
-	useNearest: false,
-	timeISO: null,
-	nearestDaysLimit: 7,
-	displayValues: true,
-	displayOptions: {
-		displayPosition: 'bottomleft',
-		displayEmptyString: 'No wind data'
-	},
-	overlayName: 'Wind',
+    localMode: true,
+    map: map,
+    layerControl: layerControl,
+    useNearest: false,
+    timeISO: null,
+    nearestDaysLimit: 7,
+    displayValues: true,
+    displayOptions: {
+        displayPosition: 'bottomleft',
+        displayEmptyString: 'No wind data'
+    },
+    overlayName: 'Wind',
 
-	// https://github.com/danwild/wind-js-server
+    // https://github.com/danwild/wind-js-server
     pingUrl: 'http://localhost:7000/alive',
-	latestUrl: 'http://localhost:7000/latest',
-	nearestUrl: 'http://localhost:7000/nearest',
-	errorCallback: handleError
+    latestUrl: 'http://localhost:7000/latest',
+    nearestUrl: 'http://localhost:7000/nearest',
+    errorCallback: handleError
 });
 
 // Color Of Temperature
@@ -217,7 +226,7 @@ WindJSLeaflet.init({
 // 31:a13ba1
 // 50:a8a8a8
 
-// Atmospheric pressure on mean sea level	(hPa)
+// Atmospheric pressure on mean sea level   (hPa)
 // 990:8eb3b8
 // 995:68b4b3
 // 1000:45a7a6
