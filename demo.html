@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<title>Windy Leaflet</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<div id="map"></div>
+
+<link rel="stylesheet" href="dist/leaflet1.6.0/leaflet.css">
+<link rel="stylesheet" href="dist/wind-js-leaflet.css" />
+<link rel="stylesheet" href="demo.css" />
+
+<script src="dist/jquery.min.1.9.1.js"></script>
+<script src="dist/leaflet1.6.0/leaflet-src.js"></script>
+<script src="dist/wind-js-leaflet.js"></script>
+<script src="LoadCityNameJSON.js"></script>
+<script src="demo.js"></script>
+
+<script>
+	$('input[type=checkbox]')[1].click();
+	$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
+	$('.leaflet-control-layers').mouseout(function(){
+		$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded');
+	});
+</script>
+</body>
+</html>
