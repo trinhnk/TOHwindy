@@ -101,7 +101,7 @@ function initWindyMap(){
     var map = L.map('map', {
         layers: [ 
             Windy_Map, 
-            // Temperature_Map, 
+            Temperature_Map, 
             geojsonTileLayer 
         ],
         closePopupOnClick: false,
