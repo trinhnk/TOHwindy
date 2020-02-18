@@ -128,16 +128,9 @@ var handleError = function(err){
 };
 
 var markerGroup = L.layerGroup().addTo(map);
-// var tempMarker = L.layerGroup().addTo(map);
 map.on('zoomend',function(e){
     map.removeLayer(markerGroup);
     markerGroup = L.layerGroup().addTo(map);
-    // map.removeLayer(tempMarker);
-    // tempMarker = L.layerGroup().addTo(map);
-});
-map.on('drag', function(e){
-    // console.log(map.getCenter().lat)
-    mapCenter = [map.getCenter().lat, map.getCenter().lng]
 });
 
 WindJSLeaflet.init({
