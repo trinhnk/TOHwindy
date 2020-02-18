@@ -1,4 +1,3 @@
-// Load data tiles from an AJAX data source
 
 L.TileLayer.Ajax = L.TileLayer.extend({
     _requests: [],
