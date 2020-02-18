@@ -79,7 +79,8 @@ function initWindyMap(){
 
     var map = L.map('map', {
         layers: [ Windy_Map, Temperature_Map, geojsonTileLayer ],
-        closePopupOnClick: false
+        closePopupOnClick: false,
+		worldCopyJump: true,
     });
 
     var layerControl = L.control.layers(overlayLayer, baseLayers);
