@@ -35,7 +35,7 @@ function initWindyMap(){
         "Pressure" : Atmospheric_Pressure_Mean,
         "Cloudiness" : Cloudiness,
     }
-
+	
     var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
         maxZoom: 11,
         minZoom: 3
@@ -43,18 +43,17 @@ function initWindyMap(){
 	var baseLayers = {
         "Windy Map" : Windy_Map,
     };
-	
 	var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',{
         maxZoom: 11,
         minZoom: 3,
     });
     
     var map = L.map('map', {
-        layers: [ Windy_Map, Temperature_Map, geojsonTileLayer ],
+        layers: [ Windy_Map, Temperature_Map, geojsonTileLayer],
         closePopupOnClick: false,
 		worldCopyJump: true,
     });
-
+	
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
     
@@ -62,7 +61,7 @@ function initWindyMap(){
 
     return {
         map: map,
-        layerControl: layerControl
+        layerControl: layerControl,
     };
 }
 
@@ -75,28 +74,8 @@ var handleError = function(err){
 };
 
 var markerGroup = L.layerGroup().addTo(map);
-var currentZoom = map.getZoom();
 map.on('zoomstart', function(e){
-	currentZoom = map.getZoom();
-});
-map.on('zoomend', function(e){
-	var new_currentZoom = map.getZoom();
-	//if(currentZoom > new_currentZoom){
-		//console.log('zoom out');
-		map.removeLayer(markerGroup);
-		markerGroup = L.layerGroup().addTo(map);
-	//}
-	
-	//map.removeLayer(markerGroup);
-	/*markerGroup = L.layerGroup().addTo(map);
-	console.log('end');
-	console.log(markerGroup);
-	console.log(markerGroup._layers);
-	for(i in markerGroup._layers){
-		var html = markerGroup._layers[i].options.icon.options.html;
-		console.log('html' + html);
-	}*/
-	
+	markerGroup.clearLayers();
 });
 
 WindJSLeaflet.init({
