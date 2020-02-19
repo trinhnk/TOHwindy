@@ -1,0 +1,3508 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+    .leaflet-top {
+        top: 16%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 52px;
+        color: white;
+        line-height: 100px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 52px;
+        color: orange;
+        line-height: 100px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 230px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+  .leaflet-top {
+        top: 7%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 52px 52px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 36px;
+        color: white;
+        line-height: 54px;
+    }
+    .icons-font-active{
+        font-size: 36px;
+        color: orange;
+        line-height: 54px;
+    }
+
+    .custom-bar{
+        top: 150px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -54px;
+        background: transparent;
+        font-size: 18px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 54px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 24px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+    }  
+}
+
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+    .leaflet-top {
+        top: 16%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 52px;
+        color: white;
+        line-height: 100px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 52px;
+        color: orange;
+        line-height: 100px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 230px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .leaflet-top {
+        top: 4%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 52px 52px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 36px;
+        color: white;
+        line-height: 54px;
+    }
+    .icons-font-active{
+        font-size: 36px;
+        color: orange;
+        line-height: 54px;
+    }
+
+    .custom-bar{
+        top: 150px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -54px;
+        background: transparent;
+        font-size: 18px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 54px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 24px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+    }  
+}
+
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    .leaflet-top {
+        top: 16%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 52px;
+        color: white;
+        line-height: 100px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 52px;
+        color: orange;
+        line-height: 100px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 230px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    .leaflet-top {
+        top: 4%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 52px 52px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 36px;
+        color: white;
+        line-height: 54px;
+    }
+    .icons-font-active{
+        font-size: 36px;
+        color: orange;
+        line-height: 54px;
+    }
+
+    .custom-bar{
+        top: 150px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -54px;
+        background: transparent;
+        font-size: 18px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 54px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 24px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+    }  
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .leaflet-top {
+        top: 16%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 52px;
+        color: white;
+        line-height: 100px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 52px;
+        color: orange;
+        line-height: 100px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 230px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+    .leaflet-top {
+        top: 4%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 52px 52px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 36px;
+        color: white;
+        line-height: 54px;
+    }
+    .icons-font-active{
+        font-size: 36px;
+        color: orange;
+        line-height: 54px;
+    }
+
+    .custom-bar{
+        top: 150px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -54px;
+        background: transparent;
+        font-size: 18px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 54px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 24px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+    }  
+
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .leaflet-top {
+        top: 16%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 54px;
+        color: white;
+        line-height: 100px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 54px;
+        color: orange;
+        line-height: 100px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 230px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 32px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 32px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+}
+
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .leaflet-top {
+        top: 3%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 50px 50px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 25px;
+        color: white;
+        line-height: 45px;
+    }
+    .icons-font-active{
+        font-size: 25px;
+        color: orange;
+        line-height: 45px;
+    }
+
+    .custom-bar{
+        top: 120px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }  
+}
+
+
+/* ----------- Galaxy S3 ----------- */
+/*No need css*/
+
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    .leaflet-top {
+    top: 11%;
+}
+
+}
+
+/* ----------- Galaxy S6 ----------- */
+/*No need css*/
+
+/* ----------- Google Pixel ----------- */
+/*No need css*/
+
+/* ----------- HTC One ----------- */
+/*No need css*/
+
+/* ----------- Windows Phone ----------- */
+
+/* Portrait */
+@media screen 
+  and (device-width: 480px) 
+  and (device-height: 800px)  
+  and (orientation: portrait) {
+    .leaflet-top {
+        top: 16%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 54px;
+        color: white;
+        line-height: 100px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 54px;
+        color: orange;
+        line-height: 100px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 230px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 32px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 32px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 800px) 
+  and (device-height: 480px) 
+  and (orientation: landscape) {
+    .leaflet-top {
+        top: 7%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 50px 50px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 25px;
+        color: white;
+        line-height: 45px;
+    }
+    .icons-font-active{
+        font-size: 25px;
+        color: orange;
+        line-height: 45px;
+    }
+
+    .custom-bar{
+        top: 120px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }  
+}
+
+
+
+/* ----------- iPad 1, 2, Mini and Air ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .leaflet-top {
+        top: 12%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 48px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 41px;
+        color: white;
+        line-height: 80px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 41px;
+        color: orange;
+        line-height: 80px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 230px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 80px;
+        height: 80px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -80px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 80px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -80px;
+        background: transparent;
+        font-size: 28px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 80px;
+    }
+}
+
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .leaflet-top {
+        top: 6%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 50px 50px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 25px;
+        color: white;
+        line-height: 45px;
+    }
+    .icons-font-active{
+        font-size: 25px;
+        color: orange;
+        line-height: 45px;
+    }
+
+    .custom-bar{
+        top: 120px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }  
+}
+
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/*No need css*/
+
+/* ----------- iPad Pro 10.5" ----------- */
+
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1112px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .leaflet-top {
+        top: 6%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 50px 50px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 25px;
+        color: white;
+        line-height: 45px;
+    }
+    .icons-font-active{
+        font-size: 25px;
+        color: orange;
+        line-height: 45px;
+    }
+
+    .custom-bar{
+        top: 120px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }
+}
+
+
+
+
+/* ----------- Galaxy Tab 2 ----------- */
+
+/* Landscape */
+@media 
+  (max-device-width: 1280px) 
+  and (orientation: landscape) { 
+    .leaflet-top {
+        top: 6%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 50px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 50px 50px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 25px;
+        color: white;
+        line-height: 45px;
+    }
+    .icons-font-active{
+        font-size: 25px;
+        color: orange;
+        line-height: 45px;
+    }
+
+    .custom-bar{
+        top: 120px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -45px;
+        background: transparent;
+        font-size: 16px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 45px;
+    }
+}
+
+/* ----------- Galaxy Tab S ----------- */
+/*NO NEED CSS*/
+
+/* ----------- Nexus 7 ----------- */
+/*NO NEED CSS*/
+
+
+/* ----------- Kindle Fire HD 7" ----------- */
+
+/*NO NEED CSS*/
+
+/* ----------- Kindle Fire HD 8.9" ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) 
+  and (orientation: portrait) {
+    .leaflet-top {
+        top: 12%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 54px 54px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 52px;
+        color: white;
+        line-height: 100px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 52px;
+        color: orange;
+        line-height: 100px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 280px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 100px;
+        height: 100px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 30px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -100px;
+        background: transparent;
+        font-size: 30px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 100px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) 
+  and (orientation: landscape) {
+    .leaflet-top {
+        top: 8%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 54px 54px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 35px;
+        color: white;
+        line-height: 60px;
+        margin: 5px;
+    }
+    .icons-font-active{
+        font-size: 35px;
+        color: orange;
+        line-height: 60px;
+        margin: 5px;
+    }
+
+    .custom-bar{
+        top: 160px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 60px;
+        height: 60px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 22px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 60px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 22px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 60px;
+    }
+}
+
+
+/* ----------- LAPTOP ----------- */
+/* ----------- Non-Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1600px){ 
+    .leaflet-top {
+        top: 8%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 60px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 54px 54px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 35px;
+        color: white;
+        line-height: 60px;
+        margin: 5px;
+    }
+    .icons-font-active{
+        font-size: 35px;
+        color: orange;
+        line-height: 60px;
+        margin: 5px;
+    }
+
+    .custom-bar{
+        top: 160px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 60px;
+        height: 60px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 22px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 60px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -60px;
+        background: transparent;
+        font-size: 22px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 60px;
+    }
+
+}
+
+
+/* ----------- Nexus 9 ----------- */
+/* Portrait */
+@media screen 
+  and (device-width: 1536px) 
+  and (device-height: 2048px) 
+  and (-webkit-min-device-pixel-ratio: 1.331) 
+  and (-webkit-max-device-pixel-ratio: 1.332) 
+  and (orientation: portrait) {
+    .leaflet-top {
+        top: 12%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        font-size: 72px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 70px;
+        color: white;
+        line-height: 120px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 70px;
+        color: orange;
+        line-height: 120px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 280px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 120px;
+        height: 120px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -120px;
+        background: transparent;
+        font-size: 35px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 120px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -120px;
+        background: transparent;
+        font-size: 35px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 120px;
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 2048px) 
+  and (device-height: 1536px) 
+  and (-webkit-min-device-pixel-ratio: 1.331) 
+  and (-webkit-max-device-pixel-ratio: 1.332) 
+  and (orientation: landscape) {
+    .leaflet-top {
+        top: 12%;
+    }
+
+    .leaflet-touch .leaflet-bar a {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        font-size: 72px;
+    }
+
+    .leaflet-touch .leaflet-control-layers-toggle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        background-size: 70px 70px;
+    }
+
+    .menu-text {
+        height: 22px;
+        -webkit-transition: background-color .3s;
+        transition: background-color .3s;
+        position: relative;
+        text-shadow: 0 0 4px black;
+        right: 100%;
+        top: -120%;
+        line-height: 1.4;
+        padding-left: 11px;
+        padding-right: 11px;
+        margin-top: 1.5px;
+        /*right: 22px;*/
+        margin-top: -20%;
+        border-radius: 1.2em;
+        color: white;
+        text-align: right;
+        z-index: 9999;
+    }
+
+    .icons-font {
+        font-size: 70px;
+        color: white;
+        line-height: 120px;
+        margin: 7px;
+    }
+    .icons-font-active{
+        font-size: 70px;
+        color: orange;
+        line-height: 120px;
+        margin: 7px;
+    }
+
+    .custom-bar{
+        top: 280px;
+    }
+
+    .leaflet-control-layers-selector {
+        margin-top: 2px;
+        position: relative;
+        top: 1px;
+        display: none;
+        }
+    .leaflet-control-layers-expanded {
+        padding: 6px 10px 6px 6px;
+        color: #333;
+        background: rgba(68,65,65,0.60);
+        }
+
+
+    .leaflet-bar a,
+    .leaflet-bar a:hover {
+        background-color: #000000;
+        /*background-color: rgba(68,65,65,0.60);*/
+        border-bottom: 1px solid #ccc;
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        }
+
+    .leaflet-bar a:hover {
+        /*background-color: rgba(25,20,20,0.84);*/ background-color:#000000;
+        color: white;
+        }
+
+    .leaflet-bar a.leaflet-disabled {
+        cursor: default;
+        background-color: rgba(25,20,20,0.84);
+        color: grey;
+    }
+
+
+    .leaflet-control-layers {
+        box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        background-color: rgba(68,65,65,0.60);
+        border-radius: 5px;
+    }
+
+    .leaflet-control-layers-toggle {
+        background-image: url(../dist/images/layers.png);
+        width: 120px;
+        height: 120px;
+    }
+
+    /*CSS TOOL TIP*/
+    .tooltiptext {
+        display: block;
+        min-width: 500%;
+        /* background-color: black; */
+        color: #fff;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -120px;
+        background: transparent;
+        font-size: 35px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 120px;
+    }
+
+
+    .tooltiptext:hover {
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline; 
+    }
+
+    .tooltiptext-active {
+        display: block;
+        min-width: 500%;
+        background: rgba(68,65,65,0.60);
+        text-decoration: underline;
+        color: orange;
+        text-align: right;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        padding-right: 12px;
+        right: 115%;
+        margin-top: -120px;
+        background: transparent;
+        font-size: 35px;
+        font-family: roboto, sans-serif;
+        font-weight: 300;
+        line-height: 120px;
+    }
+}
+
+
+
+.fa, .fas{
+        cursor: pointer;
+}
