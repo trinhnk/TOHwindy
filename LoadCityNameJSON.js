@@ -12,7 +12,7 @@ L.LoadCityNameJSON = L.TileLayer.extend({
 				tile.datum = response;
 				layer._tileLoaded(tile, tilePoint);
 			}else{
-				 layer._tileLoaded(tile, tilePoint);
+				layer._tileLoaded(tile, tilePoint);
 			}
 		}).fail(function( jqxhr) {});
     },
