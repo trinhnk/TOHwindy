@@ -1,30 +1,13 @@
-// var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',
-//     {
-//         maxZoom: 11,
-//         minZoom: 3,
-//     }
-// );
 var mapCenter = [20.998128, 105.794390];
-// var mapCenter = [82.894, 105.794390];
 
 function initWindyMap(){
 
     var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
     // var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
-    // var Wind_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid='+API_Openweathermap,{
-    //     maxZoom: 11,
-    //     minZoom: 3,
-    //     opacity: 0.7
-    // });
     var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
         maxZoom: 11,
         minZoom: 3,
     });
-    // var Temperature_Map_2 = L.tileLayer('https://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid='+API_Openweathermap,{
-    //     maxZoom: 11,
-    //     minZoom: 3,
-    //     opacity: 1
-    // })
     var Temperature_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00',{
         maxZoom: 11,
         minZoom: 3,
@@ -45,6 +28,44 @@ function initWindyMap(){
         maxZoom: 11,
         minZoom: 3,
     })
+
+    var PAC0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAC0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var PR0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PR0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var PA0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PA0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var PAS0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var SD0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/SD0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var WND = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/WND/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var TD2 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TD2/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var TS0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    var TS10 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TS10/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+
     var overlayLayer = {
         '<center><i class="fas fa-wind icons-font" id="wind_map"><span class="tooltiptext">Bản đồ Gió</span></i></center> ' : Wind_Map,
         '<center><i class="fas fa-thermometer-three-quarters icons-font"  id="temperature_map"><span class="tooltiptext">Bản đồ Nhiệt</span></i></center> ' : Temperature_Map,
@@ -52,21 +73,27 @@ function initWindyMap(){
         '<center><i class="fas fa-cloud-sun-rain icons-font"  id="accumulated_precipitation_rain"><span class="tooltiptext">Bản đồ Lượng Mưa</span></i></center>' : Accumulated_Precipitation_Rain,
         '<center><i class="fas fa-angle-double-down icons-font"  id="atmospheric_Pressure_Mean"><span class="tooltiptext">Bản đồ Áp Suất</span></i></center>' : Atmospheric_Pressure_Mean,
         '<center><i class="fas fa-cloud icons-font"  id="cloudiness" ><span class="tooltiptext">Bản đồ Mây</span></i></center>' : Cloudiness,
+        "(PAC0) Convective precipitation" : PAC0,
+        "(PR0) Precipitation intensity" : PR0,
+        "(PA0) Accumulated precipitation" : PA0,
+        "(PAR0) Accumulated Precipitation Rain" : Accumulated_Precipitation_Rain,
+        "(PAS0) Accumulated precipitation - snow" : PAS0,
+        "(SD0) Depth of snow" : SD0,
+        "(WS10) Wind Map" : Wind_Map,
+        "(WND) Joint display of speed wind and wind direction" : WND,
+        "(APM) Pressure" : Atmospheric_Pressure_Mean,
+        "(TA2) Temperature Map" : Temperature_Map,
+        "(TD2) Temperature of a dew point" : TD2,
+        "(TS0) Soil temperature 0-10 сm" : TS0,
+        "(TS10) Soil temperature >10 сm" : TS10,
+        "(HRD0) Relative Humidity" : Relative_Humidity,
+        "(CL) Cloudiness" : Cloudiness,
     }
 
-    // var jsonCityURL = 'https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json';
-    // var geojsonTileLayer = new L.TileLayer.GeoJSON(jsonCityURL);
-    // map.addLayer(geojsonTileLayer);
-    // var jsonCityURL = 'https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json';
     var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',{
         maxZoom: 11,
         minZoom: 3,
     });
-
-    // var tempByCity = new L.LoadTempByCity('https://ims-s.windy.com/forecast/citytile/v1.3/gfs/{z}/{x}/{y}',{
-    //     maxZoom: 11,
-    //     minZoom: 3,
-    // })
 
     var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
         maxZoom: 11,
@@ -83,20 +110,15 @@ function initWindyMap(){
             Temperature_Map, 
             geojsonTileLayer 
         ],
-        closePopupOnClick: false
+        closePopupOnClick: false,
+        'worldCopyJump': true,
     });
 
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
-    // geojsonTileLayer.addTo(map);
-    // tempByCity.addTo(map);
 
-    map.setView([56.450,113.027], 3);
-    // map.setView(mapCenter, 3);
 
-    // var d =new Date();
-    // var now = d.getTime();
-    // console.log(now);
+    map.setView(mapCenter, 5);
 
     return {
         map: map,
@@ -139,6 +161,10 @@ map.on('zoomend',function(e){
 //     geojsonTileLayer.addTo(map);
 // });
 
+map.on('drag', function(e){
+    // console.log(map.getCenter().lat)
+    mapCenter = [map.getCenter().lat, map.getCenter().lng]
+});
 
 WindJSLeaflet.init({
     wind: true,

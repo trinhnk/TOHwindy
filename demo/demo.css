@@ -110,7 +110,9 @@ a {
 	/* margin-top: 20px; */
 }
 
-
+.city-name{
+	z-index: 1000 !important;
+}
 .city-name [data-id]::after {
     pointer-events: none;
     position: absolute;
