@@ -67,12 +67,12 @@ function initWindyMap(){
     })
 
     var overlayLayer = {
-        '<center><i class="fas fa-wind icons-font" id="wind_map"><span class="tooltiptext">Bản đồ Gió</span></i></center> ' : Wind_Map,
-        '<center><i class="fas fa-thermometer-three-quarters icons-font"  id="temperature_map"><span class="tooltiptext">Bản đồ Nhiệt</span></i></center> ' : Temperature_Map,
-        '<center><i class="fas fa-user-alt icons-font"  id="relative_humidity"><span class="tooltiptext">Bản đồ Dân Cư</span></i></center>' : Relative_Humidity,
-        '<center><i class="fas fa-cloud-sun-rain icons-font"  id="accumulated_precipitation_rain"><span class="tooltiptext">Bản đồ Lượng Mưa</span></i></center>' : Accumulated_Precipitation_Rain,
-        '<center><i class="fas fa-angle-double-down icons-font"  id="atmospheric_Pressure_Mean"><span class="tooltiptext">Bản đồ Áp Suất</span></i></center>' : Atmospheric_Pressure_Mean,
-        '<center><i class="fas fa-cloud icons-font"  id="cloudiness" ><span class="tooltiptext">Bản đồ Mây</span></i></center>' : Cloudiness,
+        // '<center><i class="fas fa-wind icons-font" id="wind_map"><span class="tooltiptext">Bản đồ Gió</span></i></center> ' : Wind_Map,
+        // '<center><i class="fas fa-thermometer-three-quarters icons-font"  id="temperature_map"><span class="tooltiptext">Bản đồ Nhiệt</span></i></center> ' : Temperature_Map,
+        // '<center><i class="fas fa-user-alt icons-font"  id="relative_humidity"><span class="tooltiptext">Bản đồ Dân Cư</span></i></center>' : Relative_Humidity,
+        // '<center><i class="fas fa-cloud-sun-rain icons-font"  id="accumulated_precipitation_rain"><span class="tooltiptext">Bản đồ Lượng Mưa</span></i></center>' : Accumulated_Precipitation_Rain,
+        // '<center><i class="fas fa-angle-double-down icons-font"  id="atmospheric_Pressure_Mean"><span class="tooltiptext">Bản đồ Áp Suất</span></i></center>' : Atmospheric_Pressure_Mean,
+        // '<center><i class="fas fa-cloud icons-font"  id="cloudiness" ><span class="tooltiptext">Bản đồ Mây</span></i></center>' : Cloudiness,
         "(PAC0) Convective precipitation" : PAC0,
         "(PR0) Precipitation intensity" : PR0,
         "(PA0) Accumulated precipitation" : PA0,
