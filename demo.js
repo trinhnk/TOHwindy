@@ -74,8 +74,9 @@ var handleError = function(err){
     console.log(err);
 };
 
+var newZoomLevel = null;
 var markerGroup = L.layerGroup().addTo(map);
-map.on('zoom', function(e){
+map.on('zoomstart', function(e){
 	markerGroup.clearLayers();
 });
 
