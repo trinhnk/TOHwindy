@@ -32,7 +32,6 @@ L.LoadCityNameJSON = L.TileLayer.extend({
 				}else if(newZoomLevel != zoom_url){
 					markerGroup.clearLayers();
 					newZoomLevel = zoom_url;
-					console.log('clear level' + zoom_url);
 				}
 				$.getJSON(url, function(response) {
 					if(response){
