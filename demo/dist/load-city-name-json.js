@@ -265,6 +265,7 @@ L.LoadCityNameJSON = L.TileLayer.Ajax.extend({
 
     _tileLoaded: function (tile, tilePoint) {
         // console.log(WindJSLeaflet)
+        // console.log(tile)
 		var windy_init_timeout = function(lng, lat, counter, callback){
 			if(WindJSLeaflet && WindJSLeaflet._windy){
 				var interpolatePointResult = WindJSLeaflet._windy.interpolatePoint(lng, lat);

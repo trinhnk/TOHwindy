@@ -4,7 +4,20 @@ function initWindyMap(){
 
     var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
     // var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
-    var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
+    // var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
+    //     maxZoom: 11,
+    //     minZoom: 3,
+    // });
+    var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:2468b4;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:fcf103;21:ffbd11;24:f68922;27:ef4c2d;29:ee2b31;36:c81688',{
+        maxZoom: 11,
+        minZoom: 3,
+    });
+
+    var Wind_Map1 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:86a3ab;2:7f97b9;3:6e90d0;5:0f94a7;8:39a239;10:c2863e;14:c8420d;17:d20032;21:af5088;25:754a92;29:45698d;33:c2fb78;43:f1ff6c',{
+        maxZoom: 11,
+        minZoom: 3,
+    });
+    var Wind_Map2 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6a6583;2:6968ab;4:4a68b7;6:4795ae;8:50af7e;10:4abf48;12:ccd83f;14:dac13f;16:da9e47;18:d5774c;22:c74770;26:a3355a;30:921f52;34:651b1d;38:2b0001',{
         maxZoom: 11,
         minZoom: 3,
     });
@@ -12,6 +25,11 @@ function initWindyMap(){
         maxZoom: 11,
         minZoom: 3,
     })
+    var Temperature_Map2 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=-30:683091;-20:0c4d9f;-10:1081c5;0:009090;10:00a652;15:67bc45;20:fcf103;25:ffbd11;28:f68922;30:ef4c2d;35:ee2b31;40:c81688',{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+
     var Relative_Humidity	 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
         maxZoom: 11,
         minZoom: 3,
@@ -73,10 +91,13 @@ function initWindyMap(){
         "(PAR0) Accumulated Precipitation Rain" : Accumulated_Precipitation_Rain,
         "(PAS0) Accumulated precipitation - snow" : PAS0,
         "(SD0) Depth of snow" : SD0,
-        "(WS10) Wind Map" : Wind_Map,
+        "(WS10) Wind Map" : Wind_Map1,
+        "Wind_Map2" : Wind_Map2,
+        "Wind_Map" : Wind_Map,
         "(WND) Joint display of speed wind and wind direction" : WND,
         "(APM) Pressure" : Atmospheric_Pressure_Mean,
         "(TA2) Temperature Map" : Temperature_Map,
+        "Temperature_Map2" : Temperature_Map,
         "(TD2) Temperature of a dew point" : TD2,
         "(TS0) Soil temperature 0-10 сm" : TS0,
         "(TS10) Soil temperature >10 сm" : TS10,
@@ -85,11 +106,13 @@ function initWindyMap(){
     }
 
     var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',{
+    // var geojsonTileLayer = new L.LoadCityNameJSON('map/cities/{z}/{x}/{y}.json',{
         maxZoom: 11,
         minZoom: 3,
     });
 
     var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
+    // var Windy_Map = L.tileLayer('map/images/{z}/{x}/{y}.png',{
         maxZoom: 11,
         minZoom: 3
     });
@@ -101,7 +124,7 @@ function initWindyMap(){
     var map = L.map('map', {
         layers: [ 
             Windy_Map, 
-            Temperature_Map, 
+            Temperature_Map2, 
             geojsonTileLayer 
         ],
         closePopupOnClick: false,
@@ -191,6 +214,22 @@ WindJSLeaflet.init({
 // 184:
 // 277:
 // 374:
+
+// Color Of Wind Speed 2
+// 0:86a3ab
+// 6:7f97b9
+// 12:6e90d0
+// 20:0f94a7
+// 29:39a239
+// 39:c2863e
+// 50:c8420d
+// 62:d20032
+// 75:af5088
+// 89:754a92
+// 103:45698d
+// 118:c2fb78
+// 154:f1ff6c
+
 
 // Relative_humidity
 // 0:ad5538
