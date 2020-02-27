@@ -8,7 +8,25 @@ function initWindyMap(){
         maxZoom: 11,
         minZoom: 3,
     });
-    var Temperature_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00',{
+
+    var Temp3 = "";
+        Temp3 += "-65:821692;"
+        Temp3 += "-55:821692;"
+        Temp3 += "-45:821692;"
+        Temp3 += "-40:821692;"
+        Temp3 += "-30:8257db;"
+        Temp3 += "-20:208cec;"
+        Temp3 += "-10:20c4e8;"
+        Temp3 += "0:4eb095;"
+        Temp3 += "5:5bc84c;"
+        Temp3 += "10:b8db41;"
+        Temp3 += "15:e0ce38;"
+        Temp3 += "20:df9f41;"
+        Temp3 += "25:dc6d55;"
+        Temp3 += "30:b73466;"
+        Temp3 += "40:6b1527;"
+        Temp3 += "50:2b0001"
+    var Temperature_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+Temp3,{
         maxZoom: 11,
         minZoom: 3,
     })
