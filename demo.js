@@ -85,12 +85,12 @@ function initWindyMap(){
         '<center><i class="fas fa-cloud icons-font"  id="cloudiness" ><span class="tooltiptext">Cloudiness</span></i></center>' : Cloudiness,
     }
 
-    var geojsonTileLayer = new L.LoadCityNameJSON('https://tiles.windy.com/labels/v1.3/en/{z}/{x}/{y}.json',{
+    var geojsonTileLayer = new L.LoadCityNameJSON('/source/json/{z}/{x}/{y}.json',{
         maxZoom: 11,
         minZoom: 3,
     });
 
-    var Windy_Map = L.tileLayer('https://tiles.windy.com/tiles/v9.0/darkmap/{z}/{x}/{y}.png',{
+    var Windy_Map = L.tileLayer('/source/images/{z}/{x}/{y}.png',{
         maxZoom: 11,
         minZoom: 3
     });
