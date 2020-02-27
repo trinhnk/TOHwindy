@@ -1,4 +1,27 @@
-var mapCenter = [20.998128, 105.794390];
+function getQueryVariable(variable){
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){
+            // return pair[1];
+            variable = pair[1];
+            return variable;
+        }
+    }
+}
+var lat = 20.998128;
+var lng = 105.794390;
+var overlay = 'temp';
+
+const queryString = window.location.search;
+if (queryString){
+    lat = getQueryVariable('lat');
+    lng = getQueryVariable('lng');
+    overlay = getQueryVariable('overlay');
+}
+
+var mapCenter = [lat, lng];
 
 function initWindyMap(){
 
@@ -117,10 +140,27 @@ function initWindyMap(){
         "Windy Map" : Windy_Map,
     };
 
+    var Layer = Temperature_Map;
+    switch (overlay) {
+        case 'wind':
+            Layer = Wind_Map;
+            break;
+        case 'pressure':
+            Layer = Atmospheric_Pressure_Mean;
+            break;
+        case 'rain':
+            Layer = Accumulated_Precipitation_Rain;
+            break;
+        case 'clouds':
+            Layer = Cloudiness;
+            break;
+        default: Layer = Temperature_Map;
+            break;
+    }
     var map = L.map('map', {
         layers: [ 
             Windy_Map, 
-            Temperature_Map, 
+            Layer, 
             geojsonTileLayer 
         ],
         closePopupOnClick: false,
@@ -129,7 +169,6 @@ function initWindyMap(){
 
     var layerControl = L.control.layers(overlayLayer, baseLayers);
     layerControl.addTo(map);
-
 
     map.setView(mapCenter, 5);
 
