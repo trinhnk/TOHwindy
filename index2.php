@@ -89,14 +89,14 @@
             // }    
         }
 
-        function returnAndroid() {
-            if (typeof Android === 'undefined') {
-              return;
-            }else{
-              return Android.returnAndroid('{"layouts" : [{"name" : "clouds"}, {"name" : "rain"}, {"name" : "pressure"}, {"name" : "wind"}, {"name" : "temp"}]}');
-            }
-        }
-        returnAndroid();
+	function returnAndroid() {
+		if (typeof Android === 'undefined') {
+		return;
+		}else{
+		return Android.returnAndroid('{"layouts" : [{"name" : "clouds"}, {"name" : "rain"}, {"name" : "pressure"}, {"name" : "wind"}, {"name" : "temp"}]}');
+		}
+	}
+	returnAndroid();
 </script>
 <style>
 	.leaflet-top {
@@ -130,6 +130,7 @@
 	}
 	.custom-bar {
 		top: 80px!important;
+		display:none;
 	}
 
 	.icons-font, .icons-font-active {
