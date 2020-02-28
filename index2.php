@@ -61,12 +61,62 @@
 	});
 </script>
 <style>
-	.leaflet-control {
-		margin-right: 40px!important;
+	.leaflet-top {
+		top: 1%!important;
 	}
 
-	.custom-bar{
-		margin-right: 23px!important;
+	.leaflet-control, .custom-bar {
+		margin-right: 10px!important;
+	}
+
+	.leaflet-bar a {
+		background-color: #000000;
+		/* background-color: rgba(68,65,65,0.60); */
+		border-bottom: 1px solid #ccc;
+		width: 30px!important;
+		height: 30px!important;
+		line-height: 30px!important;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		color: white;
+	}
+	.leaflet-control-zoom-in,
+	.leaflet-control-zoom-out{
+		font-size: 12px!important;
+	}
+	.leaflet-control-layers-expanded {
+		padding: 2px!important;
+		color: #333;
+		background: rgba(68,65,65,0.60);
+	}
+	.custom-bar {
+		top: 80px!important;
+	}
+
+	.icons-font, .icons-font-active {
+		font-size: 12px!important;
+		color: white;
+		line-height: 12px;
+		margin: 2px;
+	}
+
+	.leaflet-control-layers-expanded center{
+		width: 26px!important;
+		height: 26px!important;
+		line-height: 26px!important;
+	}
+
+	.tooltiptext, .tooltiptext:hover {
+		font-size: 9px!important;
+		line-height: 30px!important;
+		text-decoration: underline;
+		margin-top:-23px!important;
+		padding:0!important;
+	}
+
+	.icons-font-active {
+		color: orange!important;
 	}
 </style>
 </body>
