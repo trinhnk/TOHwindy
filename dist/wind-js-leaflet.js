@@ -739,7 +739,7 @@ L.Control.WindPosition = L.Control.extend({
 	onAdd: function onAdd(map) {
 		this._container = L.DomUtil.create('div', 'leaflet-control-wind-position');
 		L.DomEvent.disableClickPropagation(this._container);
-		map.on('mousemove', this._onMouseMove, this);
+		// map.on('mousemove', this._onMouseMove, this);
 		// map.on('click', this._onMouseMove, this);
 		this._container.innerHTML = this.options.emptyString;
 		return this._container;
