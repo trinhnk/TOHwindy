@@ -61,14 +61,8 @@
 	});
 </script>
 <style>
-	.leaflet-control-zoom, 
-	.custom-bar{
-		width: 20%;
-		height: 20%;
-	}
-
-	.leaflet-right .leaflet-control {
-		margin-right: 40px;
+	.leaflet-control {
+		margin-right: 40px!important;
 	}
 
 	.custom-bar{
