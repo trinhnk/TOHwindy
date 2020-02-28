@@ -59,10 +59,13 @@
 		$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
 		$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
 	});
-
-	alert($(window).height());
-	alert($(window).width());
-
 </script>
+<style>
+	.leaflet-control-zoom, 
+	.custom-bar{
+		width: 20%;
+		height: 20%;
+	}
+</style>
 </body>
 </html>
