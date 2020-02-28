@@ -733,7 +733,7 @@ L.Control.WindPosition = L.Control.extend({
 
 	options: {
 		position: 'bottomleft',
-		emptyString: 'Unavailable'
+		emptyString: ''
 	},
 
 	onAdd: function onAdd(map) {
