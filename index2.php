@@ -93,7 +93,7 @@
 		if (typeof Android === 'undefined') {
 		return;
 		}else{
-		return Android.returnAndroid('{"layouts" : [{"name" : "clouds"}, {"name" : "rain"}, {"name" : "pressure"}, {"name" : "wind"}, {"name" : "temp"}]}');
+		return Android.returnAndroid('{"layouts" : [{"name" : "clouds"}, {"name" : "rain"}, {"name" : "pressure"}, {"name" : "wind"}, {"name" : "temp"}, {"name" : "rh"}]}');
 		}
 	}
 	returnAndroid();
