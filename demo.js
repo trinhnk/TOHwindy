@@ -108,22 +108,13 @@ function initWindyMap(){
     })
 
     var overlayLayer = {
-        
-        '<center><i class="fab fa-connectdevelop icons-font"  id="cloudiness" ><span class="tooltiptext">Convective Precipitation</span></i></center>' : PAC0,
-        '<center><i class="fas fa-cloud-showers-heavy icons-font"  id="cloudiness" ><span class="tooltiptext">Precipitation Intensity</span></i></center>' : PR0,
-        '<center><i class="fab fa-artstation icons-font"  id="cloudiness" ><span class="tooltiptext">Accumulated Precipitation</span></i></center>' : PA0,
-        '<center><i class="fas fa-cloud-rain icons-font"  id="cloudiness" ><span class="tooltiptext">Accumulated Precipitation - Rain</span></i></center>' : Accumulated_Precipitation_Rain,
-        '<center><i class="fas fa-snowman icons-font"  id="cloudiness" ><span class="tooltiptext">Accumulated Precipitation - Snow</span></i></center>' : PAS0,
-        '<center><i class="far fa-snowflake icons-font"  id="cloudiness" ><span class="tooltiptext">Depth of Snow</span></i></center>' : SD0,
-        '<center><i class="fas fa-wind icons-font"  id="cloudiness" ><span class="tooltiptext">Wind Map</span></i></center>' : Wind_Map,
-        '<center><i class="fas fa-location-arrow icons-font"  id="cloudiness" ><span class="tooltiptext">Joint Display of Speed Wind & Wind Direction</span></i></center>' : WND,
-        '<center><i class="fas fa-arrow-circle-down icons-font"  id="cloudiness" ><span class="tooltiptext">Pressure</span></i></center>' : Atmospheric_Pressure_Mean,
-        '<center><i class="fas fa-thermometer-three-quarters icons-font"  id="cloudiness" ><span class="tooltiptext">Temperature Map</span></i></center>' : Temperature_Map,
-        '<center><i class="fas fa-tint icons-font"  id="cloudiness" ><span class="tooltiptext">Temperature of A Dew Point</span></i></center>' : TD2,
-        '<center><i class="fas fa-temperature-low icons-font"  id="cloudiness" ><span class="tooltiptext">Temperature 0 - 10 сm</span></i></center>' : TS0,
-        '<center><i class="fas fa-temperature-high icons-font"  id="cloudiness" ><span class="tooltiptext">Soil Temperature > 10 сm</span></i></center>' : TS10,
-        '<center><i class="fas fa-water icons-font"  id="cloudiness" ><span class="tooltiptext">Relative Humidity</span></i></center>' : Relative_Humidity,
-        '<center><i class="fas fa-cloud icons-font"  id="cloudiness" ><span class="tooltiptext">Cloudiness</span></i></center>' : Cloudiness,
+        '<center><i class="fas fa-cloud-rain icons-font" id="rain-layout"></center>' : Accumulated_Precipitation_Rain,
+        '<center><i class="fas fa-snowman icons-font" id="snow-layout"></i></center>' : PAS0,
+        '<center><i class="fas fa-wind icons-font" id="windy-layout"></i></center>' : Wind_Map,
+        '<center><i class="fas fa-arrow-circle-down icons-font" id="pressure-layout"></i></center>' : Atmospheric_Pressure_Mean,
+        '<center><i class="fas fa-thermometer-three-quarters icons-font" id="temp-layout"></i></center>' : Temperature_Map,
+        '<center><i class="fas fa-water icons-font" id="humidity-layout"></i></center>' : Relative_Humidity,
+        '<center><i class="fas fa-cloud icons-font" id="cloudy-layout"></i></center>' : Cloudiness,
     }
 
     var geojsonTileLayer = new L.LoadCityNameJSON('/resource/json/{z}/{x}/{y}.json',{

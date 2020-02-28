@@ -59,6 +59,35 @@
 		$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
 		$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
 	});
+
+	var W = new Object();
+        W.store = new Object();
+        W.maps = new Object();
+        W.maps.setView = function(latlng){
+            map.setView([latlng[0], latlng[1]], 5);
+            // window.location.href = "http://radar.tohapp.com/en/apiv2/tohWeather.php?lat="+latlng[0]+"&lng="+latlng[1]+"&z=8&overlay="+currentOverlay;
+        }
+
+        W.store.set = function(key, value){
+            if(key == "overlay" && value == "clouds"){
+                $('#cloudy-layout').click()
+            }else if(key == "overlay" && value == "rain"){
+                $('#rain-layout').click()
+            }else if(key == "overlay" && value == "pressure"){
+                $('#pressure-layout').click()
+            }else if(key == "overlay" && value == "wind"){
+                $('#windy-layout').click()
+            }else if(key == "overlay" && value == "temp"){
+                $('#temp-layout').click()
+            }else if(key == "overlay" && value == "rh"){
+                $('#humidity-layout').click()
+			}
+			// else if(key == "overlay" && value == "waves"){
+            //     alert(7)
+            // }else if(key == "overlay" && value == "currents"){
+            //     alert(8)
+            // }    
+        }
 </script>
 <style>
 	.leaflet-top {
