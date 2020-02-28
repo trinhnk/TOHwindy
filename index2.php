@@ -66,6 +66,14 @@
 		width: 20%;
 		height: 20%;
 	}
+
+	.leaflet-right .leaflet-control {
+		margin-right: 40px;
+	}
+
+	.custom-bar{
+		margin-right: 23px!important;
+	}
 </style>
 </body>
 </html>
