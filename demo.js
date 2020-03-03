@@ -49,60 +49,60 @@ function initWindyMap(){
         Temp3 += "30:b73466;"
         Temp3 += "40:6b1527;"
         Temp3 += "50:2b0001"
-    var Temperature_Map = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+Temp3,{
+    var Temperature_Map = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+Temp3,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var Relative_Humidity    = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
+    var Relative_Humidity    = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
         maxZoom: 11,
         minZoom: 3,
     })
-    var Accumulated_Precipitation_Rain = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAR0/{z}/{x}/{y}?fill_bound=true&opacity=1&palette=0:6f6f6f;0.6:3c74a0;6:3ba1a1;8:3ba13d;10:82a13b;15:a1a13b;20:a13b3b;31:a13ba1;50:a8a8a8&appid='+API_Openweathermap,{
+    var Accumulated_Precipitation_Rain = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/PAR0/{z}/{x}/{y}?fill_bound=true&opacity=1&palette=0:6f6f6f;0.6:3c74a0;6:3ba1a1;8:3ba13d;10:82a13b;15:a1a13b;20:a13b3b;31:a13ba1;50:a8a8a8&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var Atmospheric_Pressure_Mean = L.tileLayer('https://b.tile.openweathermap.org/map/pressure/{z}/{x}/{y}?fill_bound=true&opacity=1&pallette=990:8eb3b8;995:68b4b3;1000:45a7a6;1003:398393;1006:397693;1009:395b93;1015:3a7535;1019:9fa141;1022:ad8839;1025:aa5443;1030:5e3c51&appid='+API_Openweathermap,{
+    var Atmospheric_Pressure_Mean = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=https://b.tile.openweathermap.org/map/pressure/{z}/{x}/{y}?fill_bound=true&opacity=1&pallette=990:8eb3b8;995:68b4b3;1000:45a7a6;1003:398393;1006:397693;1009:395b93;1015:3a7535;1019:9fa141;1022:ad8839;1025:aa5443;1030:5e3c51&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var Cloudiness = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:928246;10:847746;30:747474;80:adb7b6;95:bec1c1;100:d5d5cd',{
+    var Cloudiness = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=https://{s}.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:928246;10:847746;30:747474;80:adb7b6;95:bec1c1;100:d5d5cd',{
         maxZoom: 11,
         minZoom: 3,
     })
 
-    var PAC0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAC0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+    var PAC0 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/PAC0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var PR0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PR0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+    var PR0 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/PR0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var PA0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PA0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+    var PA0 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/PA0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var PAS0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8',{
+    var PAS0 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/PAS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8',{
         maxZoom: 11,
         minZoom: 3,
     })
-    var SD0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/SD0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8',{
+    var SD0 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/SD0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8',{
         maxZoom: 11,
         minZoom: 3,
     })
-    var WND = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/WND/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+    var WND = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/WND/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var TD2 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TD2/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+    var TD2 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/TD2/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var TS0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+    var TS0 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/TS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var TS10 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TS10/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
+    var TS10 = L.tileLayer('http://cache.goweatherradar.com/cacheapi/getimage?url=http://maps.openweathermap.org/maps/2.0/weather/TS10/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
