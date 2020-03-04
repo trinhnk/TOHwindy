@@ -210,6 +210,9 @@
 		.leaflet-touch .leaflet-bar{
 			border:none;
 		}
+		.leaflet-right .leaflet-control:focus{
+			outline: none !important;
+		}
 	</style>
 </body>
 </html>
