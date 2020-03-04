@@ -37,13 +37,11 @@
 
 
 <script>
-	// // $('input[type=checkbox]')[2].click();
-	$('input[type=checkbox]')[1].click();
-	$('input[type=checkbox]').attr( "disabled", "disabled" );
+	$(document).ready(function(){
+		$('input[type=checkbox]')[1].click();
+		$('input[type=checkbox]').attr( "disabled", "disabled" );
+	})
 
-	// $('input[type=checkbox]')[1].css('display', 'none');
-	// // $('input[type=radio]')[0].click();
-	
 	$('#temp').attr("style","display:none;"); //ẩn div có id="temp"
 	$('.leaflet-left').addClass('leaflet-right').removeClass('leaflet-left'); //Add class leaflet-right & xóa class leaflet-right trên site, tốt nhất là ghi đè vào js thì ok hơn
 	$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
