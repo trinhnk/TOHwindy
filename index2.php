@@ -192,6 +192,9 @@
 		.icons-font-active {
 			color: orange!important;
 		}
+		.leaflet-right .leaflet-control:focus {
+			outline: none !important;
+		}
 	</style>
 </body>
 </html>

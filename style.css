@@ -127,7 +127,3 @@ a {
 .city-name{
 	z-index: 1000 !important;
 }
-
-.leaflet-right .leaflet-control:focus {
-    outline: none !important;
-}
