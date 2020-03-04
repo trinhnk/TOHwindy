@@ -28,17 +28,18 @@
 	<!-- <script src="<?php echo $resource_url;?>/dist/font/kit.fontawesome.js"></script> -->
 	<!-- <script src="<?php echo $resource_url;?>/dist/jquery/3.4.1/jquery.min.js"></script> -->
 	<link rel="stylesheet" href="<?php echo $resource_url;?>/dist/fontawesome-free-5.12.1/css/all.css"/>
-	<link rel="stylesheet" href="<?php echo $resource_url;?>/dist/css/my_css.css" />
 	
 	<?php 
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
 		$version = file_get_contents(FCPATH.'version.txt');
+		copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');
 		copy (FCPATH.'style.css', FCPATH.'assets/'.$version.'_style.css');
 		copy (FCPATH.'jscript.js', FCPATH.'assets/'.$version.'_jscript.js');
 	?>
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_style.css" />
 	<script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_jscript.js"></script>
+	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_my_css.css" />
 	
 	<script>
 		function check_checkbox(callback){
