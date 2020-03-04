@@ -6,7 +6,7 @@
 </head>
 <body>
 	<?php $resource_url = 'http://resource.goweatherradar.com/';?>
-	<?php //$resource_url = 'http://mylocal.com/tohwindy/';?>
+	<?php $resource_url = 'http://mylocal.com/tohwindy/';?>
 	
 	<div id="map"></div>
 	<div id="temp"></div>
@@ -41,20 +41,37 @@
 	<script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_jscript.js"></script>
 	
 	<script>
-		$('#temp').attr("style","display:none;"); //ẩn div có id="temp"
-		$('.leaflet-left').addClass('leaflet-right').removeClass('leaflet-left'); //Add class leaflet-right & xóa class leaflet-right trên site, tốt nhất là ghi đè vào js thì ok hơn
-		$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
-		$('.leaflet-control-layers').mouseout(function(){
-			$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
-		 });
+		function check_checkbox(callback){
+			var checkbox_arrs = $('input[type=checkbox]');
+			if(checkbox_arrs && checkbox_arrs[1]){
+				callback();
+			}else{
+				setTimeout(function(){
+					check_checkbox();
+				}, 100);
+			}
+		}
+		$(document).ready(function(){
+			check_checkbox(function(){
+				$('input[type=checkbox]')[1].click();
+				$('input[type=checkbox]').attr( "disabled", "disabled" );
+				
+				$('#temp').attr("style","display:none;"); //ẩn div có id="temp"
+				$('.leaflet-left').addClass('leaflet-right').removeClass('leaflet-left'); //Add class leaflet-right & xóa class leaflet-right trên site, tốt nhất là ghi đè vào js thì ok hơn
+				$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
+				$('.leaflet-control-layers').mouseout(function(){
+					$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
+				 });
+				
+				$('.leaflet-control-layers-overlays').attr( "style", "display:none;" ); // Ẩn các bar thừa
+				$('.leaflet-control-layers-separator').attr( "style", "display:none;" );// Ẩn các bar thừa
 
-		$('.leaflet-control-layers-overlays').attr( "style", "display:none;" ); // Ẩn các bar thừa
-		$('.leaflet-control-layers-separator').attr( "style", "display:none;" );// Ẩn các bar thừa
-
-		// active icons by click
-		$('.icons-font').click(function(){
-			$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
-			$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
+				// active icons by click
+				$('.icons-font').click(function(){
+					$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
+					$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
+				});
+			});
 		});
 	</script>
 </body>
