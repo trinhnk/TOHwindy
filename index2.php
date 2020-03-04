@@ -11,8 +11,6 @@
 <div id="map"></div>
 <div id="temp"></div>
 
-<!--vendor-->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 <script src="dist/jquery/1.9.1/jquery.min.js"></script>
 
 <!-- Leaflet 0.7.7 -->
@@ -31,10 +29,12 @@
 <script src="demo.js"></script>
 
 <!-- CSS Thêm Mới -->
-<script src="https://kit.fontawesome.com/9cf251c4ce.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script src="/dist/font/kit.fontawesome.js"></script> -->
+<!-- <script src="/dist/jquery/3.4.1/jquery.min.js"></script> -->
+<link rel="stylesheet" href="/dist/fontawesome-free-5.12.1/css/all.css"/>
 
-<link rel="stylesheet" href="css/my_css.css" />
+<link rel="stylesheet" href="/dist/css/my_css.css" />
+
 
 <script>
 	// // $('input[type=checkbox]')[2].click();
@@ -108,8 +108,7 @@
 	}
 
 	.leaflet-bar a {
-		background-color: #000000;
-		/* background-color: rgba(68,65,65,0.60); */
+		background-color: rgba(68,65,65,0.60);
 		border-bottom: 1px solid #ccc;
 		width: 30px!important;
 		height: 30px!important;
