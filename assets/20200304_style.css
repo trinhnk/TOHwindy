@@ -1,0 +1,129 @@
+body {
+    margin: 0px;
+}
+
+#heading {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #CCC;
+}
+
+a {
+    color: #3388ff;
+}
+
+#map {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #888888;
+}
+
+.leaflet-canvas-layer {
+    opacity: 0.55;
+}
+
+.my-label{
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	color: #ffffff;
+}
+.leaflet-tooltip{
+	box-shadow: none;
+}
+.leaflet-popup-content-wrapper{
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0);
+	box-shadow: none;
+	border: 1px solid #ffffff;
+}
+.leaflet-popup-content{
+	margin: 2px 5px;
+	text-align: center;
+}
+.leaflet-popup-tip-container .leaflet-popup-tip{
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid #ffffff;
+}
+.leaflet-container a.leaflet-popup-close-button{
+	display: none;
+}
+.leaflet-popup-pane{
+	cursor: pointer;
+}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{
+	bottom: -30px !important;
+}
+.leaflet-popup-tip-container{
+	display: none;
+}
+.city-name, .city-temp{
+	color: #ffffff;
+	/* width: auto !important; */
+	cursor: pointer;
+	width: 150px !important;
+	margin-left: -75px !important;
+	text-align: center;
+}
+.city-name *{
+    line-height: 1.2;
+}
+/* .city-name::after {
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    content: ' ';
+    margin-left: 71px !important;
+    margin-top: -11px;
+} */
+.city-temp{
+	margin-top: 7px !important;
+}
+/* .city-name:hover{
+	text-decoration: underline;
+} */
+.country-name-1, .country-name-2{
+	text-transform: uppercase;
+	color: blanchedalmond;
+	font-weight: bold;
+	letter-spacing: 2px;
+	width: 150px !important;
+	text-align: center;
+	margin-left: -75px !important;
+	opacity: .6;
+}
+.country-name-2{
+	font-size: 10px;
+	letter-spacing: 0;
+}
+
+#temp{
+	position: absolute;
+    background: aliceblue;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+	padding: 2px;
+	/* margin-top: 20px; */
+}
+
+.city-name{
+	z-index: 1000 !important;
+}
+.city-name [data-id]::after {
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 0);
+    line-height: 1;
+    content: attr(data-temp);
+}
+
+.city-name{
+	z-index: 1000 !important;
+}
