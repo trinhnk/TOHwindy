@@ -9,7 +9,7 @@
 	<div id="temp"></div>
 
 	<?php $resource_url = 'http://resource.goweatherradar.com/';?>
-	<?php $resource_url = 'http://mylocal.com/tohwindy/';?>
+	<?php //$resource_url = 'http://mylocal.com/tohwindy/';?>
 	<?php 
 		function recurse_copy($src,$dst) { 
 			$dir = opendir($src); 
