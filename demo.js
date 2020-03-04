@@ -4,7 +4,28 @@ function initWindyMap(){
 
     var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
     // var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
-    var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
+    // var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5',{
+    //     maxZoom: 11,
+    //     minZoom: 3,
+    // });
+    var wind = '';
+    wind += '0:5270f8;';
+    wind += '1:1d5d95;';
+    wind += '3:29d1ff;';
+    wind += '5:0ed099;';
+    wind += '7:27d827;';
+    wind += '9:25a825;';
+    wind += '11:c6b535;';
+    wind += '13:966c12;';
+    wind += '15:d07357;';
+    wind += '17:900029;';
+    wind += '19:ce0078;';
+    wind += '21:6300aa;';
+    wind += '24:3818c8;';
+    wind += '27:2370be;';
+    wind += '29:048da2;';
+    wind += '36:7000c0';
+    var Wind_Map = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette='+wind,{
         maxZoom: 11,
         minZoom: 3,
     });
@@ -72,7 +93,7 @@ function initWindyMap(){
     snow += '80:c28633;'
     snow += '120:b42828;'
     snow += '500:ce5bce'
-    var SD0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/SD0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&pallette='+snow,{
+    var SD0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/SD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&pallette='+snow,{
         maxZoom: 11,
         minZoom: 3,
     })
@@ -129,7 +150,7 @@ function initWindyMap(){
     var map = L.map('map', {
         layers: [ 
             Windy_Map, 
-            SD0, 
+            Wind_Map, 
             geojsonTileLayer 
         ],
         closePopupOnClick: false,
