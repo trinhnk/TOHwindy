@@ -156,12 +156,12 @@ function initWindyMap(){
         '<center><i class="fas fa-cloud icons-font" id="cloudy-layout"></i></center>' : Cloudiness,
     }
 
-    var geojsonTileLayer = new L.LoadCityNameJSON('https://resource.goweatherradar.com/resource/json/{z}/{x}/{y}.json',{
+    var geojsonTileLayer = new L.LoadCityNameJSON('http://resource.goweatherradar.com/resource/json/{z}/{x}/{y}.json',{
         maxZoom: 11,
         minZoom: 3,
     });
 
-    var Windy_Map = L.tileLayer('https://resource.goweatherradar.com/resource/images/{z}/{x}/{y}.png',{
+    var Windy_Map = L.tileLayer('http://resource.goweatherradar.com/resource/images/{z}/{x}/{y}.png',{
         maxZoom: 11,
         minZoom: 3
     });
