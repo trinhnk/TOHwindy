@@ -213,7 +213,7 @@
 		.leaflet-control-zoom-in:focus, .leaflet-control-zoom-in:active, .leaflet-control-zoom-in:focus-within, .leaflet-control-zoom-in:hover, .leaflet-control-zoom-in:visited{
 			outline: 0 !important;
 		}
-		.leaflet-control-zoom-in{
+		.leaflet-control-zoom-in, .leaflet-control-zoom-out{
 			outline: 0 !important;
 		}
 	</style>
