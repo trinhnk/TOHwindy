@@ -6,7 +6,7 @@
 </head>
 <body>
 	<?php $resource_url = 'http://resource.goweatherradar.com/';?>
-	<?php $resource_url = 'http://mylocal.com/tohwindy/';?>
+	<?php //$resource_url = 'http://mylocal.com/tohwindy/';?>
 	
 	<div id="map"></div>
 	<div id="temp"></div>
