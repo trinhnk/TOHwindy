@@ -65,7 +65,7 @@ function initWindyMap(){
 	var main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/';
 	*/
 	
-	var main_cache_url = 'https://cache.goweatherradar.com/cacheapi/cacheweatherapi/';
+	var main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/';
 	
 	var Wind_Map_url = main_cache_url + 'Wind_Map/{s}/{z}/{x}/{y}' + '/cache.png';
 	var Temperature_Map_url = main_cache_url + 'Temperature_Map/{s}/{z}/{x}/{y}' + '/cache.png';

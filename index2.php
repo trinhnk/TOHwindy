@@ -25,8 +25,8 @@
 <script src="dist/load-city-name-json.js"></script>
 
 <!--demo-->
-<link rel="stylesheet" href="demo.css" />
-<script src="demo.js"></script>
+<link rel="stylesheet" href="style.css" />
+<script src="jscript.js"></script>
 
 <!-- CSS Thêm Mới -->
 <!-- <script src="/dist/font/kit.fontawesome.js"></script> -->
