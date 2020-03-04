@@ -192,7 +192,7 @@
 		.icons-font-active {
 			color: orange!important;
 		}
-		.leaflet-right .leaflet-control:focus {
+		.leaflet-right .leaflet-control:focus, .leaflet-right .leaflet-control:active, .leaflet-right .leaflet-control:hover, .leaflet-right .leaflet-control:visited, .leaflet-right .leaflet-control:focus-within {
 			outline: none !important;
 		}
 	</style>
