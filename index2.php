@@ -26,16 +26,29 @@
 			} 
 			closedir($dir); 
 		} 
-	?>
-	<?php 
+		
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
 		$version = file_get_contents(FCPATH.'version.txt');
-		copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');
-		copy (FCPATH.'style.css', FCPATH.'assets/'.$version.'_style.css');
-		copy (FCPATH.'jscript.js', FCPATH.'assets/'.$version.'_jscript.js');
-		copy (FCPATH.'dist/load-city-name-json.js', FCPATH.'assets/'.$version.'_load-city-name-json.js');
-
+		if(!@file_exists(FCPATH.'assets/'.$version.'_my_css.css')){
+			copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');
+		}
+		if(!@file_exists(FCPATH.'assets/'.$version.'_style.css')){
+			copy (FCPATH.'style.css', FCPATH.'assets/'.$version.'_style.css');
+		}
+		if(!@file_exists(FCPATH.'assets/'.$version.'_jscript.js')){
+			copy (FCPATH.'jscript.js', FCPATH.'assets/'.$version.'_jscript.js');
+		}
+		if(!@file_exists(FCPATH.'assets/'.$version.'_load-city-name-json.js')){
+			copy (FCPATH.'dist/load-city-name-json.js', FCPATH.'assets/'.$version.'_load-city-name-json.js');
+		}
+		if(!@file_exists(FCPATH.'assets/'.$version.'_wind-js-leaflet.css')){
+			copy (FCPATH.'dist/wind-js-leaflet.css', FCPATH.'assets/'.$version.'_wind-js-leaflet.css');
+		}
+		if(!@file_exists(FCPATH.'assets/'.$version.'_wind-js-leaflet.js')){
+			copy (FCPATH.'dist/wind-js-leaflet.js', FCPATH.'assets/'.$version.'_wind-js-leaflet.js');
+		}
+		
 		$source_fontawesome = FCPATH.'dist/fontawesome-free-5.12.1';
 		$des_fontawesome = FCPATH.'assets/fontawesome_'.$version;
 		if(!@file_exists($des_fontawesome)){
@@ -43,6 +56,8 @@
 		}
 	?>
 	
+	<script>var wind_json_url = 'http://resource.goweatherradar.com/resource/wind/wind.json';</script>
+
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_style.css" />
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/fontawesome_<?php echo $version;?>/css/all.css"/>
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_my_css.css" />
@@ -54,8 +69,8 @@
 	<script src="<?php echo $resource_url;?>dist/leaflet/0.7.7/leaflet.js"></script>
 
 	<!--wind-js-leaflet-->
-	<link rel="stylesheet" href="<?php echo $resource_url;?>dist/wind-js-leaflet.css" />
-	<script src="<?php echo $resource_url;?>dist/wind-js-leaflet.js"></script>
+	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_wind-js-leaflet.css" />
+	<script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_wind-js-leaflet.js"></script>
 	
 	<!-- Leaflet TileLayer GeoJSON -->
 	<script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_load-city-name-json.js"></script>

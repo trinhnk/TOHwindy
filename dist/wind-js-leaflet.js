@@ -932,7 +932,7 @@ L.control.windPosition = function (options) {
 
 			console.log('using local data..');
 
-			$.getJSON('https://resource.goweatherradar.com/wind.json', function (data) {
+			$.getJSON(wind_json_url, function (data) {
 				WindJSLeaflet._data = data;
 				WindJSLeaflet._initWindy(data);
 			});
