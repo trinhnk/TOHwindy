@@ -210,7 +210,7 @@
 		.leaflet-touch .leaflet-bar{
 			border:none;
 		}
-		.leaflet-right .leaflet-control:focus, .leaflet-right .leaflet-control:active, .leaflet-right .leaflet-control:focus-within, .leaflet-right .leaflet-control:hover, .leaflet-right .leaflet-control:visited{
+		.leaflet-control-zoom-in:focus, .leaflet-control-zoom-in:active, .leaflet-control-zoom-in:focus-within, .leaflet-control-zoom-in:hover, .leaflet-control-zoom-in:visited{
 			outline: none !important;
 		}
 	</style>
