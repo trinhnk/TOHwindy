@@ -156,6 +156,7 @@
 		.leaflet-control-zoom-in,
 		.leaflet-control-zoom-out{
 			font-size: 12px!important;
+			border: 0!important;
 		}
 		.leaflet-control-layers-expanded {
 			padding: 2px!important;
