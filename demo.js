@@ -104,9 +104,9 @@ function initWindyMap(){
     pressure += '101900:a9ad00;';
     pressure += '102200:dc9e1d;';
     pressure += '102500:e94728;';
-    pressure += '103000:bf263c;';
-    pressure += '103500:a01147;';
-    pressure += '104000:820053';
+    // pressure += '103000:bf263c;';
+    // pressure += '103500:a01147;';
+    pressure += '103000:820053';
     var Atmospheric_Pressure_Mean = L.tileLayer('https://a.sat.owm.io/vane/2.0/weather/APM/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+pressure,{
         maxZoom: 11,
         minZoom: 3,
@@ -197,12 +197,12 @@ function initWindyMap(){
         '<center><i class="fas fa-cloud icons-font"  id="cloudiness" ><span class="tooltiptext">Cloudiness</span></i></center>' : Cloudiness,
     }
 
-    var geojsonTileLayer = new L.LoadCityNameJSON('/resource/json/{z}/{x}/{y}.json',{
+    var geojsonTileLayer = new L.LoadCityNameJSON('http://45.79.69.97/resource/json/{z}/{x}/{y}.json',{
         maxZoom: 11,
         minZoom: 3,
     });
 
-    var Windy_Map = L.tileLayer('/resource/images/{z}/{x}/{y}.png',{
+    var Windy_Map = L.tileLayer('http://45.79.69.97/resource/images/{z}/{x}/{y}.png',{
         maxZoom: 11,
         minZoom: 3
     });
