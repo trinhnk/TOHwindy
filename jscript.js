@@ -61,11 +61,7 @@ function initWindyMap(){
 	var TD2_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TD2/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
 	var TS0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
 	var TS10_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TS10/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	
-	var main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/';
 	*/
-	
-	var main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/';
 	
 	var Wind_Map_url = main_cache_url + 'Wind_Map/{s}/{z}/{x}/{y}' + '/cache.png';
 	var Temperature_Map_url = main_cache_url + 'Temperature_Map/{s}/{z}/{x}/{y}' + '/cache.png';
