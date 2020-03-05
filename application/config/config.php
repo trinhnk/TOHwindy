@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['storage_cache_folder'] = FCPATH.'storage/cache/';
+$config['storage_change_folder'] = FCPATH.'storage/change/';
 
 /*
 |--------------------------------------------------------------------------
