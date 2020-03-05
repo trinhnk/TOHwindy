@@ -95,7 +95,7 @@ class Cacheapi extends CI_Controller {
 		if(isset($type_array[$type])){
 			$url = $type_array[$type];
 
-			$cache_folder = $this->config->item('storage_cache_folder').$change_date;
+			$cache_folder = $this->config->item('storage_cache_folder').$change_date.'/';
 			if(!@file_exists($cache_folder)){
 				mkdir($cache_folder);
 			}
