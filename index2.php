@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Windy Leaflet</title>
+	<title>Go Weather Radar</title>
 	<meta charset="utf-8">
 </head>
 <body>
