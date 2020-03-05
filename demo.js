@@ -51,22 +51,85 @@ function initWindyMap(){
         maxZoom: 11,
         minZoom: 3,
     })
-    var Relative_Humidity    = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
+    // var Relative_Humidity    = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672',{
+    //     maxZoom: 11,
+    //     minZoom: 3,
+    // })
+    var humidity = '';
+    humidity += '0:ce3700;';
+    humidity += '30:c95d00;';
+    humidity += '40:bc9100;';
+    humidity += '50:55c700;';
+    humidity += '60:02c970;';
+    humidity += '70:03b5b3;';
+    humidity += '75:06a1b5;';
+    humidity += '80:3b9cac;';
+    humidity += '83:3c93ac;';
+    humidity += '87:3a86ab;';
+    humidity += '90:3b83ac;';
+    humidity += '93:3b7aac;';
+    humidity += '97:3b629c;';
+    humidity += '100:3b4871';
+    var Relative_Humidity    = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+humidity,{
         maxZoom: 11,
         minZoom: 3,
     })
+
     // var Accumulated_Precipitation_Rain = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAR0/{z}/{x}/{y}?fill_bound=true&opacity=1&palette=0:6f6f6f;0.6:3c74a0;6:3ba1a1;8:3ba13d;10:82a13b;15:a1a13b;20:a13b3b;31:a13ba1;50:a8a8a8&appid='+API_Openweathermap,{
     //     maxZoom: 11,
     //     minZoom: 3,
     // })
-    var Atmospheric_Pressure_Mean = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/APM/{z}/{x}/{y}?fill_bound=true&opacity=1&pallette=990:8eb3b8;995:68b4b3;1000:45a7a6;1003:398393;1006:397693;1009:395b93;1015:3a7535;1019:9fa141;1022:ad8839;1025:aa5443;1030:5e3c51&appid='+API_Openweathermap,{
+    var rain = '';
+    rain += '0:b1b1b1;';
+    rain += '0.6:2b7dc0;';
+    rain += '6:3ebccb;';
+    rain += '8:3ea040;';
+    rain += '10:82a03d;';
+    rain += '15:a0a03d;';
+    rain += '20:9f3d3d;';
+    rain += '31:db59db;';
+    rain += '50:d7d7d7';
+    var Accumulated_Precipitation_Rain = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/PAR0/{z}/{x}/{y}?fill_bound=true&opacity=1&palette='+rain+'&appid='+API_Openweathermap,{
         maxZoom: 11,
         minZoom: 3,
     })
-    var Cloudiness = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/CL/{z}/{x}/{y}?fill_bound=true&opacity=1&pallette=0:928246;10:847746;30:747474;80:adb7b6;90:bec1c1;100:d5d5cd&appid='+API_Openweathermap,{
+    var pressure = '';
+    pressure += '99000:16e0ff;';
+    pressure += '99500:19d3d0;';
+    pressure += '100000:1abdbb;';
+    pressure += '100300:1493b0;';
+    pressure += '100600:137fb5;';
+    pressure += '100900:1f5fcd;';
+    pressure += '101500:199f00;';
+    pressure += '101900:a9ad00;';
+    pressure += '102200:dc9e1d;';
+    pressure += '102500:e94728;';
+    pressure += '103000:bf263c;';
+    pressure += '103500:a01147;';
+    pressure += '104000:820053';
+    var Atmospheric_Pressure_Mean = L.tileLayer('https://a.sat.owm.io/vane/2.0/weather/APM/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+pressure,{
         maxZoom: 11,
         minZoom: 3,
     })
+    // var Atmospheric_Pressure_Mean2 = L.tileLayer('https://a.sat.owm.io/vane/2.0/weather/APM/{z}/{x}/{y}?appid='+API_Openweathermap+'&date=1583480685&fill_bound=true&opacity=1&palette='+pressure,{
+    //     maxZoom: 11,
+    //     minZoom: 3,
+    // })
+    var Cloudiness = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:a5965f;10:938657;30:8d8874;80:adb7b6;90:bec1c1;100:d5d5cd',{
+        maxZoom: 11,
+        minZoom: 3,
+    })
+    // var cloud = '';
+    // cloud += '0:1adae8;';
+    // cloud += '10:0a9f8b;';
+    // cloud += '30:187164;';
+    // cloud += '80:7fd59d;';
+    // cloud += '90:26a977;';
+    // cloud += '100:8ac1b1';
+    // var Cloudiness = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+cloud,{
+    //     maxZoom: 11,
+    //     minZoom: 3,
+    // })
 
     // var PAC0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/PAC0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap,{
     //     maxZoom: 11,
@@ -93,7 +156,7 @@ function initWindyMap(){
     snow += '80:c28633;'
     snow += '120:b42828;'
     snow += '500:ce5bce'
-    var SD0 = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/SD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&pallette='+snow,{
+    var SD0 = L.tileLayer('https://{s}.sat.owm.io/vane/2.0/weather/SD0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette='+snow,{
         maxZoom: 11,
         minZoom: 3,
     })
@@ -119,12 +182,13 @@ function initWindyMap(){
         // '<center><i class="fab fa-connectdevelop icons-font"  id="cloudiness" ><span class="tooltiptext">Convective Precipitation</span></i></center>' : PAC0,
         // '<center><i class="fas fa-cloud-showers-heavy icons-font"  id="cloudiness" ><span class="tooltiptext">Precipitation Intensity</span></i></center>' : PR0,
         // '<center><i class="fab fa-artstation icons-font"  id="cloudiness" ><span class="tooltiptext">Accumulated Precipitation</span></i></center>' : PA0,
-        // '<center><i class="fas fa-cloud-rain icons-font"  id="cloudiness" ><span class="tooltiptext">Accumulated Precipitation - Rain</span></i></center>' : Accumulated_Precipitation_Rain,
+        '<center><i class="fas fa-cloud-rain icons-font"  id="cloudiness" ><span class="tooltiptext">Accumulated Precipitation - Rain</span></i></center>' : Accumulated_Precipitation_Rain,
         // '<center><i class="fas fa-snowman icons-font"  id="cloudiness" ><span class="tooltiptext">Accumulated Precipitation - Snow</span></i></center>' : PAS0,
         '<center><i class="far fa-snowflake icons-font"  id="cloudiness" ><span class="tooltiptext">Depth of Snow</span></i></center>' : SD0,
         '<center><i class="fas fa-wind icons-font"  id="cloudiness" ><span class="tooltiptext">Wind Map</span></i></center>' : Wind_Map,
         // '<center><i class="fas fa-location-arrow icons-font"  id="cloudiness" ><span class="tooltiptext">Joint Display of Speed Wind & Wind Direction</span></i></center>' : WND,
         '<center><i class="fas fa-arrow-circle-down icons-font"  id="cloudiness" ><span class="tooltiptext">Pressure</span></i></center>' : Atmospheric_Pressure_Mean,
+        // '<center><i class="fas fa-arrow-circle-down icons-font"  id="cloudiness" ><span class="tooltiptext">Pressure2</span></i></center>' : Atmospheric_Pressure_Mean2,
         '<center><i class="fas fa-thermometer-three-quarters icons-font"  id="cloudiness" ><span class="tooltiptext">Temperature Map</span></i></center>' : Temperature_Map,
         // '<center><i class="fas fa-tint icons-font"  id="cloudiness" ><span class="tooltiptext">Temperature of A Dew Point</span></i></center>' : TD2,
         // '<center><i class="fas fa-temperature-low icons-font"  id="cloudiness" ><span class="tooltiptext">Temperature 0 - 10 сm</span></i></center>' : TS0,
@@ -150,7 +214,7 @@ function initWindyMap(){
     var map = L.map('map', {
         layers: [ 
             Windy_Map, 
-            Wind_Map, 
+            Atmospheric_Pressure_Mean, 
             geojsonTileLayer 
         ],
         closePopupOnClick: false,
