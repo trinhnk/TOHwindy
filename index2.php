@@ -61,8 +61,8 @@
 	
 	<script>
 		var wind_json_url = 'http://resource.goweatherradar.com/resource/wind/wind.json';
-		var main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/' + <?php echo $change_data;?> + '/';
-		//var main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/' + <?php echo $change_data;?> + '/';
+		var main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/<?php echo $change_data;?>/';
+		/var main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/<?php echo $change_data;?>/';
 	</script>
 	
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_style.css" />
