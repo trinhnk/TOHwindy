@@ -233,13 +233,13 @@
 		.copyright{
 			position: absolute;
 			text-align: center;
-			font-size: 26px;
+			font-size: 11px;
 			color: #ffffff;
 			font-weight: bold;
 			pointer-events: auto;
 			left: 50%;
-			margin-left: -92.5px;
-			top: 10px;
+			margin-left: -41.5px;
+			bottom: 5px;
 			text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
 		}
 	</style>
