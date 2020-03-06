@@ -31,7 +31,8 @@
 		
 		$version = file_get_contents(FCPATH.'version.txt');
 		//$change_data = file_get_contents(FCPATH.'change_data.txt');
-		$change_data = date('Y_m_d_H_i_00', strtotime(date('Y-m-d H:00:00')) + ((int)date('i') - (int)date('i')%5) * 60);
+		//$change_data = date('Y_m_d_H_i_00', strtotime(date('Y-m-d H:00:00')) + ((int)date('i') - (int)date('i')%5) * 60);
+		$change_data = date('Y_m_d_H');
 		
 		if(!@file_exists(FCPATH.'assets/'.$version.'_my_css.css')){
 			copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');
