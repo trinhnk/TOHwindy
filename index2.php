@@ -9,7 +9,7 @@
 	<div id="temp"></div>
 
 	<?php $resource_url = 'http://resource.goweatherradar.com/';?>
-	<?php //$resource_url = 'http://mylocal.com/tohwindy/';?>
+	<?php $resource_url = 'http://mylocal.com/tohwindy/';?>
 	<?php 
 		function recurse_copy($src,$dst) { 
 			$dir = opendir($src); 
@@ -30,7 +30,8 @@
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
 		$version = file_get_contents(FCPATH.'version.txt');
-		$change_data = file_get_contents(FCPATH.'change_data.txt');
+		//$change_data = file_get_contents(FCPATH.'change_data.txt');
+		$change_data = date('Y_m_d_h');
 		
 		if(!@file_exists(FCPATH.'assets/'.$version.'_my_css.css')){
 			copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');
@@ -61,7 +62,7 @@
 	<script>
 		var wind_json_url = 'http://resource.goweatherradar.com/resource/wind/wind.json';
 		var main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/' + <?php echo $change_data;?> + '/';
-		//var main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/' + <?php echo $change_data;?> + '/';
+		var main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/' + <?php echo $change_data;?> + '/';
 	</script>
 	
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_style.css" />

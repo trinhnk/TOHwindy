@@ -6,7 +6,6 @@
 </head>
 <body>
 	<div id="map"></div>
-	<div id="temp"></div>
 
 	<?php $resource_url = 'http://resource.goweatherradar.com/';?>
 	<?php //$resource_url = 'http://mylocal.com/tohwindy/';?>
@@ -30,7 +29,8 @@
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
 		$version = file_get_contents(FCPATH.'version.txt');
-		$change_data = file_get_contents(FCPATH.'change_data.txt');
+		//$change_data = file_get_contents(FCPATH.'change_data.txt');
+		$change_data = date('Y_m_d_h');
 		
 		if(!@file_exists(FCPATH.'assets/'.$version.'_my_css.css')){
 			copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');

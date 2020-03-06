@@ -24,50 +24,11 @@ if (queryString){
 var mapCenter = [lat, lng];
 
 function initWindyMap(){
-    /*
-	// var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
-    var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
-    var Temp3 = "";
-        Temp3 += "-65:821692;"
-        Temp3 += "-55:821692;"
-        Temp3 += "-45:821692;"
-        Temp3 += "-40:821692;"
-        Temp3 += "-30:8257db;"
-        Temp3 += "-20:208cec;"
-        Temp3 += "-10:20c4e8;"
-        Temp3 += "0:4eb095;"
-        Temp3 += "5:5bc84c;"
-        Temp3 += "10:b8db41;"
-        Temp3 += "15:e0ce38;"
-        Temp3 += "20:df9f41;"
-        Temp3 += "25:dc6d55;"
-        Temp3 += "30:b73466;"
-        Temp3 += "40:6b1527;"
-        Temp3 += "50:2b0001"
-    
-	var Wind_Map_url = 'https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5';
-	var Temperature_Map_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+Temp3;
-	var Relative_Humidity_url = 'https://{s}.sat.owm.io/vane/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672';
-	var Accumulated_Precipitation_Rain_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PAR0/{z}/{x}/{y}?fill_bound=true&opacity=1&palette=0:6f6f6f;0.6:3c74a0;6:3ba1a1;8:3ba13d;10:82a13b;15:a1a13b;20:a13b3b;31:a13ba1;50:a8a8a8&appid='+API_Openweathermap;
-	var Atmospheric_Pressure_Mean_Map_url = 'https://{s}.tile.openweathermap.org/map/pressure/{z}/{x}/{y}?fill_bound=true&opacity=1&pallette=990:8eb3b8;995:68b4b3;1000:45a7a6;1003:398393;1006:397693;1009:395b93;1015:3a7535;1019:9fa141;1022:ad8839;1025:aa5443;1030:5e3c51&appid='+API_Openweathermap;
-	var Cloudiness_url = 'https://{s}.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:928246;10:847746;30:747474;80:adb7b6;95:bec1c1;100:d5d5cd';
-	
-	var PAC0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PAC0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	var PR0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PR0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	var PA0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PA0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	var PAS0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PAS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
-	var SD0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/SD0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
-	var WND_url = 'https://{s}.sat.owm.io/vane/2.0/weather/WND/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	var TD2_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TD2/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	var TS0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	var TS10_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TS10/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
-	*/
-	
 	var Wind_Map_url = main_cache_url + 'Wind_Map/{s}/{z}/{x}/{y}' + '/cache.png';
 	var Temperature_Map_url = main_cache_url + 'Temperature_Map/{s}/{z}/{x}/{y}' + '/cache.png';
 	var Relative_Humidity_url = main_cache_url + 'Relative_Humidity/{s}/{z}/{x}/{y}' + '/cache.png';
 	var Accumulated_Precipitation_Rain_url = main_cache_url + 'Accumulated_Precipitation_Rain/{s}/{z}/{x}/{y}' + '/cache.png';
-	var Atmospheric_Pressure_Mean_Map_url = main_cache_url + 'Atmospheric_Pressure_Mean_Map/{s}/{z}/{x}/{y}' + '/cache.png';
+	var Atmospheric_Pressure_Mean_url = main_cache_url + 'Atmospheric_Pressure_Mean/{s}/{z}/{x}/{y}' + '/cache.png';
 	var Cloudiness_url = main_cache_url + 'Cloudiness/{s}/{z}/{x}/{y}' + '/cache.png';
 	
 	var PAC0_url = main_cache_url + 'PAC0/{s}/{z}/{x}/{y}' + '/cache.png';
@@ -96,7 +57,7 @@ function initWindyMap(){
         maxZoom: 11,
         minZoom: 3,
     })
-    var Atmospheric_Pressure_Mean = L.tileLayer(Atmospheric_Pressure_Mean_Map_url,{
+    var Atmospheric_Pressure_Mean = L.tileLayer(Atmospheric_Pressure_Mean_url,{
         maxZoom: 11,
         minZoom: 3,
     })
@@ -245,6 +206,45 @@ WindJSLeaflet.init({
     nearestUrl: 'http://localhost:7000/nearest',
     errorCallback: handleError
 });
+
+ /*
+// var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
+var API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
+var Temp3 = "";
+	Temp3 += "-65:821692;"
+	Temp3 += "-55:821692;"
+	Temp3 += "-45:821692;"
+	Temp3 += "-40:821692;"
+	Temp3 += "-30:8257db;"
+	Temp3 += "-20:208cec;"
+	Temp3 += "-10:20c4e8;"
+	Temp3 += "0:4eb095;"
+	Temp3 += "5:5bc84c;"
+	Temp3 += "10:b8db41;"
+	Temp3 += "15:e0ce38;"
+	Temp3 += "20:df9f41;"
+	Temp3 += "25:dc6d55;"
+	Temp3 += "30:b73466;"
+	Temp3 += "40:6b1527;"
+	Temp3 += "50:2b0001"
+
+var Wind_Map_url = 'https://{s}.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid='+API_Openweathermap+'&opacity=1&fill_bound=true&palette=0:6271B7;1:39619F;3:4A94A9;5:4D8D7B;7:53A553;9:359F35;11:A79D51;13:9F7F3A;15:A16C5C;17:813A4E;19:AF5088;21:755088;24:6D61A3;27:44698D;29:5C9098;36:7D44A5';
+var Temperature_Map_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette='+Temp3;
+var Relative_Humidity_url = 'https://{s}.sat.owm.io/vane/2.0/weather/HRD0/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:ad5538;30:ad6e38;40:ad9238;50:69ad38;60:38ad79;70:38aead;75:38a0ad;80:389dad;83:3894ad;87:3887ad;90:3884ad;93:387bad;97:38629d;100:384672';
+var Accumulated_Precipitation_Rain_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PAR0/{z}/{x}/{y}?fill_bound=true&opacity=1&palette=0:6f6f6f;0.6:3c74a0;6:3ba1a1;8:3ba13d;10:82a13b;15:a1a13b;20:a13b3b;31:a13ba1;50:a8a8a8&appid='+API_Openweathermap;
+var Atmospheric_Pressure_Mean_url = 'https://{s}.tile.openweathermap.org/map/pressure/{z}/{x}/{y}?fill_bound=true&opacity=1&pallette=990:8eb3b8;995:68b4b3;1000:45a7a6;1003:398393;1006:397693;1009:395b93;1015:3a7535;1019:9fa141;1022:ad8839;1025:aa5443;1030:5e3c51&appid='+API_Openweathermap;
+var Cloudiness_url = 'https://{s}.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid='+API_Openweathermap+'&fill_bound=true&opacity=1&palette=0:928246;10:847746;30:747474;80:adb7b6;95:bec1c1;100:d5d5cd';
+
+var PAC0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PAC0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
+var PR0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PR0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
+var PA0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PA0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
+var PAS0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/PAS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
+var SD0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/SD0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap+'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
+var WND_url = 'https://{s}.sat.owm.io/vane/2.0/weather/WND/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
+var TD2_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TD2/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
+var TS0_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TS0/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
+var TS10_url = 'https://{s}.sat.owm.io/vane/2.0/weather/TS10/{z}/{x}/{y}?fill_bound=true&opacity=1&appid='+API_Openweathermap;
+*/
 
 // Color Of Temperature
 // -70:734669;
