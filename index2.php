@@ -40,8 +40,8 @@
 		$wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date));
 		if(!@file_exists(FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json')){
 			copy (FCPATH.'resource/wind/wind.json', FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json');
-			$before_wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date - 60*60));
-			if(!@file_exists(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json')){
+			$before_wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date) - 60*60);
+			if(@file_exists(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json')){
 				@unlink(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json');
 			}
 		}
