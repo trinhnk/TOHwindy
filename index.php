@@ -3,9 +3,15 @@
 <head>
 	<title>Go Weather Radar</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body>
 	<div id="map"></div>
+	<div id="logo-wrapper">
+		<div class="copyright">
+			<div>© TOHSOFT Co.</div>
+		</div>
+	</div>
 	<?php
 		function recurse_copy($src,$dst) { 
 			$dir = opendir($src); 
@@ -22,6 +28,7 @@
 			} 
 			closedir($dir); 
 		} 
+		
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
 		$version = file_get_contents(FCPATH.'version.txt');
@@ -33,8 +40,8 @@
 		$wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date));
 		if(!@file_exists(FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json')){
 			copy (FCPATH.'resource/wind/wind.json', FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json');
-			$before_wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date - 60*60));
-			if(!@file_exists(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json')){
+			$before_wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date) - 60*60);
+			if(@file_exists(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json')){
 				@unlink(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json');
 			}
 		}
