@@ -3,9 +3,15 @@
 <head>
 	<title>Go Weather Radar</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body>
 	<div id="map"></div>
+	<div id="logo-wrapper">
+		<div class="copyright">
+			<div>© TOHSOFT Co.</div>
+		</div>
+	</div>
 	<?php
 		function recurse_copy($src,$dst) { 
 			$dir = opendir($src); 
@@ -236,6 +242,18 @@
 		}
 		.leaflet-control-zoom-in, .leaflet-control-zoom-out{
 			outline: 0 !important;
+		}
+		.copyright{
+			position: absolute;
+			text-align: center;
+			font-size: 11px;
+			color: #ffffff;
+			font-weight: bold;
+			pointer-events: auto;
+			left: 50%;
+			margin-left: -41.5px;
+			bottom: 5px;
+			text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
 		}
 	</style>
 </body>
