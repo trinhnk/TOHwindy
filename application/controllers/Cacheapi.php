@@ -141,28 +141,49 @@ class Cacheapi extends CI_Controller {
 		if(isset($type_array[$type])){
 			$url = $type_array[$type];
 			$cache_folder = $this->config->item('storage_cache_folder');
-			$file_path = $cache_folder.md5($url).$file_name;
+			$file_path = $cache_folder.$type.'_'.$z.'_'.$x.'_'.$y.'_'.$file_name;
+			$last_change_file = FCPATH.'../TOHwindy/assets/last_change.txt';
+			$cur_time = strtotime(date('Y-m-d H:i:s'));
 			$max_cache_time = 1*60*60;
+			
+			$last_change = strtotime(date('Y-m-d H:i:s'));
+			if(@file_exists($last_change_file)){
+				$last_change = (int)@file_get_contents($last_change_file);
+			}else{
+				@file_put_contents($last_change_file, $last_change);
+			}
+			
 			if(@file_exists($file_path)){
 				$file_time = @filemtime($file_path);
-				$cur_time = strtotime(date('Y-m-d H:i:s'));
-				$compare_cache_time = $max_cache_time - ($cur_time - $file_time);
-				$compare_cache_time = $compare_cache_time < 0 ? 0 : $compare_cache_time;
-				if($compare_cache_time <= 0){
-					$content = @file_get_contents($url);
-					if($content){
-						@file_put_contents($file_path, $content);
+				if($file_time >= $last_change){
+					$change_date_arrs = explode('_', $change_date);
+					$change_time = strtotime($change_date_arrs[0].'-'.$change_date_arrs[1].'-'.$change_date_arrs[2]. ' '.$change_date_arrs[3].':'.$change_date_arrs[4].':'.$change_date_arrs[5]);
+					if($file_time >= $change_time){
+						$content = unserialize(@file_get_contents($file_path));
+						$content = $content->content;
+					}else{
+						$content = @file_get_contents($url);
+						if($content){
+							$old_content = unserialize(@file_get_contents($file_path));
+							@file_put_contents($file_path, serialize((object)array('content' => $content, 'time' => $cur_time)));
+							if(md5($old_content->content) != md5($content)){
+								$this->write_log(date('Y-m-d H:i:s') . '|' . $cur_time . '|' . ($cur_time - $last_change), 'log_change.txt');
+								@file_put_contents($last_change_file, $cur_time);		
+							}
+						}
 					}
 				}else{
-					$content = @file_get_contents($file_path);
+					$content = @file_get_contents($url);
+					if($content){
+						@file_put_contents($file_path, serialize((object)array('content' => $content, 'time' => $cur_time)));
+					}
 				}
 			}else{
 				$content = @file_get_contents($url);
 				if($content){
-					@file_put_contents($file_path, $content);
+					file_put_contents($file_path, serialize((object)array('content' => $content, 'time' => $cur_time)));
 				}
 			}
-			
 			if($content){
 				header("Cache-Control: max-age=".$max_cache_time);
 				header("Content-type: image/png");
@@ -321,7 +342,7 @@ class Cacheapi extends CI_Controller {
 			'http://maps.openweathermap.org/maps/2.0/weather/TA2/5/25/13?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:4eb095;5:5bc84c;10:b8db41;15:e0ce38;20:df9f41;25:dc6d55;30:b73466;40:6b1527;50:2b0001',
 			'http://maps.openweathermap.org/maps/2.0/weather/TA2/5/25/14?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:4eb095;5:5bc84c;10:b8db41;15:e0ce38;20:df9f41;25:dc6d55;30:b73466;40:6b1527;50:2b0001',
 		);
-		$file_change = FCPATH.'../TOHwindy/change_data.txt';
+		$file_change = FCPATH.'../TOHwindy/assets/change_data.txt';
 		$change_folder = $this->config->item('storage_change_folder');
 		foreach($urls as $url){
 			$content = @file_get_contents($url);
@@ -339,6 +360,18 @@ class Cacheapi extends CI_Controller {
 				@file_put_contents($file_path, $content);
 				echo ('Init:' . date('Y_m_d_h_i_s').'<br/>');
 			}
+		}
+	}
+	
+	public function write_log($message, $file_name){
+		$this->load->helper('file');
+		$log_path = FCPATH.'../TOHwindy/assets/'.date('Y_m_d_h_').$file_name;
+		
+		$message = $message."\n";
+		if(@file_exists($log_path)){
+			write_file($log_path, $message, 'a+');
+		}else{
+			@file_put_contents($log_path, $message);	
 		}
 	}
 }
