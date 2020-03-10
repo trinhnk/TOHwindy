@@ -34,7 +34,7 @@
 		$version = file_get_contents(FCPATH.'version.txt');
 		//$change_data = file_get_contents(FCPATH.'change_data.txt');
 		//$change_data = date('Y_m_d_H_i_00', strtotime(date('Y-m-d H:00:00')) + ((int)date('i') - (int)date('i')%5) * 60);
-		$change_data = date('Y_m_d_H');
+		$change_data = date('Y_m_d_H_00_00');
 		
 		$wind_json_date = date('Y-m-d H:40:00');
 		$wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date));
