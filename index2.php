@@ -7,17 +7,12 @@
 </head>
 <body>
 	<div id="map"></div>
-	<div id="temp"></div>
-
 	<div id="logo-wrapper">
 		<div class="copyright">
 			<div>© TOHSOFT Co.</div>
 		</div>
 	</div>
-
-	<?php $resource_url = 'http://resource.goweatherradar.com/';?>
-	<?php //$resource_url = 'http://mylocal.com/tohwindy/';?>
-	<?php 
+	<?php
 		function recurse_copy($src,$dst) { 
 			$dir = opendir($src); 
 			@mkdir($dst); 
@@ -40,6 +35,16 @@
 		//$change_data = file_get_contents(FCPATH.'change_data.txt');
 		//$change_data = date('Y_m_d_H_i_00', strtotime(date('Y-m-d H:00:00')) + ((int)date('i') - (int)date('i')%5) * 60);
 		$change_data = date('Y_m_d_H');
+		
+		$wind_json_date = date('Y-m-d H:40:00');
+		$wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date));
+		if(!@file_exists(FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json')){
+			copy (FCPATH.'resource/wind/wind.json', FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json');
+			$before_wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date - 60*60));
+			if(!@file_exists(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json')){
+				@unlink(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json');
+			}
+		}
 		
 		if(!@file_exists(FCPATH.'assets/'.$version.'_my_css.css')){
 			copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');
@@ -65,12 +70,19 @@
 		if(!@file_exists($des_fontawesome)){
 			recurse_copy($source_fontawesome, $des_fontawesome);
 		}
+		
+		$resource_url = 'http://goweatherradar.com/';
+		$wind_json_url = 'http://goweatherradar.com/resource/wind/wind_'.$wind_json_date_str.'.json';
+		$main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/'.$change_data.'/';
+		
+		//$resource_url = 'http://mylocal.com/tohwindy/';
+		//$wind_json_url = 'http://mylocal.com/tohwindy/resource/wind/wind_'.$wind_json_date_str.'.json';
+		//$main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/'.$change_data.'/';
 	?>
 	
 	<script>
-		var wind_json_url = 'http://resource.goweatherradar.com/resource/wind/wind.json';
-		var main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/<?php echo $change_data;?>/';
-		//var main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/<?php echo $change_data;?>/';
+		var wind_json_url = '<?php echo $wind_json_url;?>';
+		var main_cache_url = '<?php echo $main_cache_url;?>';
 	</script>
 	
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_style.css" />
