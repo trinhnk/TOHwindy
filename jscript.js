@@ -178,11 +178,8 @@ map.on('zoomstart',function(e){
     map.removeLayer(markerGroup);
 });
 map.on('zoomend',function(e){
+	map.removeLayer(markerGroup);
     markerGroup = L.layerGroup().addTo(map);
-});
-
-map.on('drag', function(e){
-    mapCenter = [map.getCenter().lat, map.getCenter().lng]
 });
 
 WindJSLeaflet.init({
