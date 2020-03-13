@@ -225,6 +225,8 @@ class Cacheapi extends CI_Controller {
 		$temperature_color .= '30:ff4014;';
 		$temperature_color .= '45:880000';
 		
+		$temperature_color = '-70:734669;-55:CAACC3;-40:A24691;-25:8F59A9;-15:9DDBD9;-8:6ABFB5;-4:64A6BD;0:5D85C6;1:447D63;10:809318;21:F3B704;30:E85319;45:470E00';
+		
 		$humidity_color = '';
 		$humidity_color .= '0:ce3700;';
 		$humidity_color .= '30:c95d00;';
