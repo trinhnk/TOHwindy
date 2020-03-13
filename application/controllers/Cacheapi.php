@@ -99,22 +99,28 @@ class Cacheapi extends CI_Controller {
 		$snow_color .= '120:b42828;';
 		$snow_color .= '500:ce5bce';
 		
-		$Wind_Map = 'http://maps.openweathermap.org/maps/2.0/weather/WS10/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&opacity=1&fill_bound=true&palette='.$wind_color;
-		$Temperature_Map = 'http://maps.openweathermap.org/maps/2.0/weather/TA2/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$temperature_color;
-		$Relative_Humidity = 'http://maps.openweathermap.org/maps/2.0/weather/HRD0/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$humidity_color;
-		$Accumulated_Precipitation_Rain = 'http://maps.openweathermap.org/maps/2.0/weather/PAR0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&palette='.$rain_color.'&appid='.$API_Openweathermap;
-		$Atmospheric_Pressure_Mean = 'https://a.sat.owm.io/vane/2.0/weather/APM/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$pressure_color;
-		$Cloudiness = 'http://maps.openweathermap.org/maps/2.0/weather/CL/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$cloud_color;
+		$time = strtotime(date('Y-m-d H:00:00'));
+		$hour = (int)date('H', $time);
+		$hour = $hour % 3;
+		$time = $time - $hour*60*60;
+		$cur_time = strtotime(date('Y-m-d H:i:s'));
 		
-		$PAC0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAC0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$PR0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PR0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$PA0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PA0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$PAS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAS0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
-		$SD0_url = 'http://maps.openweathermap.org/maps/2.0/weather/SD0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette='.$snow_color;
-		$WND_url = 'http://maps.openweathermap.org/maps/2.0/weather/WND/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$TD2_url = 'http://maps.openweathermap.org/maps/2.0/weather/TD2/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$TS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$TS10_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS10/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$Wind_Map = 'http://maps.openweathermap.org/maps/2.0/weather/WS10/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&opacity=1&fill_bound=true&palette='.$wind_color;
+		$Temperature_Map = 'http://maps.openweathermap.org/maps/2.0/weather/TA2/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$temperature_color;
+		$Relative_Humidity = 'http://maps.openweathermap.org/maps/2.0/weather/HRD0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$humidity_color;
+		$Accumulated_Precipitation_Rain = 'http://maps.openweathermap.org/maps/2.0/weather/PAR0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&palette='.$rain_color.'&appid='.$API_Openweathermap;
+		$Atmospheric_Pressure_Mean = 'https://a.sat.owm.io/vane/2.0/weather/APM/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$pressure_color;
+		$Cloudiness = 'http://maps.openweathermap.org/maps/2.0/weather/CL/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$cloud_color;
+		
+		$PAC0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAC0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$PR0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PR0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$PA0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PA0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$PAS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAS0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
+		$SD0_url = 'http://maps.openweathermap.org/maps/2.0/weather/SD0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette='.$snow_color;
+		$WND_url = 'http://maps.openweathermap.org/maps/2.0/weather/WND/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$TD2_url = 'http://maps.openweathermap.org/maps/2.0/weather/TD2/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$TS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$TS10_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS10/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
 		
 		$type_array = array(
 			'Wind_Map' => $Wind_Map,
@@ -142,36 +148,11 @@ class Cacheapi extends CI_Controller {
 			$url = $type_array[$type];
 			$cache_folder = $this->config->item('storage_cache_folder');
 			$file_path = $cache_folder.$type.'_'.$z.'_'.$x.'_'.$y.'_'.$file_name;
-			$last_change_file = FCPATH.'../TOHwindy/assets/last_change.txt';
-			$cur_time = strtotime(date('Y-m-d H:i:s'));
-			$max_cache_time = 1*60*60;
-			
-			$last_change = strtotime(date('Y-m-d H:i:s'));
-			if(@file_exists($last_change_file)){
-				$last_change = (int)@file_get_contents($last_change_file);
-			}else{
-				@file_put_contents($last_change_file, $last_change);
-			}
-			
 			if(@file_exists($file_path)){
 				$file_time = @filemtime($file_path);
-				if($file_time >= $last_change){
-					$change_date_arrs = explode('_', $change_date);
-					$change_time = strtotime($change_date_arrs[0].'-'.$change_date_arrs[1].'-'.$change_date_arrs[2]. ' '.$change_date_arrs[3].':'.$change_date_arrs[4].':'.$change_date_arrs[5]);
-					if($file_time >= $change_time){
-						$content = unserialize(@file_get_contents($file_path));
-						$content = $content->content;
-					}else{
-						$content = @file_get_contents($url);
-						if($content){
-							$old_content = unserialize(@file_get_contents($file_path));
-							@file_put_contents($file_path, serialize((object)array('content' => $content, 'time' => $cur_time)));
-							if(md5($old_content->content) != md5($content)){
-								$this->write_log(date('Y-m-d H:i:s') . '|' . $cur_time . '|' . ($cur_time - $last_change), 'log_change.txt');
-								@file_put_contents($last_change_file, $cur_time);		
-							}
-						}
-					}
+				if($file_time >= $time){
+					$content = unserialize(@file_get_contents($file_path));
+					$content = $content->content;
 				}else{
 					$content = @file_get_contents($url);
 					if($content){
@@ -185,6 +166,7 @@ class Cacheapi extends CI_Controller {
 				}
 			}
 			if($content){
+				$max_cache_time = 1*60*60;
 				header("Cache-Control: max-age=".$max_cache_time);
 				header("Content-type: image/png");
 				die($content);
@@ -291,22 +273,27 @@ class Cacheapi extends CI_Controller {
 		$snow_color .= '120:b42828;';
 		$snow_color .= '500:ce5bce';
 		
-		$Wind_Map = 'http://maps.openweathermap.org/maps/2.0/weather/WS10/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&opacity=1&fill_bound=true&palette='.$wind_color;
-		$Temperature_Map = 'http://maps.openweathermap.org/maps/2.0/weather/TA2/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$temperature_color;
-		$Relative_Humidity = 'http://maps.openweathermap.org/maps/2.0/weather/HRD0/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$humidity_color;
-		$Accumulated_Precipitation_Rain = 'http://maps.openweathermap.org/maps/2.0/weather/PAR0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&palette='.$rain_color.'&appid='.$API_Openweathermap;
-		$Atmospheric_Pressure_Mean = 'https://a.sat.owm.io/vane/2.0/weather/APM/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$pressure_color;
-		$Cloudiness = 'http://maps.openweathermap.org/maps/2.0/weather/CL/'.$z.'/'.$x.'/'.$y.'?appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$cloud_color;
+		$time = strtotime(date('Y-m-d H:00:00'));
+		$hour = (int)date('H', $time);
+		$hour = $hour % 3;
+		$time = $time - $hour*60*60;
 		
-		$PAC0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAC0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$PR0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PR0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$PA0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PA0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$PAS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAS0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
-		$SD0_url = 'http://maps.openweathermap.org/maps/2.0/weather/SD0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette='.$snow_color;
-		$WND_url = 'http://maps.openweathermap.org/maps/2.0/weather/WND/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$TD2_url = 'http://maps.openweathermap.org/maps/2.0/weather/TD2/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$TS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS0/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
-		$TS10_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS10/'.$z.'/'.$x.'/'.$y.'?fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$Wind_Map = 'http://maps.openweathermap.org/maps/2.0/weather/WS10/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&opacity=1&fill_bound=true&palette='.$wind_color;
+		$Temperature_Map = 'http://maps.openweathermap.org/maps/2.0/weather/TA2/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$temperature_color;
+		$Relative_Humidity = 'http://maps.openweathermap.org/maps/2.0/weather/HRD0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$humidity_color;
+		$Accumulated_Precipitation_Rain = 'http://maps.openweathermap.org/maps/2.0/weather/PAR0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&palette='.$rain_color.'&appid='.$API_Openweathermap;
+		$Atmospheric_Pressure_Mean = 'https://a.sat.owm.io/vane/2.0/weather/APM/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$pressure_color;
+		$Cloudiness = 'http://maps.openweathermap.org/maps/2.0/weather/CL/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$cloud_color;
+		
+		$PAC0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAC0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$PR0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PR0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$PA0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PA0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$PAS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/PAS0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette=0:616161;1:455298;10:41a5a7;20:418d41;50:a8a841;80:aa7e3f;120:a74141;200:a841a8';
+		$SD0_url = 'http://maps.openweathermap.org/maps/2.0/weather/SD0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap.'&palette='.$snow_color;
+		$WND_url = 'http://maps.openweathermap.org/maps/2.0/weather/WND/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$TD2_url = 'http://maps.openweathermap.org/maps/2.0/weather/TD2/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$TS0_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS0/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
+		$TS10_url = 'http://maps.openweathermap.org/maps/2.0/weather/TS10/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&fill_bound=true&opacity=1&appid='.$API_Openweathermap;
 		
 		$type_array = array(
 			'Wind_Map' => $Wind_Map,
