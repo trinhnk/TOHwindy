@@ -365,7 +365,7 @@ class Cacheapi extends CI_Controller {
 	
 	public function write_log($message, $file_name){
 		$this->load->helper('file');
-		$log_path = FCPATH.'../TOHwindy/assets/'.date('Y_m_d_h_').$file_name;
+		$log_path = FCPATH.'../TOHwindy/assets/'.date('Y_m_d_H_').$file_name;
 		
 		$message = $message."\n";
 		if(@file_exists($log_path)){
