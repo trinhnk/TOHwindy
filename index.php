@@ -75,9 +75,9 @@
 		$wind_json_url = 'http://goweatherradar.com/resource/wind/wind_'.$wind_json_date_str.'.json';
 		$main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/'.$change_data.'/';
 		
-		//$resource_url = 'http://mylocal.com/tohwindy/';
-		//$wind_json_url = 'http://mylocal.com/tohwindy/resource/wind/wind_'.$wind_json_date_str.'.json';
-		//$main_cache_url = 'http://mylocal.com/cacheapi/cacheweatherapi/'.$change_data.'/';
+		//$resource_url = 'http://winlocal.com/';
+		//$wind_json_url = 'http://winlocal.com/resource/wind/wind_'.$wind_json_date_str.'.json';
+		//$main_cache_url = 'http://cache.winlocal.com/cacheapi/cacheweatherapi/'.$change_data.'/';
 	?>
 	
 	<script>
