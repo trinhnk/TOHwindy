@@ -68,7 +68,7 @@
 		
 		$source_fontawesome = FCPATH.'dist/fontawesome-free-5.12.1';
 		$des_fontawesome = FCPATH.'assets/fontawesome_'.$version;
-		if($testing || !@file_exists($des_fontawesome)){
+		if(!@file_exists($des_fontawesome)){
 			recurse_copy($source_fontawesome, $des_fontawesome);
 		}
 		
