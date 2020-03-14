@@ -126,7 +126,13 @@
 				
 				$('.leaflet-control-layers-overlays').attr( "style", "display:none;" ); // Ẩn các bar thừa
 				$('.leaflet-control-layers-separator').attr( "style", "display:none;" );// Ẩn các bar thừa
-
+				
+				$('.icons-font').each(function(index, value) {
+					if(index == 0){
+						$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
+						$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
+					}
+				});
 				// active icons by click
 				$('.icons-font').click(function(){
 					$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
