@@ -72,11 +72,11 @@
 		
 		$resource_url = 'http://goweatherradar.com/';
 		$wind_json_url = 'http://goweatherradar.com/resource/wind/wind_'.$wind_json_date_str.'.json';
-		$main_cache_url = 'http://cache.goweatherradar.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
+		$main_cache_url = 'http://cache.goweatherradar.com/cacheapi/cacheweatherapi/'.$change_data.'/';
 		
 		$resource_url = 'http://winlocal.com/';
 		$wind_json_url = 'http://winlocal.com/resource/wind/wind_'.$wind_json_date_str.'.json';
-		$main_cache_url = 'http://cache.winlocal.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
+		$main_cache_url = 'http://cache.winlocal.com/cacheapi/cacheweatherapi/'.$change_data.'/';
 	?>
 	
 	<script>
@@ -135,6 +135,44 @@
 				});
 			});
 		});
+
+		var W = new Object();
+			W.store = new Object();
+			W.maps = new Object();
+			W.maps.setView = function(latlng){
+				map.setView([latlng[0], latlng[1]], 5);
+				// window.location.href = "http://radar.tohapp.com/en/apiv2/tohWeather.php?lat="+latlng[0]+"&lng="+latlng[1]+"&z=8&overlay="+currentOverlay;
+			}
+
+			W.store.set = function(key, value){
+				if(key == "overlay" && value == "clouds"){
+					$('#cloudy-layout').click()
+				}else if(key == "overlay" && value == "rain"){
+					$('#rain-layout').click()
+				}else if(key == "overlay" && value == "pressure"){
+					$('#pressure-layout').click()
+				}else if(key == "overlay" && value == "wind"){
+					$('#windy-layout').click()
+				}else if(key == "overlay" && value == "temp"){
+					$('#temp-layout').click()
+				}else if(key == "overlay" && value == "rh"){
+					$('#humidity-layout').click()
+				}
+				// else if(key == "overlay" && value == "waves"){
+				//     alert(7)
+				// }else if(key == "overlay" && value == "currents"){
+				//     alert(8)
+				// }    
+			}
+
+		function returnAndroid() {
+			if (typeof Android === 'undefined') {
+			return;
+			}else{
+			return Android.returnAndroid('{"layouts" : [{"name" : "clouds"}, {"name" : "rain"}, {"name" : "pressure"}, {"name" : "wind"}, {"name" : "temp"}, {"name" : "rh"}]}');
+			}
+		}
+		returnAndroid();
 	</script>
 	<style>
 		.leaflet-top {
@@ -166,7 +204,11 @@
 			color: #333;
 			background: rgba(68,65,65,0.60);
 		}
-		
+		.custom-bar {
+			top: 80px!important;
+			display:none;
+		}
+
 		.icons-font, .icons-font-active {
 			font-size: 12px!important;
 			color: white;

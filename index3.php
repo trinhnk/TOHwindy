@@ -32,9 +32,7 @@
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
 		$testing = true;
-		$version = file_get_contents(FCPATH.'version.txt');
-		//$change_data = file_get_contents(FCPATH.'change_data.txt');
-		//$change_data = date('Y_m_d_H_i_00', strtotime(date('Y-m-d H:00:00')) + ((int)date('i') - (int)date('i')%5) * 60);
+		$version = '20200315';
 		$change_data = date('Y_m_d_H_00_00');
 		
 		$wind_json_date = date('Y-m-d H:40:00');
@@ -138,5 +136,82 @@
 			});
 		});
 	</script>
+	<style>
+		.leaflet-top {
+			top: 1%!important;
+		}
+
+		.leaflet-control, .custom-bar {
+			margin-right: 10px!important;
+		}
+
+		.leaflet-bar a {
+			background-color: rgba(68,65,65,0.60);
+			border-bottom: 1px solid #ccc;
+			width: 30px!important;
+			height: 30px!important;
+			line-height: 30px!important;
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			color: white;
+		}
+		.leaflet-control-zoom-in,
+		.leaflet-control-zoom-out{
+			font-size: 12px!important;
+			border: 0!important;
+		}
+		.leaflet-control-layers-expanded {
+			padding: 2px!important;
+			color: #333;
+			background: rgba(68,65,65,0.60);
+		}
+		
+		.icons-font, .icons-font-active {
+			font-size: 12px!important;
+			color: white;
+			line-height: 12px;
+			margin: 2px;
+		}
+
+		.leaflet-control-layers-expanded center{
+			width: 26px!important;
+			height: 26px!important;
+			line-height: 26px!important;
+		}
+
+		.tooltiptext, .tooltiptext:hover {
+			font-size: 9px!important;
+			line-height: 30px!important;
+			text-decoration: underline;
+			margin-top:-23px!important;
+			padding:0!important;
+		}
+
+		.icons-font-active {
+			color: orange!important;
+		}
+		.leaflet-touch .leaflet-bar{
+			border:none;
+		}
+		.leaflet-control-zoom-in:focus, .leaflet-control-zoom-in:active, .leaflet-control-zoom-in:focus-within, .leaflet-control-zoom-in:hover, .leaflet-control-zoom-in:visited{
+			outline: 0 !important;
+		}
+		.leaflet-control-zoom-in, .leaflet-control-zoom-out{
+			outline: 0 !important;
+		}
+		.copyright{
+			position: absolute;
+			text-align: center;
+			font-size: 11px;
+			color: #ffffff;
+			font-weight: bold;
+			pointer-events: auto;
+			left: 50%;
+			margin-left: -41.5px;
+			bottom: 5px;
+			text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+		}
+	</style>
 </body>
 </html>

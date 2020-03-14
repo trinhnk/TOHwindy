@@ -274,12 +274,12 @@
 	border-radius: 5px;
 	}
 .leaflet-control-layers-toggle {
-	background-image: url(/assets/images/layers.png);
+	//background-image: url(https://frontend/assets/images/layers.png);
 	width: 36px;
 	height: 36px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(/assets/images/layers-2x.png);
+	//background-image: url(/frontend/assets/images/layers-2x.png);
 	background-size: 26px 26px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
