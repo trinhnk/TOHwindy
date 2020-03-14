@@ -101,10 +101,7 @@ class Cacheapi extends CI_Controller {
 		
 		$cur_time = strtotime(date('Y-m-d H:i:s'));
 		$time = strtotime(date('Y-m-d H:00:00', $cur_time));
-		$minute = (int)date('i', $cur_time);
-		if($minute < 30){
-			$time = $time - 1*60*60;
-		}
+		$time = $time - 0.5*60*60;
 		
 		$Wind_Map = 'http://maps.openweathermap.org/maps/2.0/weather/WS10/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&opacity=1&fill_bound=true&palette='.$wind_color;
 		$Temperature_Map = 'http://maps.openweathermap.org/maps/2.0/weather/TA2/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$temperature_color;
@@ -285,12 +282,9 @@ class Cacheapi extends CI_Controller {
 		$snow_color .= '120:b42828;';
 		$snow_color .= '500:ce5bce';
 		
-		$time = strtotime(date('Y-m-d H:00:00'));
-		$minute = (int)date('i', $time);
-		if($i < 30){
-			$time = $time - 1*60*60;
-		}
 		$cur_time = strtotime(date('Y-m-d H:i:s'));
+		$time = strtotime(date('Y-m-d H:00:00', $cur_time));
+		$time = $time - 0.5*60*60;
 		$time = $cur_time;
 		
 		$Wind_Map = 'http://maps.openweathermap.org/maps/2.0/weather/WS10/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&opacity=1&fill_bound=true&palette='.$wind_color;
@@ -337,6 +331,7 @@ class Cacheapi extends CI_Controller {
 			redirect($url);
 		}
 	}
+	
 	public function nocacheweatherapi2($change_date, $type, $s, $z, $x, $y, $file_name){
 		$API_Openweathermap = '9de243494c0b295cca9337e1e96b00e2'; //Internet
 		$this->load->helper('url');
@@ -434,12 +429,10 @@ class Cacheapi extends CI_Controller {
 		$snow_color .= '120:b42828;';
 		$snow_color .= '500:ce5bce';
 		
-		$time = strtotime(date('Y-m-d H:00:00'));
-		$minute = (int)date('i', $time);
-		if($i < 30){
-			$time = $time - 1*60*60;
-		}
 		$cur_time = strtotime(date('Y-m-d H:i:s'));
+		$time = strtotime(date('Y-m-d H:00:00', $cur_time));
+		$time = $time - 0.5*60*60;
+		$time = $cur_time;
 		
 		$Wind_Map = 'http://maps.openweathermap.org/maps/2.0/weather/WS10/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&opacity=1&fill_bound=true&palette='.$wind_color;
 		$Temperature_Map = 'http://maps.openweathermap.org/maps/2.0/weather/TA2/'.$z.'/'.$x.'/'.$y.'?date='.$time.'&appid='.$API_Openweathermap.'&fill_bound=true&opacity=1&palette='.$temperature_color;
