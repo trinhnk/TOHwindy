@@ -152,6 +152,7 @@ function initWindyMap(){
         ],
         closePopupOnClick: false,
         'worldCopyJump': true,
+		'attributionControl': false,
     });
 
     var layerControl = L.control.layers(overlayLayer, baseLayers);
