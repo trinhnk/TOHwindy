@@ -4,6 +4,11 @@
 	<title>Go Weather Radar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<style>
+		.leaflet-control-layers, .leaflet-control-zoom{
+			display:none;
+		}
+	</style>
 </head>
 <body>
 	<div id="map"></div>
@@ -118,17 +123,20 @@
 				$('input[type=checkbox]')[1].click();
 				$('input[type=checkbox]').attr( "disabled", "disabled" );
 				
-				$('#temp').attr("style","display:none;"); //ẩn div có id="temp"
 				$('.leaflet-left').addClass('leaflet-right').removeClass('leaflet-left'); //Add class leaflet-right & xóa class leaflet-right trên site, tốt nhất là ghi đè vào js thì ok hơn
 				$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
 				$('.leaflet-control-layers').mouseout(function(){
 					$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
-				 });
+				});
 				
 				$('.leaflet-control-layers-overlays').attr( "style", "display:none;" ); // Ẩn các bar thừa
 				$('.leaflet-control-layers-separator').attr( "style", "display:none;" );// Ẩn các bar thừa
-
-				$('.icons-font').each(function(index, value) {
+				
+				$('.leaflet-control-layers').attr( "style", "display:block;" );
+				$('.leaflet-control-zoom').attr( "style", "display:block;" );
+				
+				//Active first icon
+				$('.icons-font').each(function(index, value){
 					if(index == 0){
 						$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
 						$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
