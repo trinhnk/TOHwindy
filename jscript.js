@@ -163,7 +163,15 @@ function initWindyMap(){
         map: map,
         layerControl: layerControl
     };
+    
 }
+
+var WindJSLeaflet;
+$.getJSON(wind_json_url, function(data) {
+    WindJSLeaflet = L.windJSLeaflet({ data: data });
+    map.addLayer(WindJSLeaflet);
+    console.log(WindJSLeaflet)
+});
 
 var mapStuff = initWindyMap();
 var map = mapStuff.map;
@@ -182,27 +190,27 @@ map.on('zoomend',function(e){
     markerGroup = L.layerGroup().addTo(map);
 });
 
-WindJSLeaflet.init({
-    wind: true,
-    localMode: true,
-    map: map,
-    layerControl: layerControl,
-    useNearest: false,
-    timeISO: null,
-    nearestDaysLimit: 7,
-    displayValues: true,
-    displayOptions: {
-        displayPosition: 'bottomleft',
-        displayEmptyString: 'No wind data'
-    },
-    overlayName: 'Wind',
+// WindJSLeaflet.init({
+//     wind: true,
+//     localMode: true,
+//     map: map,
+//     layerControl: layerControl,
+//     useNearest: false,
+//     timeISO: null,
+//     nearestDaysLimit: 7,
+//     displayValues: true,
+//     displayOptions: {
+//         displayPosition: 'bottomleft',
+//         displayEmptyString: 'No wind data'
+//     },
+//     // overlayName: 'Wind',
 
-    // https://github.com/danwild/wind-js-server
-    pingUrl: '',
-    latestUrl: '',
-    nearestUrl: '',
-    errorCallback: handleError
-});
+//     // https://github.com/danwild/wind-js-server
+//     pingUrl: '',
+//     latestUrl: '',
+//     nearestUrl: '',
+//     errorCallback: handleError
+// });
 
  /*
 // var API_Openweathermap = '6cd5c4340fca7218c97d24293acf7918';
