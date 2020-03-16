@@ -104,13 +104,13 @@ function initWindyMap(){
     })
 
     var overlayLayer = {
-        '<center><i class="fas fa-cloud-rain icons-font" id="rain-layout"></center>' : Accumulated_Precipitation_Rain,
-        '<center><i class="fas fa-snowman icons-font" id="snow-layout"></i></center>' : PAS0,
-        '<center><i class="fas fa-wind icons-font" id="windy-layout"></i></center>' : Wind_Map,
-        '<center><i class="fas fa-arrow-circle-down icons-font" id="pressure-layout"></i></center>' : Atmospheric_Pressure_Mean,
-        '<center><i class="fas fa-thermometer-three-quarters icons-font" id="temp-layout"></i></center>' : Temperature_Map,
-        '<center><i class="fas fa-water icons-font" id="humidity-layout"></i></center>' : Relative_Humidity,
-        '<center><i class="fas fa-cloud icons-font" id="cloudy-layout"></i></center>' : Cloudiness,
+        '<center><i title="Rain" class="fas fa-cloud-rain icons-font" id="rain-layout"></center>' : Accumulated_Precipitation_Rain,
+        '<center><i title="Snow" class="fas fa-snowman icons-font" id="snow-layout"></i></center>' : SD0,
+        '<center><i title="Wind" class="fas fa-wind icons-font" id="windy-layout"></i></center>' : Wind_Map,
+        '<center><i title="Pressure" class="fas fa-arrow-circle-down icons-font" id="pressure-layout"></i></center>' : Atmospheric_Pressure_Mean,
+        '<center><i title="Temperature" class="fas fa-thermometer-three-quarters icons-font" id="temp-layout"></i></center>' : Temperature_Map,
+        '<center><i title="Humidity" class="fas fa-water icons-font" id="humidity-layout"></i></center>' : Relative_Humidity,
+        '<center><i title="Cloudiness" class="fas fa-cloud icons-font" id="cloudy-layout"></i></center>' : Cloudiness,
     }
 
     var geojsonTileLayer = new L.LoadCityNameJSON('http://resource.goweatherradar.com/resource/json/{z}/{x}/{y}.json',{
