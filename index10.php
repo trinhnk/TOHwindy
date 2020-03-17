@@ -31,6 +31,7 @@
 		
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
+		$testing = true;
 		$version = file_get_contents(FCPATH.'version.txt');
 		//$change_data = file_get_contents(FCPATH.'change_data.txt');
 		//$change_data = date('Y_m_d_H_i_00', strtotime(date('Y-m-d H:00:00')) + ((int)date('i') - (int)date('i')%5) * 60);
@@ -38,7 +39,7 @@
 		
 		$wind_json_date = date('Y-m-d H:40:00');
 		$wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date));
-		if(!@file_exists(FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json')){
+		if($testing || !@file_exists(FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json')){
 			copy (FCPATH.'resource/wind/wind.json', FCPATH.'resource/wind/wind_'.$wind_json_date_str.'.json');
 			$before_wind_json_date_str = date('Y_m_d_H_40_00', strtotime($wind_json_date) - 60*60);
 			if(@file_exists(FCPATH.'resource/wind/wind_'.$before_wind_json_date_str.'.json')){
@@ -46,22 +47,22 @@
 			}
 		}
 		
-		if(!@file_exists(FCPATH.'assets/'.$version.'_my_css.css')){
+		if($testing || !@file_exists(FCPATH.'assets/'.$version.'_my_css.css')){
 			copy (FCPATH.'my_css.css', FCPATH.'assets/'.$version.'_my_css.css');
 		}
-		if(!@file_exists(FCPATH.'assets/'.$version.'_style.css')){
+		if($testing || !@file_exists(FCPATH.'assets/'.$version.'_style.css')){
 			copy (FCPATH.'style.css', FCPATH.'assets/'.$version.'_style.css');
 		}
-		if(!@file_exists(FCPATH.'assets/'.$version.'_jscript.js')){
+		if($testing || !@file_exists(FCPATH.'assets/'.$version.'_jscript.js')){
 			copy (FCPATH.'jscript.js', FCPATH.'assets/'.$version.'_jscript.js');
 		}
-		if(!@file_exists(FCPATH.'assets/'.$version.'_load-city-name-json.js')){
+		if($testing || !@file_exists(FCPATH.'assets/'.$version.'_load-city-name-json.js')){
 			copy (FCPATH.'dist/load-city-name-json.js', FCPATH.'assets/'.$version.'_load-city-name-json.js');
 		}
-		if(!@file_exists(FCPATH.'assets/'.$version.'_wind-js-leaflet.css')){
+		if($testing || !@file_exists(FCPATH.'assets/'.$version.'_wind-js-leaflet.css')){
 			copy (FCPATH.'dist/wind-js-leaflet.css', FCPATH.'assets/'.$version.'_wind-js-leaflet.css');
 		}
-		if(!@file_exists(FCPATH.'assets/'.$version.'_wind-js-leaflet.js')){
+		if($testing || !@file_exists(FCPATH.'assets/'.$version.'_wind-js-leaflet.js')){
 			copy (FCPATH.'dist/wind-js-leaflet.js', FCPATH.'assets/'.$version.'_wind-js-leaflet.js');
 		}
 		
