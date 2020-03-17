@@ -154,6 +154,8 @@ L.CanvasLayer = (L.Layer ? L.Layer : L.Class).extend({
 L.canvasLayer = function () {
 	return new L.CanvasLayer();
 };
+
+
 /*  Global class for simulating the movement of particle through a 1km wind grid
 
  credit: All the credit for this work goes to: https://github.com/cambecc for creating the repo:
@@ -165,6 +167,7 @@ L.canvasLayer = function () {
  The "start" method takes the bounds of the map at its current extent and starts the whole gridding,
  interpolation and animation process.
  */
+
 
 var Windy = function Windy(params) {
 
@@ -178,14 +181,32 @@ var Windy = function Windy(params) {
 	var FRAME_RATE = 30,
 	    FRAME_TIME = 1000 / FRAME_RATE; // desired frames per second
 
+  var OPACITY = 1;
 	var NULL_WIND_VECTOR = [NaN, NaN, null]; // singleton for no wind in the form: [u, v, magnitude]
 
 	var builder;
 	var grid;
+  var gridData = params.data;
 	var date;
 	var λ0, φ0, Δλ, Δφ, ni, nj;
 
-	// interpolation for vectors like wind (u,v,m)
+  var setData = function setData(data) {
+    gridData = data;
+  };
+
+  var setOptions = function setOptions(options) {
+    if (options.hasOwnProperty("minWindSpeed")) MIN_TEMPERATURE_K = options.minWindSpeed;
+    if (options.hasOwnProperty("maxWindSpeed")) MAX_TEMPERATURE_K = options.maxWindSpeed;
+    if (options.hasOwnProperty("velocityScale")) VELOCITY_SCALE = (options.velocityScale || 0.005) * (Math.pow(window.devicePixelRatio, 1 / 3) || 1);
+    if (options.hasOwnProperty("particleAge")) MAX_PARTICLE_AGE = options.particleAge;
+    if (options.hasOwnProperty("lineWidth")) PARTICLE_LINE_WIDTH = options.lineWidth;
+    if (options.hasOwnProperty("particleMultiplier")) PARTICLE_MULTIPLIER = options.particleMultiplier;
+    if (options.hasOwnProperty("opacity")) OPACITY = +options.opacity;
+    if (options.hasOwnProperty("frameRate")) FRAME_RATE = options.frameRate;
+    FRAME_TIME = 1000 / FRAME_RATE;
+  }; 
+  // interpolation for vectors like wind (u,v,m)
+
 	var bilinearInterpolateVector = function bilinearInterpolateVector(x, y, g00, g10, g01, g11) {
 		var rx = 1 - x;
 		var ry = 1 - y;
@@ -356,7 +377,9 @@ var Windy = function Windy(params) {
 
 	var distortion = function distortion(projection, λ, φ, x, y, windy) {
 		var τ = 2 * Math.PI;
-		var H = Math.pow(10, -5.2);
+
+    var H = 5;
+
 		var hλ = λ < 0 ? H : -H;
 		var hφ = φ < 0 ? H : -H;
 
@@ -425,32 +448,17 @@ var Windy = function Windy(params) {
 	};
 
 	var invert = function invert(x, y, windy) {
-		var mapLonDelta = windy.east - windy.west;
-		var worldMapRadius = windy.width / rad2deg(mapLonDelta) * 360 / (2 * Math.PI);
-		var mapOffsetY = worldMapRadius / 2 * Math.log((1 + Math.sin(windy.south)) / (1 - Math.sin(windy.south)));
-		var equatorY = windy.height + mapOffsetY;
-		var a = (equatorY - y) / worldMapRadius;
-
-		var lat = 180 / Math.PI * (2 * Math.atan(Math.exp(a)) - Math.PI / 2);
-		var lon = rad2deg(windy.west) + x / windy.width * rad2deg(mapLonDelta);
-		return [lon, lat];
-	};
+    var latlon = params.map.containerPointToLatLng(L.point(x, y));
+    return [latlon.lng, latlon.lat];
+  };
 
 	var mercY = function mercY(lat) {
 		return Math.log(Math.tan(lat / 2 + Math.PI / 4));
 	};
 
 	var project = function project(lat, lon, windy) {
-		// both in radians, use deg2rad if neccessary
-		var ymin = mercY(windy.south);
-		var ymax = mercY(windy.north);
-		var xFactor = windy.width / (windy.east - windy.west);
-		var yFactor = windy.height / (ymax - ymin);
-
-		var y = mercY(deg2rad(lat));
-		var x = (deg2rad(lon) - windy.west) * xFactor;
-		var y = (ymax - y) * yFactor; // y points south
-		return [x, y];
+    var xy = params.map.latLngToContainerPoint(L.latLng(lat, lon));
+    return [xy.x, xy.y];
 	};
 
 	var interpolateField = function interpolateField(grid, bounds, extent, callback) {
@@ -539,7 +547,6 @@ var Windy = function Windy(params) {
 				"rgb(220,24,32)", 
 				"rgb(180,0,35)"];
 			result.indexFor = function (m) {
-				// map wind speed to a style
 				return Math.max(0, Math.min(result.length - 1, Math.round((m - minTemp) / (maxTemp - minTemp) * (result.length - 1))));
 			};
 			return result;
@@ -728,7 +735,6 @@ L.Control.WindPosition = L.Control.extend({
 	onRemove: function onRemove(map) {
 		map.off('mousemove', this._onMouseMove, this);
 	},
-
 	vectorToSpeed: function vectorToSpeed(uMs, vMs) {
 		var windAbs = Math.sqrt(Math.pow(uMs, 2) + Math.pow(vMs, 2));
 		return windAbs;
@@ -779,8 +785,6 @@ L.Control.WindPosition = L.Control.extend({
 	},
 
 	_loadTemperature: function _loadTemperature(e){
-		// console.log(this)
-		// console.log(e)
 		var self = this;
 		var pos = this.options.WindJSLeaflet._map.containerPointToLatLng(L.point(e.containerPoint.x, e.containerPoint.y));
 		var gridValue = this.options.WindJSLeaflet._windy.interpolatePoint(e.latlng.lng, e.latlng.lat);
@@ -788,8 +792,6 @@ L.Control.WindPosition = L.Control.extend({
 		var vMs = gridValue[1];
 			vMs = vMs > 0 ? vMs = vMs - vMs * 2 : Math.abs(vMs);
 		var _windSpeed = Math.round((self.vectorToSpeed(gridValue[0], vMs).toFixed(1)*3.6)*10)/10;
-		// alert("Wind Speed: " + _windSpeed + "km/h. Temp: " + _temperature + "°C");
-		// console.log(self.temperatureToColor(_temperature))
 	}
 
 });
@@ -809,165 +811,110 @@ L.control.windPosition = function (options) {
 	return new L.Control.WindPosition(options);
 };
 
-(function (root, factory) {
-	if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+L.WindJSLeaflet = (L.Layer ? L.Layer : L.Class).extend({
+  _map: null,
+  _data: null,
+  _options: null,
+  _canvasLayer: null,
+  _windy: null,
+  _context: null,
+  _timer: 0,
+  _mouseControl: null,
+  initialize: function initialize(options) {
+    L.setOptions(this, options);
+  },
+  onAdd: function onAdd(map) {
+	this._paneName = this.options.paneName || "overlayPane"; 
 
-		// CommonJS
-		module.exports = factory(require('wind-js-leaflet'));
-	} else if (typeof define === 'function' && define.amd) {
-		// AMD
-		define(['wind-js-leaflet'], function (WindJSLeaflet) {
-			return root.returnExportsGlobal = factory(window);
-		});
-	} else {
-		// Global Variables
-		window.WindJSLeaflet = factory(window);
-	}
-})(undefined, function (window) {
+    var pane = map._panes.overlayPane;
 
-	'use strict';
+    if (map.getPane) {
+      pane = map.getPane(this._paneName);
+      if (!pane) {
+        pane = map.createPane(this._paneName);
+      }
+	} 
 
-	var WindJSLeaflet = {
+    this._canvasLayer = L.canvasLayer({
+      pane: pane
+    }).delegate(this);
 
-		_map: null,
-		_data: null,
-		_options: null,
-		_canvasLayer: null,
-		_windy: null,
-		_context: null,
-		_timer: 0,
-		_mouseControl: null,
+    this._canvasLayer.addTo(map);
 
-		init: function init(options) {
+    this._map = map;
+  },
+  onRemove: function onRemove(map) {
+    this._destroyWind();
+  },
+  setData: function setData(data) {
+    this.options.data = data;
 
-			// don't bother setting up if the service is unavailable
-			WindJSLeaflet._checkWind(options).then(function () {
+    if (this._windy) {
+      this._windy.setData(data);
 
-				// set properties
-				WindJSLeaflet._map = options.map;
-				WindJSLeaflet._options = options;
+      this._clearAndRestart();
+    }
 
-				// create canvas, add overlay control
-				WindJSLeaflet._canvasLayer = L.canvasLayer().delegate(WindJSLeaflet);
-				WindJSLeaflet._options.layerControl.addOverlay(WindJSLeaflet._canvasLayer, options.overlayName || 'wind');
+    this.fire("load");
+  },
+  setOpacity: function setOpacity(opacity) {
+    console.log("this._canvasLayer", this._canvasLayer);
 
-				// ensure clean up on deselect overlay
-				WindJSLeaflet._map.on('overlayremove', function (e) {
-					if (e.layer == WindJSLeaflet._canvasLayer) {
-						WindJSLeaflet._destroyWind();
-					}
-				});
-			}).catch(function (err) {
-				console.log('err');
-				WindJSLeaflet._options.errorCallback(err);
-			});
-		},
+    this._canvasLayer.setOpacity(opacity);
+  },
+  setOptions: function setOptions(options) {
+    this.options = Object.assign(this.options, options);
 
-		setTime: function setTime(timeIso) {
-			WindJSLeaflet._options.timeISO = timeIso;
-		},
+    if (options.hasOwnProperty("displayOptions")) {
+      this.options.displayOptions = Object.assign(this.options.displayOptions, options.displayOptions);
 
-		/*------------------------------------ PRIVATE ------------------------------------------*/
+      this._initMouseHandler(true);
+    }
 
-		/**
-   * Ping the test endpoint to check if wind server is available
-   *
-   * @param options
-   * @returns {Promise}
-   */
-		_checkWind: function _checkWind(options) {
+    if (options.hasOwnProperty("data")) this.options.data = options.data;
 
-			return new Promise(function (resolve, reject) {
+    if (this._windy) {
+      this._windy.setOptions(options);
 
-				if (options.localMode) resolve(true);
+      if (options.hasOwnProperty("data")) this._windy.setData(options.data);
 
-				$.ajax({
-					type: 'GET',
-					url: options.pingUrl,
-					error: function error(err) {
-						reject(err);
-					},
-					success: function success(data) {
-						resolve(data);
-					}
-				});
-			});
-		},
+      this._clearAndRestart();
+    }
 
-		_getRequestUrl: function _getRequestUrl() {
+    this.fire("load");
+  },
 
-			if (!this._options.useNearest) {
-				return this._options.latestUrl;
-			}
+  onDrawLayer: function onDrawLayer(overlay, params) {
+    var WindJSLeaflet = this;
 
-			var params = {
-				"timeIso": this._options.timeISO || new Date().toISOString(),
-				"searchLimit": this._options.nearestDaysLimit || 7 // don't show data out by more than limit
-			};
+    if (!this._windy) {
+      this._initWindy(this);
 
-			return this._options.nearestUrl + '?' + $.param(params);
-		},
+      return;
+    }
 
-		_loadLocalData: function _loadLocalData() {
+    if (!this.options.data) {
+      return;
+    }
 
-			console.log('using local data..');
-
-			$.getJSON(wind_json_url, function (data) {
-				WindJSLeaflet._data = data;
-				WindJSLeaflet._initWindy(data);
-			});
-		},
-
-		_loadWindData: function _loadWindData() {
-			if (this._options.localMode) {
-				this._loadLocalData();
-				return;
-			}
-
-			var request = this._getRequestUrl();
-			console.log(request);
-
-			$.ajax({
-				type: 'GET',
-				url: request,
-				error: function error(err) {
-					console.log('error loading data');
-					WindJSLeaflet._options.errorCallback(err) || console.log(err);
-					WindJSLeaflet._loadLocalData();
-				},
-				success: function success(data) {
-					WindJSLeaflet._data = data;
-					WindJSLeaflet._initWindy(data);
-				}
-			});
-		},
-
-		onDrawLayer: function onDrawLayer(overlay, params) {
-
-			if (!WindJSLeaflet._windy) {
-				WindJSLeaflet._loadWindData();
-				return;
-			}
-
-			if (this._timer) clearTimeout(WindJSLeaflet._timer);
-
-			this._timer = setTimeout(function () {
-				WindJSLeaflet._startWindy();
+    if (this._timer) clearTimeout(WindJSLeaflet._timer);
+    this._timer = setTimeout(function () {
+		WindJSLeaflet._startWindy();
 			}, 750); // showing wind is delayed
 		},
-		_startWindy: function _startWindy() {
-			var bounds = WindJSLeaflet._map.getBounds();
-			var size = WindJSLeaflet._map.getSize();
-			// bounds, width, height, extent
-			WindJSLeaflet._windy.start([[0, 0], [size.x, size.y]], size.x, size.y, [[bounds._southWest.lng, bounds._southWest.lat], [bounds._northEast.lng, bounds._northEast.lat]]);
-		  },
-		_initWindy: function _initWindy(data) {
+  _startWindy: function _startWindy() {
+    var bounds = WindJSLeaflet._map.getBounds();
 
+    var size = WindJSLeaflet._map.getSize();
+    // bounds, width, height, extent
+    WindJSLeaflet._windy.start([[0, 0], [size.x, size.y]], size.x, size.y, [[bounds._southWest.lng, bounds._southWest.lat], [bounds._northEast.lng, bounds._northEast.lat]]);
+  },
+  _initWindy: function _initWindy(WindJSLeaflet) {
 			// windy object
 			var options = Object.assign({
-				canvas: WindJSLeaflet._canvasLayer._canvas,
-				data: data
-			}, self.options);
+        canvas: WindJSLeaflet._canvasLayer._canvas,
+        map: this._map
+			}, WindJSLeaflet.options);
 			this._windy = new Windy(options);
 
 			// prepare context global var, start drawing
@@ -982,28 +929,30 @@ L.control.windPosition = function (options) {
 			this._initMouseHandler();
 		},
 
-		_initMouseHandler: function _initMouseHandler() {
-			if (!this._mouseControl && this._options.displayValues) {
-				var options = this._options.displayOptions || {};
+  _initMouseHandler: function _initMouseHandler() {
+  if (!this._mouseControl && this.options.displayValues) {
+    var options = this.options.displayOptions || {};
 				options['WindJSLeaflet'] = WindJSLeaflet;
-				this._mouseControl = L.control.windPosition(options).addTo(this._map);
-			}
-		},
+      this._mouseControl = L.control.windPosition(options).addTo(this._map);
+    }
+  },
 
-		_clearWind: function _clearWind() {
-			if (this._windy) this._windy.stop();
-			if (this._context) this._context.clearRect(0, 0, 3000, 3000);
-		},
+  _clearWind: function _clearWind() {
+    if (this._windy) this._windy.stop();
+    if (this._context) this._context.clearRect(0, 0, 3000, 3000);
+  },
 
-		_destroyWind: function _destroyWind() {
-			if (this._timer) clearTimeout(this._timer);
-			if (this._windy) this._windy.stop();
-			if (this._context) this._context.clearRect(0, 0, 3000, 3000);
-			if (this._mouseControl) this._map.removeControl(this._mouseControl);
-			this._mouseControl = null;
-			this._windy = null;
-			this._map.removeLayer(this._canvasLayer);
-		}
-	};
-	return WindJSLeaflet;
+  _destroyWind: function _destroyWind() {
+    if (this._timer) clearTimeout(this._timer);
+    if (this._windy) this._windy.stop();
+    if (this._context) this._context.clearRect(0, 0, 3000, 3000);
+    if (this._mouseControl) this._map.removeControl(this._mouseControl);
+    this._mouseControl = null;
+    this._windy = null;
+    this._map.removeLayer(this._canvasLayer);
+  }
 });
+
+L.windJSLeaflet = function (options) {
+  return new L.WindJSLeaflet(options);
+};

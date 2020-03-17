@@ -98,48 +98,51 @@
 
 	<!--wind-js-leaflet-->
 	<link rel="stylesheet" href="<?php echo $resource_url;?>assets/<?php echo $version;?>_wind-js-leaflet.css" />
-	<script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_wind-js-leaflet.js"></script>
+	<!-- <script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_wind-js-leaflet.js"></script> -->
+
+	<script src="dist/wind-js-leaflet-2.js"></script>
 	
 	<!-- Leaflet TileLayer GeoJSON -->
-	<!-- <script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_load-city-name-json.js"></script> -->
+	<script src="assets/<?php echo $version;?>_load-city-name-json.js"></script>
 	<!-- <script src="<?php echo $resource_url;?>assets/<?php echo $version;?>_jscript.js"></script> -->
+	<script src="jscript2.js"></script>
+	<!-- <script src="dist/load-city-name-json.js"></script> -->
 
-	<script src="dist/load-city-name-json.js"></script>
-	<script src="jscript.js"></script>
-	
 	<script>
-		function check_checkbox(callback){
-			var checkbox_arrs = $('input[type=checkbox]');
-			if(checkbox_arrs && checkbox_arrs[1]){
-				callback();
-			}else{
-				setTimeout(function(){
-					check_checkbox();
-				}, 100);
-			}
-		}
-		$(document).ready(function(){
-			check_checkbox(function(){
-				$('input[type=checkbox]')[1].click();
-				$('input[type=checkbox]').attr( "disabled", "disabled" );
+		// function check_checkbox(callback){
+		// 	var checkbox_arrs = $('input[type=checkbox]');
+		// 	if(checkbox_arrs && checkbox_arrs[1]){
+		// 		callback();
+		// 	}else{
+		// 		setTimeout(function(){
+		// 			check_checkbox();
+		// 		}, 100);
+		// 	}
+		// }
+		// $(document).ready(function(){
+		// 	check_checkbox(function(){
+		// $('input[type=checkbox]')[1].click();
+		// $('input[type=checkbox]').attr( "disabled", "disabled" );
 				
-				$('#temp').attr("style","display:none;"); //ẩn div có id="temp"
-				$('.leaflet-left').addClass('leaflet-right').removeClass('leaflet-left'); //Add class leaflet-right & xóa class leaflet-right trên site, tốt nhất là ghi đè vào js thì ok hơn
-				$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
-				$('.leaflet-control-layers').mouseout(function(){
-					$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
-				 });
+		// 		// $('#temp').attr("style","display:none;"); //ẩn div có id="temp"
+		// 		$('.leaflet-left').addClass('leaflet-right').removeClass('leaflet-left'); //Add class leaflet-right & xóa class leaflet-right trên site, tốt nhất là ghi đè vào js thì ok hơn
+		// 		$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
+		// 		$('.leaflet-control-layers').mouseout(function(){
+		// 			$('.leaflet-control-layers').addClass('leaflet-control-layers-expanded custom-bar'); //add class custom-bar vào select bản đồ
+		// 		 });
 				
-				$('.leaflet-control-layers-overlays').attr( "style", "display:none;" ); // Ẩn các bar thừa
-				$('.leaflet-control-layers-separator').attr( "style", "display:none;" );// Ẩn các bar thừa
+		// 		// $('.leaflet-control-layers-overlays').attr( "style", "display:none;" ); // Ẩn các bar thừa
+		// 		$('.leaflet-control-layers-separator').attr( "style", "display:none;" );// Ẩn các bar thừa
 
-				// active icons by click
-				$('.icons-font').click(function(){
-					$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
-					$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
-				});
-			});
-		});
+		// 		// active icons by click
+		// 		$('.icons-font').click(function(){
+		// 			$('.icons-font-active').addClass('icons-font').removeClass('icons-font-active'); //xóa tất cả class 'icons-font-active' thay bằng 'icons-font'
+		// 			$(this).removeClass('icons-font').addClass('icons-font-active'); // chuyển icons-font thành icons-font-active khi click
+		// 		});
+		// 	});
+
+			
+		// });
 
 		var W = new Object();
 			W.store = new Object();
@@ -211,7 +214,7 @@
 		}
 		.custom-bar {
 			top: 80px!important;
-			display:none;
+			/* display:none; */
 		}
 
 		.icons-font, .icons-font-active {
@@ -258,6 +261,9 @@
 			margin-left: -41.5px;
 			bottom: 5px;
 			text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+		}
+		.leaflet-control-layers-selector {
+			display: block;
 		}
 	</style>
 </body>
