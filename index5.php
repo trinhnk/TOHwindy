@@ -4,17 +4,13 @@
 	<title>Go Weather Radar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<style>
-		.leaflet-control-layers, .leaflet-control-zoom{
-			display:none;
-		}
-	</style>
+	<style>.leaflet-control-layers, .leaflet-control-zoom{display:none;}</style>
 </head>
 <body>
 	<div id="map"></div>
 	<div id="logo-wrapper">
 		<div class="copyright">
-			<div>© TOHSOFT Co.</div>
+			<div>© goweatherradar.com</div>
 		</div>
 	</div>
 	<?php
