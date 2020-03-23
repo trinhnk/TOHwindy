@@ -33,7 +33,7 @@
 		define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 		
 		$testing = true;
-		$version = '20200315';
+		$version = '20200325';
 		$change_data = date('Y_m_d_H_00_00');
 		
 		$wind_json_date = date('Y-m-d H:40:00');
