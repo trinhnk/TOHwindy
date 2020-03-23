@@ -71,13 +71,13 @@
 			recurse_copy($source_fontawesome, $des_fontawesome);
 		}
 		
-		$resource_url = 'http://goweatherradar.com/';
-		$wind_json_url = 'http://goweatherradar.com/resource/wind/wind_'.$wind_json_date_str.'.json';
-		$main_cache_url = 'http://cache.goweatherradar.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
+		$resource_url = '//goweatherradar.com/';
+		$wind_json_url = '//goweatherradar.com/resource/wind/wind_'.$wind_json_date_str.'.json';
+		$main_cache_url = '//cache.goweatherradar.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
 		
-		$resource_url = 'http://winlocal.com/';
-		$wind_json_url = 'http://winlocal.com/resource/wind/wind_'.$wind_json_date_str.'.json';
-		$main_cache_url = 'http://cache.winlocal.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
+		$resource_url = '//winlocal.com/';
+		$wind_json_url = '//winlocal.com/resource/wind/wind_'.$wind_json_date_str.'.json';
+		$main_cache_url = '//cache.winlocal.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
 	?>
 	
 	<script>
