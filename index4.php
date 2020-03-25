@@ -73,11 +73,11 @@
 		
 		$resource_url = '//goweatherradar.com/';
 		$wind_json_url = '//goweatherradar.com/resource/wind/wind_'.$wind_json_date_str.'.json';
-		$main_cache_url = '//cache.goweatherradar.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
+		$main_cache_url = '//cache.goweatherradar.com/cacheapi/cacheweatherapi/'.$change_data.'/';
 		
 		$resource_url = '//winlocal.com/';
 		$wind_json_url = '//winlocal.com/resource/wind/wind_'.$wind_json_date_str.'.json';
-		$main_cache_url = '//cache.winlocal.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
+		$main_cache_url = '//cache.winlocal.com/cacheapi/cacheweatherapi/'.$change_data.'/';
 	?>
 	
 	<script>
@@ -128,7 +128,6 @@
 				$('.leaflet-control-layers-overlays').attr( "style", "display:none;" ); // Ẩn các bar thừa
 				$('.leaflet-control-layers-separator').attr( "style", "display:none;" );// Ẩn các bar thừa
 				
-				$('.leaflet-control-layers').attr( "style", "display:block;" );
 				$('.leaflet-control-zoom').attr( "style", "display:block;" );
 				
 				//Active first icon
@@ -145,6 +144,44 @@
 				});
 			});
 		});
+
+		var W = new Object();
+			W.store = new Object();
+			W.maps = new Object();
+			W.maps.setView = function(latlng){
+				map.setView([latlng[0], latlng[1]], 5);
+				// window.location.href = "http://radar.tohapp.com/en/apiv2/tohWeather.php?lat="+latlng[0]+"&lng="+latlng[1]+"&z=8&overlay="+currentOverlay;
+			}
+
+			W.store.set = function(key, value){
+				if(key == "overlay" && value == "clouds"){
+					$('#cloudy-layout').click()
+				}else if(key == "overlay" && value == "rain"){
+					$('#rain-layout').click()
+				}else if(key == "overlay" && value == "pressure"){
+					$('#pressure-layout').click()
+				}else if(key == "overlay" && value == "wind"){
+					$('#windy-layout').click()
+				}else if(key == "overlay" && value == "temp"){
+					$('#temp-layout').click()
+				}else if(key == "overlay" && value == "rh"){
+					$('#humidity-layout').click()
+				}
+				// else if(key == "overlay" && value == "waves"){
+				//     alert(7)
+				// }else if(key == "overlay" && value == "currents"){
+				//     alert(8)
+				// }    
+			}
+
+		function returnAndroid() {
+			if (typeof Android === 'undefined') {
+			return;
+			}else{
+			return Android.returnAndroid('{"layouts" : [{"name" : "clouds"}, {"name" : "rain"}, {"name" : "pressure"}, {"name" : "wind"}, {"name" : "temp"}, {"name" : "rh"}]}');
+			}
+		}
+		returnAndroid();
 	</script>
 	<style>
 		.leaflet-top{top:1%!important;}
@@ -152,6 +189,7 @@
 		.leaflet-bar a{background-color:rgba(68,65,65,0.60);border-bottom:1px solid #ccc;width:30px!important;height:30px!important;line-height:30px!important;display:block;text-align:center;text-decoration:none;color:white;}
 		.leaflet-control-zoom-in,.leaflet-control-zoom-out{font-size:12px!important;border:0!important;}
 		.leaflet-control-layers-expanded{padding:2px!important;color:#333;background:rgba(68,65,65,0.60);}
+		.custom-bar{top:80px!important;display:none;}
 		.icons-font, .icons-font-active{font-size:12px!important;color:white;line-height:12px;margin:2px;}
 		.leaflet-control-layers-expanded center{width:26px!important;height:26px!important;line-height:26px!important;}
 		.tooltiptext, .tooltiptext:hover{font-size:9px!important;line-height:30px!important;text-decoration:underline;margin-top:-23px!important;padding:0!important;}

@@ -77,7 +77,7 @@
 		
 		$resource_url = '//winlocal.com/';
 		$wind_json_url = '//winlocal.com/resource/wind/wind_'.$wind_json_date_str.'.json';
-		$main_cache_url = '//cache.winlocal.com/cacheapi/nocacheweatherapi2/'.$change_data.'/';
+		$main_cache_url = '//cache.winlocal.com/cacheapi/nocacheweatherapi/'.$change_data.'/';
 	?>
 	
 	<script>
