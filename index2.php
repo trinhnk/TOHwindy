@@ -181,6 +181,18 @@
 			}
 		}
 		returnAndroid();
+		
+		function iOSRadarOverlay() {
+			//This function will send the name to native.
+			//We can add an EventListener to an object on the page to call this function when it is clicked.
+			try {
+				webkit.messageHandlers.callback.postMessage('{"layouts" : [{"name" : "clouds"}, {"name" : "rain"}, {"name" : "pressure"}, {"name" : "wind"}, {"name" : "temp"}, {"name" : "rh"}]}');
+			} catch(err) {
+				console.log('Can not reach native code');
+			}
+		}
+
+		iOSRadarOverlay();
 	</script>
 	<style>
 		.leaflet-top{top:1%!important;}
